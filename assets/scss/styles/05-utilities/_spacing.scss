@@ -1,0 +1,3 @@
+@use '../../tools/spacing';
+
+@include spacing.spacing-generate-responsive-utilities();

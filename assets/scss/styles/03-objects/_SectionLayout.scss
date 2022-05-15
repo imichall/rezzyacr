@@ -1,0 +1,134 @@
+@use '../../settings/colors' as *;
+@use '../../settings/typography' as *;
+
+.Section-Content {
+
+    .Section-Data {
+        position: relative;
+        margin: 0 0 40px 0;
+        padding: 50px 0;
+
+        &::before {
+            content: '';
+            display: flex;
+            height: 2px;
+            width: 100%;
+            background-color: map-get($ui-colors-primary, blue);
+        }
+
+        &[data-section="three"]::before {
+            background-color: map-get($ui-colors-primary, magenta);
+        }
+
+        &[data-section="four"]::before,
+        &[data-section="five"]::before,
+        &[data-section="six"]::before,
+        &[data-section="seven"]::before,
+        &[data-section="eight"]::before {
+            background-color: map-get($ui-colors-primary, green);
+        }
+    }
+
+    .Section-Data:nth-child(even) {
+        .Section-Data-Content {
+            grid-template-areas:
+                'Intro Title'
+                'Intro Info';
+            justify-items: end;
+        }
+
+        .Section-Content-Info {
+            justify-items: end;
+            text-align: right;
+        }
+    }
+
+    .Section-Counter {
+        display: flex;
+        position: relative;
+        width: 83px;
+        height: 83px;
+        background-color: map-get($ui-colors-primary, green);
+        align-items: center;
+        justify-content: center;
+        font-size: map-get($typography-scale, 7);
+        color: map-get($ui-colors-primary, white);
+        border-radius: 0 0 30px 30px;
+        font-family: 'Roboto';
+        font-weight: 700;
+
+        &[data-id="2"] {
+            background-color: map-get($ui-colors-primary, blue);
+        }
+
+        &[data-id="3"] {
+            background-color: map-get($ui-colors-primary, magenta);
+        }
+
+        &::after {
+            content: '';
+            position: absolute;
+            top: 10px;
+            left: 100px;
+            display: flex;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: map-get($ui-colors-primary, blue);
+        }
+    }
+
+    .Section-Data-Content {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+        grid-template-areas:
+            'Title Intro'
+            'Info Intro';
+    }
+
+    .Section-Content-Title {
+        display: flex;
+        grid-area: Title;
+        font-size: map-get($typography-scale, 6);
+        align-items: center;
+        min-height: 100px;
+
+        span {
+            font-size: 50px;
+            font-weight: 700;
+            color: map-get($ui-colors-primary, blue);
+        }
+
+        h2 {
+            font-family: 'Roboto';
+            font-weight: 700;
+            letter-spacing: 1.2px;
+        }
+    }
+
+    .Section-Content-Info {
+        grid-area: Info;
+        display: grid;
+
+        p {
+            font-family: 'Roboto';
+            line-height: 1.5;
+        }
+
+        p:not(:last-child) {
+            margin-bottom: 10px;
+        }
+    }
+
+    .Section-Content-Intro {
+        grid-area: Intro;
+        display: grid;
+        align-items: center;
+        justify-content: center;
+
+        video {
+            width: 100%;
+        }
+    }
+}

@@ -1,0 +1,5 @@
+// Shared styles are reused in multiple components.
+
+.typography-nav-item {
+    @extend %typography-style-menu-item;
+}

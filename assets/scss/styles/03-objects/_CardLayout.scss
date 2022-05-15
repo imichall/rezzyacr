@@ -1,0 +1,92 @@
+@use '../../settings/colors' as *;
+@use '../../settings/spacing';
+@use '../../tools/breakpoint';
+@use '../../settings/typography' as *;
+
+.CardLayout {
+    border-top: 2px solid map-get($ui-colors-primary, black);
+    position: relative;
+}
+
+.CardLayout-HeaderBlock {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 100vh;
+
+    &::after {
+        content: '';
+        display: flex;
+        background-image: url('../../images/01.png');
+        background-position: bottom right;
+        background-size: contain;
+    }
+
+    .Section-Counter {
+        display: flex;
+        position: relative;
+        width: 83px;
+        height: 83px;
+        background-color: map-get($ui-colors-primary, black);
+        align-items: center;
+        justify-content: center;
+        font-size: map-get($typography-scale, 7);
+        color: map-get($ui-colors-primary, white);
+        border-radius: 0 0 30px 30px;
+        font-family: 'Roboto';
+        font-weight: 700;
+
+        &::after {
+            content: '';
+            position: absolute;
+            top: 10px;
+            left: 100px;
+            display: flex;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: map-get($ui-colors-primary, blue);
+        }
+    }
+}
+
+.CardLayout-Content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-items: center;
+    margin: 0 100px;
+    text-align: center;
+    z-index: 10;
+
+    h1 {
+        display: flex;
+        margin: 20px 0;
+        font-family: 'Roboto';
+        font-weight: 700;
+    }
+
+    h2 {
+        display: flex;
+        font-family: 'Roboto';
+        margin: 20px 0;
+    }
+
+    p {
+        width: 80%;
+        font-family: 'Roboto';
+        text-align: center;
+    }
+}
+
+.CardLayout-Image {
+    position: absolute;
+    max-width: 100%;
+    height: auto;
+    right: 0;
+    z-index: 9;
+
+    img {
+        width: 100%;
+    }
+}
+

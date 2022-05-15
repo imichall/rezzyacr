@@ -1,0 +1,34 @@
+// This project's CSS is organized using ITCSS methodology.
+// Most importantly, CSS selectors are ordered **by specificity** from lowest to highest.
+
+// 1. Generic
+// Ground-zero styles.
+@use 'styles/01-generic/box-sizing';
+@use 'styles/01-generic/print';
+@use 'styles/01-generic/reset';
+
+// 2. Elements
+// Unclassed HTML elements (type selectors).
+@use 'styles/02-elements/links';
+@use 'styles/02-elements/lists';
+
+// 3. Objects
+// Cosmetic-free design patterns.
+@use 'styles/03-objects/Container';
+@use 'styles/03-objects/CardLayout';
+@use 'styles/03-objects/MenuLayout';
+@use 'styles/03-objects/SectionLayout';
+
+// 4. Components
+// Reusable UI components.
+@use 'styles/04-components/icon';
+@use 'styles/04-components/Card';
+@use 'styles/04-components/Logo';
+
+// 5. Utilities
+// Helpers and overrides.
+@use 'styles/05-utilities/border-radius';
+@use 'styles/05-utilities/box-shadow';
+@use 'styles/05-utilities/line-height';
+@use 'styles/05-utilities/spacing';
+@use 'styles/05-utilities/typography';

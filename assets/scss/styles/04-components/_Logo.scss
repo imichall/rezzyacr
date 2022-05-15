@@ -1,0 +1,23 @@
+@use '../../tools/breakpoint';
+
+.Logo {
+    display: flex;
+    justify-content: center;
+    margin: 0 0 1rem 0;
+    height: auto;
+
+    picture {
+        display: flex;
+        justify-content: center;
+
+        img {
+            max-width: 70%;
+            height: auto;
+
+            @include breakpoint.up(sm) {
+                max-width: 400px;
+            }
+        }
+    }
+
+}

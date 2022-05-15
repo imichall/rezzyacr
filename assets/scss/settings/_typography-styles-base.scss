@@ -1,0 +1,44 @@
+// Base styles are also exposed as helper classes in CSS.
+@use '../settings/typography' as typo;
+@use "breakpoints";
+
+%typography-style-menu-item {
+    @include typo.font-size(3);
+
+    font-weight: 700;
+    text-transform: uppercase;
+
+    @include breakpoints.breakpoint-sm-min {
+        @include typo.font-size(5);
+    }
+}
+
+%typography-style-headline {
+    @include typo.font-size(2);
+
+    font-weight: 400;
+    text-decoration: none;
+    color: map-get($ui-colors-primary, secondary);
+
+    @include breakpoints.breakpoint-sm-min {
+        @include typo.font-size(4);
+    }
+}
+
+%typography-style-form-label {
+    @include typo.font-size(0);
+
+    font-weight: 300;
+}
+
+%typography-style-podcast-list {
+    @include typo.font-size(0);
+
+    font-weight: map-get($typography-font-weight-values, light);
+}
+
+%typography-style-flash-messages {
+    @include typo.font-size(1);
+
+    font-weight: 700;
+}
