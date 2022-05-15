@@ -5,8 +5,6 @@
 
     .Section-Data {
         position: relative;
-        margin: 0 0 40px 0;
-        padding: 50px 0;
 
         &::before {
             content: '';
@@ -29,21 +27,99 @@
         }
     }
 
-    .Section-Data:nth-child(even) {
+    .mainSection {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: 83px 1fr;
+        grid-template-areas:
+            'Counter Video Video'
+            'Content Video Video';
+        gap: 10px;
+        padding-bottom: 40px;
+    }
+
+    .Section-Data:nth-child(4),
+    .Section-Data:nth-child(5),
+    .Section-Data:nth-child(6)
+     {
         .Section-Data-Content {
+            grid-template-rows: 100px 1fr;
+        }
+    }
+
+    .Section-Data:nth-child(even) {
+        .mainSection {
             grid-template-areas:
-                'Intro Title'
-                'Intro Info';
+                'Video Video Counter'
+                'Video Video Content';
             justify-items: end;
+        }
+
+        .Section-Counter::after {
+            left: unset;
+            right: 100px;
+        }
+
+        .Section-Content-Title {
+            justify-content: end;
+            text-align: right;
         }
 
         .Section-Content-Info {
             justify-items: end;
             text-align: right;
         }
+
+        .Counter-dot {
+            right: 100px;
+            left: unset;
+        }
+
+        .Counter-dot:nth-child(2) {
+            animation-delay: .2s;
+            right: 130px;
+            left: unset;
+        }
+
+        .Counter-dot:nth-child(3) {
+            animation-delay: .4s;
+            right: 160px;
+            left: unset;
+        }
+
+        .Counter-dot:nth-child(4) {
+            animation-delay: .6s;
+            right: 190px;
+            left: unset;
+        }
+
+        .Counter-dot:nth-child(5) {
+            animation-delay: .8s;
+            right: 220px;
+            left: unset;
+        }
+
+        .Counter-dot:nth-child(6) {
+            animation-delay: 1s;
+            right: 250px;
+            left: unset;
+        }
+
+        .Counter-dot:nth-child(7) {
+            animation-delay: 1.2s;
+            right: 280px;
+            left: unset;
+        }
+
+        .Counter-dot:nth-child(8) {
+            animation-delay: 1.4s;
+            right: 310px;
+            left: unset;
+        }
     }
 
     .Section-Counter {
+        grid-area: Counter;
         display: flex;
         position: relative;
         width: 83px;
@@ -57,45 +133,42 @@
         font-family: 'Roboto';
         font-weight: 700;
 
+        .Counter-dot {
+            background-color: map-get($ui-colors-primary, green);
+        }
+
         &[data-id="2"] {
             background-color: map-get($ui-colors-primary, blue);
+
+            .Counter-dot {
+                background-color: map-get($ui-colors-primary, blue);
+            }
         }
 
         &[data-id="3"] {
             background-color: map-get($ui-colors-primary, magenta);
-        }
 
-        &::after {
-            content: '';
-            position: absolute;
-            top: 10px;
-            left: 100px;
-            display: flex;
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background-color: map-get($ui-colors-primary, blue);
+            .Counter-dot {
+                background-color: map-get($ui-colors-primary, magenta);
+            }
         }
     }
 
     .Section-Data-Content {
+        grid-area: Content;
         display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 10px;
-        grid-template-areas:
-            'Title Intro'
-            'Info Intro';
+        grid-template-columns: 1fr;
+        grid-template-rows: 80px 1fr;
+        flex-direction: column;
     }
 
     .Section-Content-Title {
         display: flex;
-        grid-area: Title;
-        font-size: map-get($typography-scale, 6);
-        align-items: center;
-        min-height: 100px;
+        font-size: map-get($typography-scale, 4);
+        align-items: start;
 
         span {
-            font-size: 50px;
+            font-size: 40px;
             font-weight: 700;
             color: map-get($ui-colors-primary, blue);
         }
@@ -108,11 +181,12 @@
     }
 
     .Section-Content-Info {
-        grid-area: Info;
         display: grid;
 
         p {
             font-family: 'Roboto';
+            font-size: map-get($typography-scale, 1);
+            font-weight: 500;
             line-height: 1.5;
         }
 
@@ -122,7 +196,7 @@
     }
 
     .Section-Content-Intro {
-        grid-area: Intro;
+        grid-area: Video;
         display: grid;
         align-items: center;
         justify-content: center;

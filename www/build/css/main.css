@@ -148,6 +148,169 @@ a {
   list-style: none;
 }
 
+@keyframes blink {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+.Counter-dot {
+  position: absolute;
+  top: 10px;
+  left: 100px;
+  display: flex;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: #363636;
+}
+
+.Counter-dot {
+  animation-name: blink;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+  animation-fill-mode: both;
+}
+
+.Counter-dot:nth-child(2) {
+  animation-delay: 0.2s;
+  left: 130px;
+}
+
+.Counter-dot:nth-child(3) {
+  animation-delay: 0.4s;
+  left: 160px;
+}
+
+.Counter-dot:nth-child(4) {
+  animation-delay: 0.6s;
+  left: 190px;
+}
+
+.Counter-dot:nth-child(5) {
+  animation-delay: 0.8s;
+  left: 220px;
+}
+
+.Counter-dot:nth-child(6) {
+  animation-delay: 1s;
+  left: 250px;
+}
+
+.Counter-dot:nth-child(7) {
+  animation-delay: 1.2s;
+  left: 280px;
+}
+
+.Counter-dot:nth-child(8) {
+  animation-delay: 1.4s;
+  left: 310px;
+}
+
+.CardLayout {
+  position: relative;
+}
+
+.CardLayout-HeaderBlock {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto 151px 150vh;
+}
+.CardLayout-HeaderBlock .Section-Counter {
+  display: flex;
+  position: relative;
+  width: 83px;
+  height: 83px;
+  background-color: #363636;
+  align-items: center;
+  justify-content: center;
+  font-size: 3.125rem;
+  color: #ffffff;
+  border-radius: 0 0 30px 30px;
+  font-family: "Roboto";
+  font-weight: 700;
+}
+.CardLayout-HeaderBlock .CardLayout-Brands {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.CardLayout-HeaderBlock .CardLayout-Content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-items: center;
+  margin: 100px 100px 0 100px;
+  text-align: center;
+  z-index: 10;
+}
+.CardLayout-HeaderBlock .CardLayout-Content .Content-Arrow {
+  margin-top: 20px;
+}
+.CardLayout-HeaderBlock .CardLayout-Content h1 {
+  display: flex;
+  margin: 20px 0;
+  font-family: "Roboto";
+  font-weight: 700;
+}
+.CardLayout-HeaderBlock .CardLayout-Content h2 {
+  display: flex;
+  margin: 20px 0;
+  font-family: "Roboto";
+  font-weight: 700;
+  letter-spacing: 1.2px;
+}
+.CardLayout-HeaderBlock .CardLayout-Content p {
+  width: 80%;
+  font-family: "Roboto";
+  text-align: center;
+  font-size: 1.125rem;
+  font-weight: 500;
+  line-height: 1.5;
+}
+.CardLayout-HeaderBlock .CardLayout-Intro {
+  position: absolute;
+  max-width: 100%;
+  height: auto;
+  right: 0;
+  bottom: 0;
+  z-index: 9;
+}
+.CardLayout-HeaderBlock .CardLayout-Intro video {
+  width: 100%;
+}
+
+.Brand-Logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 40px;
+  border: 1px solid #707070;
+  width: 280px;
+  height: 151px;
+  background-color: #ffffff;
+  box-shadow: 0 25px 35px -20px rgba(54, 54, 54, 0.2);
+}
+.Brand-Logo img[data-logo=rezzy] {
+  width: 213px;
+  height: auto;
+}
+.Brand-Logo img[data-logo=arc] {
+  width: 231px;
+  height: auto;
+}
+
+span.separator {
+  display: flex;
+  margin: 0 30px;
+  font-size: 50px;
+}
+
 .Container {
   min-width: 325px;
   max-width: 1920px;
@@ -244,98 +407,100 @@ a {
   }
 }
 
-.CardLayout {
-  border-top: 2px solid #363636;
-  position: relative;
+.preFooterLayout {
+  border-top: 2px solid #939393;
 }
 
-.CardLayout-HeaderBlock {
+.preFooterLayout-Grid {
   display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: auto 100vh;
-}
-.CardLayout-HeaderBlock::after {
-  content: "";
-  display: flex;
-  background-image: url("../../images/01.png");
-  background-position: bottom right;
-  background-size: contain;
-}
-.CardLayout-HeaderBlock .Section-Counter {
-  display: flex;
-  position: relative;
-  width: 83px;
-  height: 83px;
-  background-color: #363636;
-  align-items: center;
-  justify-content: center;
-  font-size: 3.125rem;
-  color: #ffffff;
-  border-radius: 0 0 30px 30px;
-  font-family: "Roboto";
-  font-weight: 700;
-}
-.CardLayout-HeaderBlock .Section-Counter::after {
-  content: "";
-  position: absolute;
-  top: 10px;
-  left: 100px;
-  display: flex;
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  background-color: #2680eb;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-areas: "Content Image";
+  padding: 80px 0;
 }
 
-.CardLayout-Content {
+.preFooter-Info {
+  grid-area: Content;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-items: center;
-  margin: 0 100px;
-  text-align: center;
-  z-index: 10;
 }
-.CardLayout-Content h1 {
-  display: flex;
-  margin: 20px 0;
+.preFooter-Info h2 {
   font-family: "Roboto";
+  font-size: 2.1875rem;
   font-weight: 700;
+  margin-bottom: 50px;
 }
-.CardLayout-Content h2 {
-  display: flex;
+.preFooter-Info p {
   font-family: "Roboto";
-  margin: 20px 0;
-}
-.CardLayout-Content p {
-  width: 80%;
-  font-family: "Roboto";
-  text-align: center;
+  font-size: 1.25rem;
+  font-weight: 500;
+  line-height: 1.5;
 }
 
-.CardLayout-Image {
-  position: absolute;
-  max-width: 100%;
-  height: auto;
-  right: 0;
-  z-index: 9;
-}
-.CardLayout-Image img {
+.preFooter-Image {
+  grid-area: Image;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
   width: 100%;
+}
+
+.FooterLayout {
+  display: flex;
+  margin-top: 50px;
+  background-color: #f5f5f5;
+}
+.FooterLayout .Footer-Grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-areas: "Brands Links";
+  transform: translateY(-60px);
+}
+.FooterLayout .Brands {
+  grid-area: Brands;
+  display: flex;
+}
+.FooterLayout .Brands .Brand-Logo:not(:last-child) {
+  margin-right: 50px;
+}
+.FooterLayout .Brand-Links {
+  grid-area: Links;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+.FooterLayout .Brand-Links a[data-link=rezzy],
+.FooterLayout .Brand-Links a[data-link=callypso] {
+  font-family: "Roboto";
+  font-size: 2.1875rem;
+  font-weight: 700;
+}
+.FooterLayout .Brand-Links a:not(:last-child) {
+  margin-right: 40px;
+}
+.FooterLayout .Brand-Links a[data-link=rezzy] {
+  color: #9851ff;
+}
+.FooterLayout .Brand-Links a[data-link=callypso] {
+  color: #00a258;
 }
 
 .Navigation {
   display: flex;
   background-color: #f5f5f5;
+  position: sticky;
+  top: 0;
+  width: 100%;
+  border-bottom: 2px solid #363636;
+  z-index: 100;
 }
 .Navigation .Navigation-list {
   display: flex;
   width: 100%;
-  padding: 20px 0;
+  padding: 5px 0;
   flex-direction: row;
   list-style-type: none;
   justify-content: center;
-  font-size: 30px;
+  font-size: 20px;
   font-family: "Roboto";
   font-weight: 700;
 }
@@ -344,19 +509,21 @@ a {
   transition: all 0.2s cubic-bezier(0.3, 0.2, 0.1, 0.5);
   padding: 0 30px;
 }
-.Navigation li a:not([link-active=true]) {
+.Navigation li.active a {
+  font-weight: 600;
+  color: #363636;
+}
+.Navigation li:not(.active) a {
   color: #d9d9d9;
   font-weight: 400;
 }
-.Navigation li a:not([link-active=true]):hover {
+.Navigation li:not(.active):hover a {
   font-weight: 600;
   color: #363636;
 }
 
 .Section-Content .Section-Data {
   position: relative;
-  margin: 0 0 40px 0;
-  padding: 50px 0;
 }
 .Section-Content .Section-Data::before {
   content: "";
@@ -371,15 +538,76 @@ a {
 .Section-Content .Section-Data[data-section=four]::before, .Section-Content .Section-Data[data-section=five]::before, .Section-Content .Section-Data[data-section=six]::before, .Section-Content .Section-Data[data-section=seven]::before, .Section-Content .Section-Data[data-section=eight]::before {
   background-color: #00a258;
 }
-.Section-Content .Section-Data:nth-child(even) .Section-Data-Content {
-  grid-template-areas: "Intro Title" "Intro Info";
+.Section-Content .mainSection {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 83px 1fr;
+  grid-template-areas: "Counter Video Video" "Content Video Video";
+  gap: 10px;
+  padding-bottom: 40px;
+}
+.Section-Content .Section-Data:nth-child(4) .Section-Data-Content,
+.Section-Content .Section-Data:nth-child(5) .Section-Data-Content,
+.Section-Content .Section-Data:nth-child(6) .Section-Data-Content {
+  grid-template-rows: 100px 1fr;
+}
+.Section-Content .Section-Data:nth-child(even) .mainSection {
+  grid-template-areas: "Video Video Counter" "Video Video Content";
   justify-items: end;
+}
+.Section-Content .Section-Data:nth-child(even) .Section-Counter::after {
+  left: unset;
+  right: 100px;
+}
+.Section-Content .Section-Data:nth-child(even) .Section-Content-Title {
+  justify-content: end;
+  text-align: right;
 }
 .Section-Content .Section-Data:nth-child(even) .Section-Content-Info {
   justify-items: end;
   text-align: right;
 }
+.Section-Content .Section-Data:nth-child(even) .Counter-dot {
+  right: 100px;
+  left: unset;
+}
+.Section-Content .Section-Data:nth-child(even) .Counter-dot:nth-child(2) {
+  animation-delay: 0.2s;
+  right: 130px;
+  left: unset;
+}
+.Section-Content .Section-Data:nth-child(even) .Counter-dot:nth-child(3) {
+  animation-delay: 0.4s;
+  right: 160px;
+  left: unset;
+}
+.Section-Content .Section-Data:nth-child(even) .Counter-dot:nth-child(4) {
+  animation-delay: 0.6s;
+  right: 190px;
+  left: unset;
+}
+.Section-Content .Section-Data:nth-child(even) .Counter-dot:nth-child(5) {
+  animation-delay: 0.8s;
+  right: 220px;
+  left: unset;
+}
+.Section-Content .Section-Data:nth-child(even) .Counter-dot:nth-child(6) {
+  animation-delay: 1s;
+  right: 250px;
+  left: unset;
+}
+.Section-Content .Section-Data:nth-child(even) .Counter-dot:nth-child(7) {
+  animation-delay: 1.2s;
+  right: 280px;
+  left: unset;
+}
+.Section-Content .Section-Data:nth-child(even) .Counter-dot:nth-child(8) {
+  animation-delay: 1.4s;
+  right: 310px;
+  left: unset;
+}
 .Section-Content .Section-Counter {
+  grid-area: Counter;
   display: flex;
   position: relative;
   width: 83px;
@@ -393,38 +621,35 @@ a {
   font-family: "Roboto";
   font-weight: 700;
 }
+.Section-Content .Section-Counter .Counter-dot {
+  background-color: #00a258;
+}
 .Section-Content .Section-Counter[data-id="2"] {
+  background-color: #2680eb;
+}
+.Section-Content .Section-Counter[data-id="2"] .Counter-dot {
   background-color: #2680eb;
 }
 .Section-Content .Section-Counter[data-id="3"] {
   background-color: #c15196;
 }
-.Section-Content .Section-Counter::after {
-  content: "";
-  position: absolute;
-  top: 10px;
-  left: 100px;
-  display: flex;
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  background-color: #2680eb;
+.Section-Content .Section-Counter[data-id="3"] .Counter-dot {
+  background-color: #c15196;
 }
 .Section-Content .Section-Data-Content {
+  grid-area: Content;
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 10px;
-  grid-template-areas: "Title Intro" "Info Intro";
+  grid-template-columns: 1fr;
+  grid-template-rows: 80px 1fr;
+  flex-direction: column;
 }
 .Section-Content .Section-Content-Title {
   display: flex;
-  grid-area: Title;
-  font-size: 2.1875rem;
-  align-items: center;
-  min-height: 100px;
+  font-size: 1.5625rem;
+  align-items: start;
 }
 .Section-Content .Section-Content-Title span {
-  font-size: 50px;
+  font-size: 40px;
   font-weight: 700;
   color: #2680eb;
 }
@@ -434,18 +659,19 @@ a {
   letter-spacing: 1.2px;
 }
 .Section-Content .Section-Content-Info {
-  grid-area: Info;
   display: grid;
 }
 .Section-Content .Section-Content-Info p {
   font-family: "Roboto";
+  font-size: 1.125rem;
+  font-weight: 500;
   line-height: 1.5;
 }
 .Section-Content .Section-Content-Info p:not(:last-child) {
   margin-bottom: 10px;
 }
 .Section-Content .Section-Content-Intro {
-  grid-area: Intro;
+  grid-area: Video;
   display: grid;
   align-items: center;
   justify-content: center;

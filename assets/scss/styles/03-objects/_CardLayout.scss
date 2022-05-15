@@ -3,23 +3,79 @@
 @use '../../tools/breakpoint';
 @use '../../settings/typography' as *;
 
+@keyframes blink {
+    0% {
+      opacity: 0;
+    }
+    50% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+}
+
+.Counter-dot {
+    position: absolute;
+    top: 10px;
+    left: 100px;
+    display: flex;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: map-get($ui-colors-primary, black);
+}
+
+.Counter-dot {
+    animation-name: blink;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    animation-fill-mode: both;
+}
+
+.Counter-dot:nth-child(2) {
+    animation-delay: .2s;
+    left: 130px;
+}
+
+.Counter-dot:nth-child(3) {
+    animation-delay: .4s;
+    left: 160px;
+}
+
+.Counter-dot:nth-child(4) {
+    animation-delay: .6s;
+    left: 190px;
+}
+
+.Counter-dot:nth-child(5) {
+    animation-delay: .8s;
+    left: 220px;
+}
+
+.Counter-dot:nth-child(6) {
+    animation-delay: 1s;
+    left: 250px;
+}
+
+.Counter-dot:nth-child(7) {
+    animation-delay: 1.2s;
+    left: 280px;
+}
+
+.Counter-dot:nth-child(8) {
+    animation-delay: 1.4s;
+    left: 310px;
+}
+
 .CardLayout {
-    border-top: 2px solid map-get($ui-colors-primary, black);
     position: relative;
 }
 
 .CardLayout-HeaderBlock {
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: auto 100vh;
-
-    &::after {
-        content: '';
-        display: flex;
-        background-image: url('../../images/01.png');
-        background-position: bottom right;
-        background-size: contain;
-    }
+    grid-template-rows: auto 151px 150vh;
 
     .Section-Counter {
         display: flex;
@@ -34,59 +90,92 @@
         border-radius: 0 0 30px 30px;
         font-family: 'Roboto';
         font-weight: 700;
+    }
 
-        &::after {
-            content: '';
-            position: absolute;
-            top: 10px;
-            left: 100px;
+    .CardLayout-Brands {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+    }
+
+    .CardLayout-Content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-items: center;
+        margin: 100px 100px 0 100px;
+        text-align: center;
+        z-index: 10;
+
+        .Content-Arrow {
+            margin-top: 20px;
+        }
+
+        h1 {
             display: flex;
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background-color: map-get($ui-colors-primary, blue);
+            margin: 20px 0;
+            font-family: 'Roboto';
+            font-weight: 700;
+        }
+
+        h2 {
+            display: flex;
+            margin: 20px 0;
+            font-family: 'Roboto';
+            font-weight: 700;
+            letter-spacing: 1.2px;
+        }
+
+        p {
+            width: 80%;
+            font-family: 'Roboto';
+            text-align: center;
+            font-size: map-get($typography-scale, 1);
+            font-weight: 500;
+            line-height: 1.5;
+        }
+    }
+
+    .CardLayout-Intro {
+        position: absolute;
+        max-width: 100%;
+        height: auto;
+        right: 0;
+        bottom: 0;
+        z-index: 9;
+
+        video {
+            width: 100%;
         }
     }
 }
 
-.CardLayout-Content {
+
+.Brand-Logo {
     display: flex;
-    flex-direction: column;
+    justify-content: center;
     align-items: center;
-    justify-items: center;
-    margin: 0 100px;
-    text-align: center;
-    z-index: 10;
+    border-radius: 40px;
+    border: 1px solid map-get($ui-colors-primary, border-gray);
+    width: 280px;
+    height: 151px;
+    background-color: map-get($ui-colors-primary, white);
+    box-shadow: 0 25px 35px -20px rgba(map-get($ui-colors-primary, black), 0.2);
 
-    h1 {
-        display: flex;
-        margin: 20px 0;
-        font-family: 'Roboto';
-        font-weight: 700;
+    img[data-logo="rezzy"] {
+        width: 213px;
+        height: auto;
     }
 
-    h2 {
-        display: flex;
-        font-family: 'Roboto';
-        margin: 20px 0;
-    }
-
-    p {
-        width: 80%;
-        font-family: 'Roboto';
-        text-align: center;
+    img[data-logo="arc"] {
+        width: 231px;
+        height: auto;
     }
 }
 
-.CardLayout-Image {
-    position: absolute;
-    max-width: 100%;
-    height: auto;
-    right: 0;
-    z-index: 9;
-
-    img {
-        width: 100%;
-    }
+span.separator {
+    display: flex;
+    margin: 0 30px;
+    font-size: 50px;
 }
-

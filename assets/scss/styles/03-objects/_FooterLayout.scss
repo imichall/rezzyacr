@@ -1,0 +1,90 @@
+@use '../../settings/colors' as *;
+@use '../../settings/typography' as *;
+
+.preFooterLayout {
+    border-top: 2px solid map-get($ui-colors-primary, border-top);
+}
+
+.preFooterLayout-Grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-areas: 'Content Image';
+    padding: 80px 0;
+}
+
+.preFooter-Info {
+    grid-area: Content;
+    display: flex;
+    flex-direction: column;
+
+    h2 {
+        font-family: 'Roboto';
+        font-size: map-get($typography-scale, 6);
+        font-weight: 700;
+        margin-bottom: 50px;
+    }
+
+    p {
+        font-family: 'Roboto';
+        font-size: map-get($typography-scale, 2);
+        font-weight: 500;
+        line-height: 1.5;
+    }
+}
+
+.preFooter-Image {
+    grid-area: Image;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    width: 100%;
+}
+
+.FooterLayout {
+    display: flex;
+    margin-top: 50px;
+    background-color: map-get($ui-colors-primary, gray);
+
+    .Footer-Grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-areas: 'Brands Links';
+        transform: translateY(-60px);
+    }
+
+    .Brands {
+        grid-area: Brands;
+        display: flex;
+
+        .Brand-Logo:not(:last-child) {
+            margin-right: 50px;
+        }
+    }
+
+    .Brand-Links {
+        grid-area: Links;
+        display: flex;
+        justify-content: flex-end;
+        align-items: flex-end;
+
+        a[data-link="rezzy"],
+        a[data-link="callypso"] {
+            font-family: 'Roboto';
+            font-size: map-get($typography-scale, 6);
+            font-weight: 700;
+        }
+
+        a:not(:last-child) {
+            margin-right: 40px;;
+        }
+
+        a[data-link="rezzy"] {
+            color: map-get($ui-colors-primary, purple)
+        }
+
+        a[data-link="callypso"] {
+            color: map-get($ui-colors-primary, green);
+        }
+
+    }
+}

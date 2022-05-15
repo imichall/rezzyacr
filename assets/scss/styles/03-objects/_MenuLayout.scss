@@ -5,15 +5,20 @@
 .Navigation {
     display: flex;
     background-color: map-get($ui-colors-primary, gray);
+    position: sticky;
+    top: 0;
+    width: 100%;
+    border-bottom: 2px solid map-get($ui-colors-primary, black);
+    z-index: 100;
 
     .Navigation-list {
         display: flex;
         width: 100%;
-        padding: 20px 0;
+        padding: 5px 0;
         flex-direction: row;
         list-style-type: none;
         justify-content: center;
-        font-size: 30px;
+        font-size: 20px;
         font-family: 'Roboto';
         font-weight: 700;
     }
@@ -24,11 +29,19 @@
         padding: 0 30px;
     }
 
-    li a:not([link-active="true"]) {
-        color: map-get($ui-colors-primary, gray-50);
-        font-weight: 400;
+    li.active a {
+        font-weight: 600;
+        color: map-get($ui-colors-primary, black);
+    }
 
-        &:hover {
+    li:not(.active) {
+
+        a {
+            color: map-get($ui-colors-primary, gray-50);
+            font-weight: 400;
+        }
+
+        &:hover a {
             font-weight: 600;
             color: map-get($ui-colors-primary, black);
         }

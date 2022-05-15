@@ -131,17 +131,54 @@
 	    }
 	  }
 	}
+
 	const typewritter = document.querySelectorAll('h2[data-title]');
 	typewritter.forEach(el => {
-	  console.log(el.getAttribute('data-title'));
-	  tinyTypewriter(el, {
-	    items: ["test"],
-	    cursor: true,
-	    cursorCharBlinkTransitionSpeed: 1,
-	    typeSpeed: 100,
-	    deleteSpeed: 30,
-	    loop: true
-	  });
+	  if (el.getAttribute(['data-title']) == el.getAttribute(['data-title'])) {
+	    let text = el.textContent;
+	    tinyTypewriter(el, {
+	      items: [text],
+	      cursor: false,
+	      typeSpeed: 100,
+	      deleteSpeed: 30,
+	      loop: true
+	    });
+	  }
 	});
+	document.querySelectorAll('a[href^="#"]').forEach(trigger => {
+	  trigger.onclick = function (e) {
+	    e.preventDefault();
+	    let hash = this.getAttribute("href");
+	    let target = document.querySelector(hash);
+	    let headerOffset = 34;
+	    let elementPosition = target.offsetTop;
+	    let offsetPosition = elementPosition - headerOffset;
+	    window.scrollTo({
+	      top: offsetPosition,
+	      behavior: "smooth"
+	    });
+	  };
+	});
+	const sections = document.querySelectorAll("div[data-section]");
+	const navLi = document.querySelectorAll(".Navigation-list li");
+
+	window.onscroll = () => {
+	  var current = "";
+	  sections.forEach(section => {
+	    const sectionTop = section.offsetTop;
+
+	    if (window.scrollY >= sectionTop - 34) {
+	      current = section.getAttribute("id");
+	    }
+	  });
+	  console.log(current);
+	  navLi.forEach(li => {
+	    li.classList.remove("active");
+
+	    if (li.classList.contains(current)) {
+	      li.classList.add("active");
+	    }
+	  });
+	};
 
 })));
