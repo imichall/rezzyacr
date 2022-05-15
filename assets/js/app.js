@@ -70,7 +70,6 @@ window.onscroll = () => {
     }
   });
 
-  console.log(current)
   navLi.forEach((li) => {
 
     li.classList.remove("active");
