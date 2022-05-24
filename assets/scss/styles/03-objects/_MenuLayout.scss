@@ -4,12 +4,16 @@
 
 .Navigation {
     display: flex;
-    background-color: map-get($ui-colors-primary, gray);
+    background-color: var(--nav-bg);
     position: sticky;
     top: 0;
     width: 100%;
-    border-bottom: 2px solid map-get($ui-colors-primary, black);
+    border-bottom: 1px solid var(--black);
     z-index: 100;
+
+    .Navigation-menu {
+        display: flex;
+    }
 
     .Navigation-list {
         display: flex;
@@ -17,10 +21,28 @@
         padding: 5px 0;
         flex-direction: row;
         list-style-type: none;
-        justify-content: center;
+        justify-content: flex-start;
         font-size: 20px;
-        font-family: 'Roboto';
+        font-family: 'Open Sans';
         font-weight: 700;
+        flex: 1/2;
+
+        &.-menu {
+            display: none;
+
+            @include breakpoint.up(sm) {
+                display: flex;
+            }
+        }
+
+        &.-lang {
+            flex: 1;
+            justify-content: center;
+
+            @include breakpoint.up(sm) {
+                justify-content: end;
+            }
+        }
     }
 
     li a {
@@ -31,19 +53,19 @@
 
     li.active a {
         font-weight: 600;
-        color: map-get($ui-colors-primary, black);
+        color: var(--black);
     }
 
     li:not(.active) {
 
         a {
-            color: map-get($ui-colors-primary, gray-50);
+            color: var(--gray-dark);
             font-weight: 400;
         }
 
         &:hover a {
             font-weight: 600;
-            color: map-get($ui-colors-primary, black);
+            color: var(--black);
         }
     }
 }

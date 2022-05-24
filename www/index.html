@@ -6,15 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="./build/css/main.css?cssbuild=1652642522901">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./build/css/main.css?cssbuild=1653420278827">
     <title>Rezzy + Arc</title>
 </head>
 <body>
 
     <nav class="Navigation">
-        <div class="Container Container--small">
-            <ul class="Navigation-list">
+        <div class="Container Container--small Navigation-menu">
+            <ul class="Navigation-list -menu">
                 <li class="one active"><a href="#one">01</a></li>
                 <li class="two"><a href="#two">02</a></li>
                 <li class="three"><a href="#three">03</a></li>
@@ -24,40 +24,50 @@
                 <li class="seven"><a href="#seven">07</a></li>
                 <li class="eight"><a href="#eight">08</a></li>
             </ul>
+            <ul class="Navigation-list -lang">
+                <li class="cs"><a href="#eight">CZ</a></li>
+                <li class="en"><a href="#eight">EN</a></li>
+                <li class="pl"><a href="#eight">PL</a></li>
+            </ul>
         </div>
     </nav>
 
     <div id="one" class="CardLayout" data-section="one">
         <div class="Container Container--small CardLayout-HeaderBlock">
             <div class="Section-Counter" data-id="1">01
-                <span class="Counter-dot">.</span>
+                <span class="Counter-dot"></span>
             </div>
-            <div class="CardLayout-Brands">
-                <div class="Brand-Logo">
-                    <img src="./images/Rezzy.png" alt="Rezzy" data-logo="rezzy">
+            <div class="CardLayout-LeftBlock">
+                <div class="CardLayout-Brands">
+                    <div class="Brand-Logo">
+                        <img src="./images/Rezzy.png" alt="Rezzy" data-logo="rezzy">
+                    </div>
+                    <span class="separator">+</span>
+                    <div class="Brand-Logo">
+                        <img src="./images/arc.png" alt="Arc" data-logo="arc">
+                    </div>
                 </div>
-                <span class="separator">+</span>
-                <div class="Brand-Logo">
-                    <img src="./images/arc.png" alt="Arc" data-logo="arc">
-                </div>
-            </div>
-            <div class="CardLayout-Content">
-                <h1>Rezzy a ARC změní vaše sportoviště na chytrý sportovní areál.</h1>
-                <p>Pojďme se podívat na to jak!</p>
+                <div class="CardLayout-Content">
+                    <h1>Rezzy a ARC změní vaše sportoviště<br/>na chytrý sportovní areál.</h1>
 
-                <div class="Content-Arrow">
-                    <img src="./images/arrow.png" alt="">
-                </div>
-                <h2>Začínáme</h2>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed recusandae maxime repellendus vero eius placeat, quia, porro iusto reprehenderit quasi fugiat ut omnis blanditiis, voluptate repellat asperiores autem temporibus eligendi.</p>
+                    <div class="CardLayout-Intro">
+                        <video autoplay muted playsinline loop>
+                            <source src="./video/panel-01.mp4" type="video/mp4">
+                        </video>
+                    </div>
 
-                <h2>Úspory</h2>
-                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Blanditiis accusantium delectus laboriosam natus adipisci consequatur voluptatum iusto sunt aliquid eligendi!</p>
-            </div>
-            <div class="CardLayout-Intro">
-                <video autoplay muted playsinline loop>
-                    <source src="./video/panel-01.mp4" type="video/mp4">
-                </video>
+                    <div class="CardLayout-Text">
+                        <div class="CardLayout-left">
+                            <h2>Začínáme</h2>
+                            <p>Moderní rezervační systém Rezzy dokáže na základě rezervací spočítat, kdy je které hřiště obsazené. Tato data při každé změně zasílá systému ARC, který zcela automaticky řídí vytápění, osvětlení a  zamykání Vaší nafukovací haly. Vy se tak nemusíte o nic starat.</p>
+                        </div>
+                        <div class="CardLayout-right">
+                            <h2>Úspory</h2>
+                            <p>Díky pokročilé umělé inteligenci řídící vytápění, včetně systému pro předzátop, se ve vaší hale topí a svítí skutečně jen tehdy, kdy je to potřeba. Díky tomu je možné dosáhnout úspory na energiích až 30 %.</p>
+                        </div>
+                    </div>
+
+                </div>
             </div>
         </div>
     </div>
@@ -66,18 +76,15 @@
         <div id="two" class="Section-Data" data-section="two">
             <div class="Container Container--small mainSection">
                 <div class="Section-Counter" data-id="2">02
-                    <span class="Counter-dot">.</span>
-                    <span class="Counter-dot">.</span>
+                    <span class="Counter-dot"></span>
+                    <span class="Counter-dot"></span>
                 </div>
-                <div class="Section-Data-Content">
-                    <div class="Section-Content-Title">
-                        <h2 data-title="two">Nastavíme Rezzy</h2>
-                    </div>
-                    <div class="Section-Content-Info">
-                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facilis, magnam.</p>
-                        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nisi libero laborum magni inventore perferendis officia.</p>
-                        <p>Lorem, ipsum dolor.</p>
-                    </div>
+                <div class="Section-Content-Title">
+                    <h2 data-title="two">Rezervace v Rezzy</h2>
+                </div>
+                <div class="Section-Content-Info">
+                    <p>Celý proces začíná tím, že si Váš zákazník rezervuje hodinu přes moderní rezervační systém Rezzy. To může provést jak z počítače, tak přes mobilní aplikaci pro telefon nebo tablet.</p>
+                    <p>Stejně tak můžete změnu v rozvrhu provést Vy, jakožto provozovatel sportovního areálu. Rezzy Vás nijak neomezuje, práci Vám naopak usnadňuje.</p>
                 </div>
                 <div class="Section-Content-Intro">
                     <video autoplay muted playsinline loop>
@@ -89,19 +96,17 @@
         <div id="three" class="Section-Data" data-section="three">
             <div class="Container Container--small mainSection">
                 <div class="Section-Counter" data-id="3">03
-                    <span class="Counter-dot">.</span>
-                    <span class="Counter-dot">.</span>
-                    <span class="Counter-dot">.</span>
+                    <span class="Counter-dot"></span>
+                    <span class="Counter-dot"></span>
+                    <span class="Counter-dot"></span>
                 </div>
-                <div class="Section-Data-Content">
-                    <div class="Section-Content-Title">
-                        <h2 data-title="three">Odešleme do ARC</h2>
-                    </div>
-                    <div class="Section-Content-Info">
-                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facilis, magnam.</p>
-                        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nisi libero laborum magni inventore perferendis officia.</p>
-                        <p>Lorem, ipsum dolor.</p>
-                    </div>
+                <div class="Section-Content-Title">
+                    <h2 data-title="three">Odešleme do ARC</h2>
+                </div>
+                <div class="Section-Content-Info">
+                    <p>Jakmile Rezzy zjistí, že se změnil rozvrh, spočítá aktuální obsazenost v hale, ale i na jednotlivých hřištích. Díky tomu ví, kdy se v hale bude hrát pro potřeby topení, a který kurt bude kdy obsazený kvůli svícení.</p>
+                    <p>Rezzy navíc umožňuje nastavit interval, kdy se má topit či svítit po skončení rezervace, či zamknout halu s nastaveným zpožděním. To umožní Vašim klientům po konci své hodiny v klidu odejít.</p>
+                    <p>Tato data poté zcela automaticky zašle do systému ARC.</p>
                 </div>
                 <div class="Section-Content-Intro">
                     <video autoplay muted playsinline loop>
@@ -113,20 +118,17 @@
         <div id="four" class="Section-Data" data-section="four">
             <div class="Container Container--small mainSection">
                 <div class="Section-Counter" data-id="4">04
-                    <span class="Counter-dot">.</span>
-                    <span class="Counter-dot">.</span>
-                    <span class="Counter-dot">.</span>
-                    <span class="Counter-dot">.</span>
+                    <span class="Counter-dot"></span>
+                    <span class="Counter-dot"></span>
+                    <span class="Counter-dot"></span>
+                    <span class="Counter-dot"></span>
                 </div>
-                <div class="Section-Data-Content">
-                    <div class="Section-Content-Title">
-                        <h2 data-title="four">Hala se začne zahřívat</h2>
-                    </div>
-                    <div class="Section-Content-Info">
-                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facilis, magnam.</p>
-                        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nisi libero laborum magni inventore perferendis officia.</p>
-                        <p>Lorem, ipsum dolor.</p>
-                    </div>
+                <div class="Section-Content-Title">
+                    <h2 data-title="four">Hala se začne vytápět</h2>
+                </div>
+                <div class="Section-Content-Info">
+                    <p>V momentě kdy ARC obdrží data o obsazenosti aktivuje funkci předzátopu. Ta hlídá aktuální venkovní podmínky, požadovanou teplotu a aktuální vnitřní teplotu. Z těchto hodnot dokáže na základě auto adaptivní funkce spočítat optimální čas pro zapnutí vytápění v daný moment. Vy už tak nemusíte hlídat jestli je dnes venku 5 °C nebo -10 °C a podle toho pouštět topení.</p>
+                    <p>To ale není všechno, jakmile je vytápění spuštěno, vezme si slovo umělá inteligence. Ta optimalizuje režim topení tak, aby snižovala spotřebu a zvyšovala komfort v hale když se vytápí nebo již udržuje požadovanou teplotu.</p>
                 </div>
                 <div class="Section-Content-Intro">
                     <video autoplay muted playsinline loop>
@@ -138,21 +140,17 @@
         <div id="five" class="Section-Data" data-section="five">
             <div class="Container Container--small mainSection">
                 <div class="Section-Counter" data-id="5">05
-                    <span class="Counter-dot">.</span>
-                    <span class="Counter-dot">.</span>
-                    <span class="Counter-dot">.</span>
-                    <span class="Counter-dot">.</span>
-                    <span class="Counter-dot">.</span>
+                    <span class="Counter-dot"></span>
+                    <span class="Counter-dot"></span>
+                    <span class="Counter-dot"></span>
+                    <span class="Counter-dot"></span>
+                    <span class="Counter-dot"></span>
                 </div>
-                <div class="Section-Data-Content">
-                    <div class="Section-Content-Title">
-                        <h2 data-title="five">Hala se připraví, rozsvítí a odemkne</h2>
-                    </div>
-                    <div class="Section-Content-Info">
-                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facilis, magnam.</p>
-                        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nisi libero laborum magni inventore perferendis officia.</p>
-                        <p>Lorem, ipsum dolor.</p>
-                    </div>
+                <div class="Section-Content-Title">
+                    <h2 data-title="five">Hala se rozsvítí a odemkne</h2>
+                </div>
+                <div class="Section-Content-Info">
+                    <p>Ve chvíli, kdy zákazníci přicházejí, se v hale rozsvítí obsazené kurty a odemkne se zámek dveří. To je možné nastavit v začátek rezervace, 5 minut předem nebo tak, jak to vyhovuje právě Vám.</p>
                 </div>
                 <div class="Section-Content-Intro">
                     <video autoplay muted playsinline loop>
@@ -164,22 +162,19 @@
         <div id="six" class="Section-Data" data-section="six">
             <div class="Container Container--small mainSection">
                 <div class="Section-Counter" data-id="6">06
-                    <span class="Counter-dot">.</span>
-                    <span class="Counter-dot">.</span>
-                    <span class="Counter-dot">.</span>
-                    <span class="Counter-dot">.</span>
-                    <span class="Counter-dot">.</span>
-                    <span class="Counter-dot">.</span>
+                    <span class="Counter-dot"></span>
+                    <span class="Counter-dot"></span>
+                    <span class="Counter-dot"></span>
+                    <span class="Counter-dot"></span>
+                    <span class="Counter-dot"></span>
+                    <span class="Counter-dot"></span>
                 </div>
-                <div class="Section-Data-Content">
-                    <div class="Section-Content-Title">
-                        <h2 data-title="six">O vše je postaráno. Je čas si zahrát!</h2>
-                    </div>
-                    <div class="Section-Content-Info">
-                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facilis, magnam.</p>
-                        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nisi libero laborum magni inventore perferendis officia.</p>
-                        <p>Lorem, ipsum dolor.</p>
-                    </div>
+                <div class="Section-Content-Title">
+                    <h2 data-title="six">O vše je postaráno</h2>
+                </div>
+                <div class="Section-Content-Info">
+                    <p>Zatímco klient hraje, Vy se nemusíte o nic starat. Můžete pustit z hlavy sledování hodin a strachování se, abyste nezapomněli včas rozsvítit další kurt nebo vypnout topení. Můžete se v klidu věnovat obsluze dalších zákazníků.</p>
+                    <p>Nemáte recepci? Nevadí. Díky automatickému zámku už ani nemusíte řešit, aby správce ráno dojel odemknout a zatopit, dopoledne zamknout a topení vypnout a odpoledne vše opakoval. Díky našemu systému se Váš areál může stát bezobslužným.</p>
                 </div>
                 <div class="Section-Content-Intro">
                     <video autoplay muted playsinline loop>
@@ -191,23 +186,19 @@
         <div id="seven" class="Section-Data" data-section="seven">
             <div class="Container Container--small mainSection">
                 <div class="Section-Counter" data-id="7">07
-                    <span class="Counter-dot">.</span>
-                    <span class="Counter-dot">.</span>
-                    <span class="Counter-dot">.</span>
-                    <span class="Counter-dot">.</span>
-                    <span class="Counter-dot">.</span>
-                    <span class="Counter-dot">.</span>
-                    <span class="Counter-dot">.</span>
+                    <span class="Counter-dot"></span>
+                    <span class="Counter-dot"></span>
+                    <span class="Counter-dot"></span>
+                    <span class="Counter-dot"></span>
+                    <span class="Counter-dot"></span>
+                    <span class="Counter-dot"></span>
+                    <span class="Counter-dot"></span>
                 </div>
-                <div class="Section-Data-Content">
-                    <div class="Section-Content-Title">
-                        <h2 data-title="seven">Po odehrání se hala automaticky vypne</h2>
-                    </div>
-                    <div class="Section-Content-Info">
-                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facilis, magnam.</p>
-                        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nisi libero laborum magni inventore perferendis officia.</p>
-                        <p>Lorem, ipsum dolor.</p>
-                    </div>
+                <div class="Section-Content-Title">
+                    <h2 data-title="seven">Po odehrání se topení vypne</h2>
+                </div>
+                <div class="Section-Content-Info">
+                    <p>Skončil ranní blok rezervací a další jsou až po obědě? Je večer a doběhla poslední hodina? Hala topení vypne jakmile rezervace skončí. Nemusíte myslet na to, abyste topení nezapomněli vypnout.</p>
                 </div>
                 <div class="Section-Content-Intro">
                     <video autoplay muted playsinline loop>
@@ -219,24 +210,21 @@
         <div id="eight" class="Section-Data" data-section="eight">
             <div class="Container Container--small mainSection">
                 <div class="Section-Counter" data-id="8">08
-                    <span class="Counter-dot">.</span>
-                    <span class="Counter-dot">.</span>
-                    <span class="Counter-dot">.</span>
-                    <span class="Counter-dot">.</span>
-                    <span class="Counter-dot">.</span>
-                    <span class="Counter-dot">.</span>
-                    <span class="Counter-dot">.</span>
-                    <span class="Counter-dot">.</span>
+                    <span class="Counter-dot"></span>
+                    <span class="Counter-dot"></span>
+                    <span class="Counter-dot"></span>
+                    <span class="Counter-dot"></span>
+                    <span class="Counter-dot"></span>
+                    <span class="Counter-dot"></span>
+                    <span class="Counter-dot"></span>
+                    <span class="Counter-dot"></span>
                 </div>
-                <div class="Section-Data-Content">
-                    <div class="Section-Content-Title">
-                        <h2 data-title="eight">Jdeme domů</h2>
-                    </div>
-                    <div class="Section-Content-Info">
-                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facilis, magnam.</p>
-                        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nisi libero laborum magni inventore perferendis officia.</p>
-                        <p>Lorem, ipsum dolor.</p>
-                    </div>
+                <div class="Section-Content-Title">
+                    <h2 data-title="eight">Klienti jdou domů</h2>
+                </div>
+                <div class="Section-Content-Info">
+                    <p>Hala počká než se klienti pohodlně sbalí a převlečou, po 5 minutách zhasne a za dalších 5 minut se zamkne. Záleží jen na Vašem nastavení.</p>
+                    <p>Vy se tak nemusíte o Vaší halu starat, my se postaráme za Vás.</p>
                 </div>
                 <div class="Section-Content-Intro">
                     <video autoplay muted playsinline loop>
@@ -249,8 +237,10 @@
         <div class="preFooterLayout">
             <div class="Container Container--small preFooterLayout-Grid">
                 <div class="preFooter-Info">
-                    <h2>V čem spočívají výhody ARC?</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit voluptatibus soluta a fugiat mollitia error, dolorum architecto quam expedita earum.</p>
+                    <h2>V čem spočívají výhody Rezzy a ARC?</h2>
+                    <p>Rezzy je moderní rezervační systém, který funguje skvěle jak v létě, tak v zimě. S nafukovací halou, pevnou halou nebo bez haly. Pokrývá širokou škálu potřeb sportovních areálů.</p>
+                    <p>ARC je již druhá generace chytrého systému pro nafukovací haly Calypso, která umožňuje ovládat a kontrolovat Vaši nafukovací halu na dálku z pohodlí kanceláře či domova.</p>
+                    <p>To nejlepší ale přináší tyto dva systémy dohromady - kompletní automatizaci provozu Vaší haly na základě dat z rezervací. Díky tomu hala přesně ví kdy má topit, svítit a odemknout a vy se tak nemusíte o nic starat. To Vám zároveň uspoří až 30 % nákladů za energie ročně.</p>
                 </div>
                 <div class="preFooter-Image">
                     <img src="./images/calculator.svg" alt="">

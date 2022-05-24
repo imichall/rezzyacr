@@ -1,5 +1,6 @@
 @use '../../settings/colors' as *;
 @use '../../settings/typography' as *;
+@use '../../tools/breakpoint';
 
 .Section-Content {
 
@@ -9,50 +10,112 @@
         &::before {
             content: '';
             display: flex;
-            height: 2px;
+            height: 1px;
             width: 100%;
-            background-color: map-get($ui-colors-primary, blue);
+            background-color: var(--blue);
         }
 
         &[data-section="three"]::before {
-            background-color: map-get($ui-colors-primary, magenta);
+            background-color: var(--magenta);
         }
 
-        &[data-section="four"]::before,
-        &[data-section="five"]::before,
-        &[data-section="six"]::before,
-        &[data-section="seven"]::before,
+        &[data-section="four"]::before {
+            background-color: var(--green);
+        }
+
+        &[data-section="five"]::before {
+            background-color: var(--blue);
+        }
+
+        &[data-section="six"]::before {
+            background-color: var(--magenta);
+        }
+
+        &[data-section="seven"]::before {
+            background-color: var(--green);
+        }
+
         &[data-section="eight"]::before {
-            background-color: map-get($ui-colors-primary, green);
+            background-color: var(--blue);
         }
     }
 
     .mainSection {
         display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        grid-template-rows: 83px 1fr;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: auto auto;
         grid-template-areas:
-            'Counter Video Video'
-            'Content Video Video';
-        gap: 10px;
-        padding-bottom: 40px;
+            'Counter Counter '
+            'Title Title '
+            'Video Video'
+            'Text Text ';
+        column-gap: 40px;
+        row-gap: 20px;
+        padding-bottom: 100px;
+
+        @include breakpoint.up(sm) {
+            grid-template-columns: repeat(5, 1fr);
+            grid-template-areas:
+                'Counter Counter Counter Counter Counter'
+                'Title Title Video Video Video'
+                'Text Text Video Video Video'
+                'Text Text Video Video Video';
+        }
     }
 
-    .Section-Data:nth-child(4),
-    .Section-Data:nth-child(5),
-    .Section-Data:nth-child(6)
-     {
-        .Section-Data-Content {
-            grid-template-rows: 100px 1fr;
+    .Section-Data {
+
+        &[data-section='two'] {
+            background-color: var(--section-bg-blue);
+        }
+
+        &[data-section='three'] {
+            background-color: var(--section-bg-magenta);
+        }
+
+        &[data-section='four'] {
+            background-color: var(--section-bg-green);
+        }
+
+        &[data-section='five'] {
+            background-color: var(--section-bg-blue);
+        }
+
+        &[data-section='six'] {
+            background-color: var(--section-bg-magenta);
+        }
+
+        &[data-section='seven'] {
+            background-color: var(--section-bg-green);
+        }
+
+        &[data-section='eight'] {
+            background-color: var(--section-bg-blue);
         }
     }
 
     .Section-Data:nth-child(even) {
+
         .mainSection {
             grid-template-areas:
-                'Video Video Counter'
-                'Video Video Content';
+                'Counter Counter '
+                'Title Title '
+                'Video Video'
+                'Text Text ';
             justify-items: end;
+
+            @include breakpoint.up(sm) {
+                grid-template-areas:
+                    'Counter Counter Counter Counter Counter'
+                    'Video Video Video Title Title'
+                    'Video Video Video Text Text'
+                    'Video Video Video Text Text';
+            }
+        }
+
+        .Section-Content-Intro {
+            align-items: start;
+            justify-items: start;
         }
 
         .Section-Counter::after {
@@ -68,6 +131,14 @@
         .Section-Content-Info {
             justify-items: end;
             text-align: right;
+            opacity: 0;
+            transform: translateZ(30px) translateY(30px);
+            transition: all 0.5s ease-in-out;
+
+            &.-show {
+                opacity: 1;
+                transform: translateZ(0) translateY(0);
+            }
         }
 
         .Counter-dot {
@@ -124,85 +195,133 @@
         position: relative;
         width: 83px;
         height: 83px;
-        background-color: map-get($ui-colors-primary, green);
+        background-color: var(--green);
         align-items: center;
         justify-content: center;
         font-size: map-get($typography-scale, 7);
-        color: map-get($ui-colors-primary, white);
+        color: var(--white);
         border-radius: 0 0 30px 30px;
-        font-family: 'Roboto';
+        font-family: 'Open Sans';
         font-weight: 700;
 
         .Counter-dot {
-            background-color: map-get($ui-colors-primary, green);
+            background-color: var(--green);
         }
 
-        &[data-id="2"] {
-            background-color: map-get($ui-colors-primary, blue);
+        &[data-id='2'] {
+            background-color: var(--blue);
 
             .Counter-dot {
-                background-color: map-get($ui-colors-primary, blue);
+                background-color: var(--blue);
             }
         }
 
-        &[data-id="3"] {
-            background-color: map-get($ui-colors-primary, magenta);
+        &[data-id='3'] {
+            background-color: var(--magenta);
 
             .Counter-dot {
-                background-color: map-get($ui-colors-primary, magenta);
+                background-color: var(--magenta);
             }
         }
-    }
 
-    .Section-Data-Content {
-        grid-area: Content;
-        display: grid;
-        grid-template-columns: 1fr;
-        grid-template-rows: 80px 1fr;
-        flex-direction: column;
+        &[data-id='4'] {
+            background-color: var(--green);
+
+            .Counter-dot {
+                background-color: var(--green);
+            }
+        }
+
+        &[data-id='5'] {
+            background-color: var(--blue);
+
+            .Counter-dot {
+                background-color: var(--blue);
+            }
+        }
+
+        &[data-id='6'] {
+            background-color: var(--magenta);
+
+            .Counter-dot {
+                background-color: var(--magenta);
+            }
+        }
+
+        &[data-id='7'] {
+            background-color: var(--green);
+
+            .Counter-dot {
+                background-color: var(--green);
+            }
+        }
+
+        &[data-id='8'] {
+            background-color: var(--blue);
+
+            .Counter-dot {
+                background-color: var(--blue);
+            }
+        }
     }
 
     .Section-Content-Title {
+        grid-area: Title;
         display: flex;
         font-size: map-get($typography-scale, 4);
         align-items: start;
+        flex: 1;
+        min-height: 120px;
 
         span {
             font-size: 40px;
             font-weight: 700;
-            color: map-get($ui-colors-primary, blue);
+            color: var(--blue);
         }
 
         h2 {
-            font-family: 'Roboto';
+            font-family: 'Open Sans';
             font-weight: 700;
             letter-spacing: 1.2px;
         }
     }
 
     .Section-Content-Info {
-        display: grid;
+        grid-area: Text;
+        display: flex;
+        flex-direction: column;
+        flex: 2;
+        opacity: 0;
+        transform: translateZ(30px) translateY(30px);
+        transition: all 0.5s ease-in-out;
+
+        &.-show {
+            opacity: 1;
+            transform: translateZ(0) translateY(0);
+        }
 
         p {
-            font-family: 'Roboto';
+            font-family: 'Open Sans';
             font-size: map-get($typography-scale, 1);
             font-weight: 500;
             line-height: 1.5;
         }
 
         p:not(:last-child) {
-            margin-bottom: 10px;
+            margin-bottom: 20px;
         }
     }
 
     .Section-Content-Intro {
         grid-area: Video;
         display: grid;
-        align-items: center;
-        justify-content: center;
+        align-items: start;
+        justify-items: end;
 
         video {
             width: 100%;
+            border-radius: 20rem;
+            box-shadow: 0 10px 25px 5px rgba(0,0,0, .04);
         }
     }
 }

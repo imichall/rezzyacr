@@ -41,7 +41,7 @@ function watcher() {
 		projectJs = obj.project_js;
 	});
 
-	watch([projectType.paths.global_style], series(clean, compile, cacheCss, browsersyncReload));
+	watch([projectType.paths.global_style], series(compile, cacheCss, browsersyncReload));
 	watch(projectType.paths.app_dir, series(browsersyncReload));
 	watch(projectJs, series(scripts, cacheJs, browsersyncReload));
 }

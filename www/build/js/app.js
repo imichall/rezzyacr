@@ -115,11 +115,11 @@
 
 	function videoScroll() {
 	  if (document.querySelectorAll("video[autoplay]").length > 0) {
-	    var windowHeight = window.innerHeight,
+	    let windowHeight = window.innerHeight,
 	        videoEl = document.querySelectorAll("video[autoplay]");
 
-	    for (var i = 0; i < videoEl.length; i++) {
-	      var thisVideoEl = videoEl[i],
+	    for (let i = 0; i < videoEl.length; i++) {
+	      let thisVideoEl = videoEl[i],
 	          videoHeight = thisVideoEl.clientHeight,
 	          videoClientRect = thisVideoEl.getBoundingClientRect().top;
 
@@ -132,9 +132,9 @@
 	  }
 	}
 
-	const typewritter = document.querySelectorAll('h2[data-title]');
+	const typewritter = document.querySelectorAll("h2[data-title]");
 	typewritter.forEach(el => {
-	  if (el.getAttribute(['data-title']) == el.getAttribute(['data-title'])) {
+	  if (el.getAttribute(["data-title"]) == el.getAttribute(["data-title"])) {
 	    let text = el.textContent;
 	    tinyTypewriter(el, {
 	      items: [text],
@@ -161,9 +161,29 @@
 	});
 	const sections = document.querySelectorAll("div[data-section]");
 	const navLi = document.querySelectorAll(".Navigation-list li");
+	const perexItems = [...document.querySelectorAll('.Section-Content-Info')];
+	let options = {
+	  rootMargin: '-10%',
+	  thresHold: 0.0
+	};
+	let observer = new IntersectionObserver(showItem, options);
+
+	function showItem(entries) {
+	  entries.forEach(entry => {
+	    if (entry.isIntersecting) {
+	      entry.target.classList.add('-show');
+	    } else {
+	      entry.target.classList.remove('-show');
+	    }
+	  });
+	}
+
+	perexItems.forEach(item => {
+	  observer.observe(item);
+	});
 
 	window.onscroll = () => {
-	  var current = "";
+	  let current = "";
 	  sections.forEach(section => {
 	    const sectionTop = section.offsetTop;
 

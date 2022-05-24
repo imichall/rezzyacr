@@ -17,15 +17,15 @@
 
     @each $value, $src in $font-style {
         @font-face {
-            font-family: "Roboto-#{$value}";
-            src: url("../fonts/Roboto/Roboto-#{$src}");
+            font-family: "Open Sans-#{$value}";
+            src: url("../fonts/Open Sans/Open Sans-#{$src}");
         }
     }
 }
 
 @include font-face();
 
-$typography-font-family-base: 'Roboto', helvetica, arial, sans-serif;
+$typography-font-family-base: 'Open Sans', helvetica, arial, sans-serif;
 
 $typography-font-weight-values: (
     light: "wght" 300,
