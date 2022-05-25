@@ -7,10 +7,11 @@ jobs:
     steps:
     - name: 🚚 Get latest code
       uses: actions/checkout@v2
-    
+
     - name: 📂 Sync files
       uses: SamKirkland/FTP-Deploy-Action@4.3.0
       with:
         server: imichall.savana-hosting.cz
+        server_dir: imichall.savana-hosting.cz/rezzy/
         username: webfbcletka@imichall.savana-hosting.cz
         password: ${{ secrets.REZZY_PASS }}
