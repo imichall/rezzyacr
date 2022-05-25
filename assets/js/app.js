@@ -57,13 +57,13 @@ document.querySelectorAll('a[href^="#"]').forEach((trigger) => {
 });
 
 const sections = document.querySelectorAll("div[data-section]");
-const navLi = document.querySelectorAll(".Navigation-list -menu li");
+const navLi = document.querySelectorAll(".Navigation-list.-menu li");
 const perexItems = [...document.querySelectorAll('.Section-Content-Info')];
 
 let options = {
     rootMargin: '-10%',
     thresHold: 0.0
-}
+};
 
 let observer = new IntersectionObserver(showItem, options);
 
@@ -73,11 +73,11 @@ function showItem(entries) {
             entry.target.classList.add('-show');
         }
     })
-}
+};
 
 perexItems.forEach(item => {
     observer.observe(item);
-})
+});
 
 window.onscroll = () => {
     let current = "";
