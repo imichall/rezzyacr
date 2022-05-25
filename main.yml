@@ -12,5 +12,5 @@ jobs:
       uses: SamKirkland/FTP-Deploy-Action@4.3.0
       with:
         server: imichall.savana-hosting.cz
-        username: webfbcletka
+        username: webfbcletka@imichall.savana-hosting.cz
         password: ${{ secrets.REZZY_PASS }}
