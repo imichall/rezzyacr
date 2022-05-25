@@ -57,7 +57,7 @@ document.querySelectorAll('a[href^="#"]').forEach((trigger) => {
 });
 
 const sections = document.querySelectorAll("div[data-section]");
-const navLi = document.querySelectorAll(".Navigation-list li");
+const navLi = document.querySelectorAll(".Navigation-list -menu li");
 const perexItems = [...document.querySelectorAll('.Section-Content-Info')];
 
 let options = {
