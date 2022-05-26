@@ -3,7 +3,7 @@
 @use '../../tools/breakpoint';
 
 .preFooterLayout {
-    border-top: 1px solid var(--border-top);
+    border-top: 1fpx solid var(--border-top);
 }
 
 .preFooterLayout-Grid {
@@ -81,14 +81,14 @@
         justify-content: center;
         transform: translateY(-40px);
 
-        &::after {
-            content: '';
-            position: absolute;
-            bottom: -20px;
-            height: 2px;
-            width: 100%;
-            background-color: var(--black);
-        }
+        // &::after {
+        //     content: '';
+        //     position: absolute;
+        //     bottom: -20px;
+        //     height: 2px;
+        //     width: 100%;
+        //     background-color: var(--black);
+        // }
 
         @include breakpoint.up(sm) {
             justify-content: flex-start;
@@ -125,7 +125,7 @@
         }
 
         a[data-link="rezzy"] {
-            color: var(--purple);
+            color: var(--purple-new);
         }
 
         a[data-link="callypso"] {
