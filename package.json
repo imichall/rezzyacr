@@ -41,6 +41,7 @@
     "gulp-terser-js": "^5.2.2",
     "gulp-util": "^3.0.8",
     "gulp-webpcss": "^1.1.1",
+    "lax.js": "^2.0.3",
     "n": "^7.1.0",
     "natives": "^1.1.6",
     "path": "^0.12.7",
