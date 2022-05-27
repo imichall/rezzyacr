@@ -665,12 +665,14 @@ span.separator {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  transform: translateY(-30px);
 }
 @media (min-width: 1024px) {
   .FooterLayout .Brand-Links {
     flex-direction: row;
     justify-content: flex-end;
     align-items: center;
+    transform: unset;
   }
 }
 .FooterLayout .Brand-Links a[data-link=rezzy],

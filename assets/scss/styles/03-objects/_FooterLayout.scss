@@ -106,11 +106,13 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
+        transform: translateY(-30px);
 
         @include breakpoint.up(sm) {
             flex-direction: row;
             justify-content: flex-end;
             align-items: center;
+            transform: unset;
         }
 
         a[data-link="rezzy"],
