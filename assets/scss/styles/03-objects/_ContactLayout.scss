@@ -4,7 +4,7 @@
 
 .Contact {
     padding: 60px 0;
-    background-color: var(--black-light);
+    background-color: var(--black);
 }
 
 .ContactBlock {
@@ -17,20 +17,6 @@
         position: relative;
         margin-bottom: 20px;
         font-weight: 300;
-    }
-
-    h3::after {
-        content: '';
-        display: flex;
-        margin-top: 15px;
-        height: 1px;
-        width: 100%;
-        background-color: var(--gray);
-        opacity: .5;
-
-        @include breakpoint.up(sm) {
-            width: 50%;
-        }
     }
 
     .-name {

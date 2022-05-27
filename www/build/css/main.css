@@ -499,7 +499,7 @@ span.separator {
 
 .Contact {
   padding: 60px 0;
-  background-color: var(--black-light);
+  background-color: var(--black);
 }
 
 .ContactBlock {
@@ -512,20 +512,6 @@ span.separator {
   position: relative;
   margin-bottom: 20px;
   font-weight: 300;
-}
-.ContactBlock h3::after {
-  content: "";
-  display: flex;
-  margin-top: 15px;
-  height: 1px;
-  width: 100%;
-  background-color: var(--gray);
-  opacity: 0.5;
-}
-@media (min-width: 1024px) {
-  .ContactBlock h3::after {
-    width: 50%;
-  }
 }
 .ContactBlock .-name {
   grid-area: name;
@@ -684,7 +670,7 @@ span.separator {
   .FooterLayout .Brand-Links {
     flex-direction: row;
     justify-content: flex-end;
-    align-items: flex-end;
+    align-items: center;
   }
 }
 .FooterLayout .Brand-Links a[data-link=rezzy],

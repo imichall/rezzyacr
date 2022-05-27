@@ -110,7 +110,7 @@
         @include breakpoint.up(sm) {
             flex-direction: row;
             justify-content: flex-end;
-            align-items: flex-end;
+            align-items: center;
         }
 
         a[data-link="rezzy"],
