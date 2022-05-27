@@ -682,7 +682,12 @@ span.separator {
   font-weight: 700;
 }
 .FooterLayout .Brand-Links a:not(:last-child) {
-  margin-right: 40px;
+  margin-right: 0;
+}
+@media (min-width: 1024px) {
+  .FooterLayout .Brand-Links a:not(:last-child) {
+    margin-right: 40px;
+  }
 }
 .FooterLayout .Brand-Links a[data-link=rezzy] {
   color: var(--purple-new);
