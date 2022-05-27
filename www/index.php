@@ -51,7 +51,7 @@ $isPl = $urlLang === 'pl' ? true : false;
                 <li class="eight"><a href="#eight">08</a></li>
             </ul>
             <ul class="Navigation-list -lang">
-                <li class="cs <?php if($isCz == true) echo 'active'; ?>"><a href="?lang=cs">CZ</a></li>
+                <li class="cs <?php if($isCz == true) echo 'active'; ?>"><a href="/">CZ</a></li>
                 <li class="en <?php if($isEn == true) echo 'active'; ?>"><a href="?lang=en">EN</a></li>
                 <li class="pl <?php if($isPl == true) echo 'active'; ?>"><a href="?lang=pl">PL</a></li>
             </ul>
