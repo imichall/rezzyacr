@@ -4,6 +4,10 @@ $urlLang = $_GET['lang'];
 
 $url = new Translator();
 
+if (!$urlLang) {
+    $urlLang = 'cs';
+}
+
 $isCz = $urlLang === 'cs' ? true : false;
 $isEn = $urlLang === 'en' ? true : false;
 $isPl = $urlLang === 'pl' ? true : false;
