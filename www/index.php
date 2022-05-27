@@ -1,3 +1,16 @@
+<?php
+include('./functions.php');
+$urlLang = $_GET['lang'];
+
+$url = new Translator();
+
+$isCz = $urlLang === 'cs' ? true : false;
+$isEn = $urlLang === 'en' ? true : false;
+$isPl = $urlLang === 'pl' ? true : false;
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="cs">
 
@@ -34,9 +47,9 @@
                 <li class="eight"><a href="#eight">08</a></li>
             </ul>
             <ul class="Navigation-list -lang">
-                <li class="cs active"><a href="">CZ</a></li>
-                <li class="en"><a href="">EN</a></li>
-                <li class="pl"><a href="">PL</a></li>
+                <li class="cs <?php if($isCz == true) echo 'active'; ?>"><a href="?lang=cs">CZ</a></li>
+                <li class="en <?php if($isEn == true) echo 'active'; ?>"><a href="?lang=en">EN</a></li>
+                <li class="pl <?php if($isPl == true) echo 'active'; ?>"><a href="?lang=pl">PL</a></li>
             </ul>
         </div>
     </nav>
@@ -57,7 +70,7 @@
                     </div>
                 </div>
                 <div class="CardLayout-Content">
-                    <h1>Rezzy a ARC změní vaše sportoviště<br />na chytrý sportovní areál.</h1>
+                    <h1><?php echo $url->getTranslate($urlLang)->CardLayout_Content ?></h1>
 
                     <div class="CardLayout-Intro">
                         <video autoplay muted playsinline loop>
@@ -67,12 +80,12 @@
 
                     <div class="CardLayout-Text">
                         <div class="CardLayout-left">
-                            <h2>Začínáme</h2>
-                            <p>Moderní rezervační systém Rezzy dokáže na základě rezervací spočítat, kdy je které hřiště obsazené. Tato data při každé změně zasílá systému ARC, který zcela automaticky řídí vytápění, osvětlení a zamykání Vaší nafukovací haly. Vy se tak nemusíte o nic starat.</p>
+                            <h2><?php echo $url->getTranslate($urlLang)->CardLayout_left_h2 ?></h2>
+                            <p><?php echo $url->getTranslate($urlLang)->CardLayout_left_p ?></p>
                         </div>
                         <div class="CardLayout-right">
-                            <h2>Úspory</h2>
-                            <p>Díky pokročilé umělé inteligenci řídící vytápění, včetně systému pro předzátop, se ve vaší hale topí a svítí skutečně jen tehdy, kdy je to potřeba. Díky tomu je možné dosáhnout úspory na energiích až 30 %.</p>
+                            <h2><?php echo $url->getTranslate($urlLang)->CardLayout_right_h2 ?></h2>
+                            <p><?php echo $url->getTranslate($urlLang)->CardLayout_right_p ?></p>
                         </div>
                     </div>
 
@@ -89,11 +102,11 @@
                     <span class="Counter-dot"></span>
                 </div>
                 <div class="Section-Content-Title">
-                    <h2 data-title="two">Rezervace v Rezzy</h2>
+                    <h2 data-title="two"><?php echo $url->getTranslate($urlLang)->Section_2_h2 ?></h2>
                 </div>
                 <div class="Section-Content-Info">
-                    <p>Celý proces začíná tím, že si Váš zákazník rezervuje hodinu přes moderní rezervační systém Rezzy. To může provést jak z počítače, tak přes mobilní aplikaci pro telefon nebo tablet.</p>
-                    <p>Stejně tak můžete změnu v rozvrhu provést Vy, jakožto provozovatel sportovního areálu. Rezzy Vás nijak neomezuje, práci Vám naopak usnadňuje.</p>
+                    <p><?php echo $url->getTranslate($urlLang)->Section_2_info_p1 ?></p>
+                    <p><?php echo $url->getTranslate($urlLang)->Section_2_info_p2 ?></p>
                 </div>
                 <div class="Section-Content-Intro">
                     <video autoplay muted playsinline loop>
@@ -110,12 +123,12 @@
                     <span class="Counter-dot"></span>
                 </div>
                 <div class="Section-Content-Title">
-                    <h2 data-title="three">Odešleme do ARC</h2>
+                    <h2 data-title="three"><?php echo $url->getTranslate($urlLang)->Section_3_h2 ?></h2>
                 </div>
                 <div class="Section-Content-Info">
-                    <p>Jakmile Rezzy zjistí, že se změnil rozvrh, spočítá aktuální obsazenost v hale, ale i na jednotlivých hřištích. Díky tomu ví, kdy se v hale bude hrát pro potřeby topení, a který kurt bude kdy obsazený kvůli svícení.</p>
-                    <p>Rezzy navíc umožňuje nastavit interval, kdy se má topit či svítit po skončení rezervace, či zamknout halu s nastaveným zpožděním. To umožní Vašim klientům po konci své hodiny v klidu odejít.</p>
-                    <p>Tato data poté zcela automaticky zašle do systému ARC.</p>
+                    <p><?php echo $url->getTranslate($urlLang)->Section_3_info_p1 ?></p>
+                    <p><?php echo $url->getTranslate($urlLang)->Section_3_info_p2 ?></p>
+                    <p><?php echo $url->getTranslate($urlLang)->Section_3_info_p3 ?></p>
                 </div>
                 <div class="Section-Content-Intro">
                     <video autoplay muted playsinline loop>
@@ -133,11 +146,11 @@
                     <span class="Counter-dot"></span>
                 </div>
                 <div class="Section-Content-Title">
-                    <h2 data-title="four">Hala se začne vytápět</h2>
+                    <h2 data-title="four"><?php echo $url->getTranslate($urlLang)->Section_4_h2 ?></h2>
                 </div>
                 <div class="Section-Content-Info">
-                    <p>V momentě kdy ARC obdrží data o obsazenosti aktivuje funkci předzátopu. Ta hlídá aktuální venkovní podmínky, požadovanou teplotu a aktuální vnitřní teplotu. Z těchto hodnot dokáže na základě auto adaptivní funkce spočítat optimální čas pro zapnutí vytápění v daný moment. Vy už tak nemusíte hlídat jestli je dnes venku 5 °C nebo -10 °C a podle toho pouštět topení.</p>
-                    <p>To ale není všechno, jakmile je vytápění spuštěno, vezme si slovo umělá inteligence. Ta optimalizuje režim topení tak, aby snižovala spotřebu a zvyšovala komfort v hale když se vytápí nebo již udržuje požadovanou teplotu.</p>
+                    <p><?php echo $url->getTranslate($urlLang)->Section_4_info_p1 ?></p>
+                    <p><?php echo $url->getTranslate($urlLang)->Section_4_info_p2 ?></p>
                 </div>
                 <div class="Section-Content-Intro">
                     <video autoplay muted playsinline loop>
@@ -156,10 +169,10 @@
                     <span class="Counter-dot"></span>
                 </div>
                 <div class="Section-Content-Title">
-                    <h2 data-title="five">Hala se rozsvítí a odemkne</h2>
+                    <h2 data-title="five"><?php echo $url->getTranslate($urlLang)->Section_5_h2 ?></h2>
                 </div>
                 <div class="Section-Content-Info">
-                    <p>Ve chvíli, kdy zákazníci přicházejí, se v hale rozsvítí obsazené kurty a odemkne se zámek dveří. To je možné nastavit v začátek rezervace, 5 minut předem nebo tak, jak to vyhovuje právě Vám.</p>
+                    <p><?php echo $url->getTranslate($urlLang)->Section_5_info_p1 ?></p>
                 </div>
                 <div class="Section-Content-Intro">
                     <video autoplay muted playsinline loop>
@@ -179,11 +192,11 @@
                     <span class="Counter-dot"></span>
                 </div>
                 <div class="Section-Content-Title">
-                    <h2 data-title="six">O vše je postaráno</h2>
+                    <h2 data-title="six"><?php echo $url->getTranslate($urlLang)->Section_6_h2 ?></h2>
                 </div>
                 <div class="Section-Content-Info">
-                    <p>Zatímco klient hraje, Vy se nemusíte o nic starat. Můžete pustit z hlavy sledování hodin a strachování se, abyste nezapomněli včas rozsvítit další kurt nebo vypnout topení. Můžete se v klidu věnovat obsluze dalších zákazníků.</p>
-                    <p>Nemáte recepci? Nevadí. Díky automatickému zámku už ani nemusíte řešit, aby správce ráno dojel odemknout a zatopit, dopoledne zamknout a topení vypnout a odpoledne vše opakoval. Díky našemu systému se Váš areál může stát bezobslužným.</p>
+                    <p><?php echo $url->getTranslate($urlLang)->Section_6_info_p1 ?></p>
+                    <p><?php echo $url->getTranslate($urlLang)->Section_6_info_p2 ?></p>
                 </div>
                 <div class="Section-Content-Intro">
                     <video autoplay muted playsinline loop>
@@ -204,10 +217,10 @@
                     <span class="Counter-dot"></span>
                 </div>
                 <div class="Section-Content-Title">
-                    <h2 data-title="seven">Po odehrání se topení vypne</h2>
+                    <h2 data-title="seven"><?php echo $url->getTranslate($urlLang)->Section_7_h2 ?></h2>
                 </div>
                 <div class="Section-Content-Info">
-                    <p>Skončil ranní blok rezervací a další jsou až po obědě? Je večer a doběhla poslední hodina? Hala topení vypne jakmile rezervace skončí. Nemusíte myslet na to, abyste topení nezapomněli vypnout.</p>
+                    <p><?php echo $url->getTranslate($urlLang)->Section_7_info_p1 ?></p>
                 </div>
                 <div class="Section-Content-Intro">
                     <video autoplay muted playsinline loop>
@@ -229,11 +242,11 @@
                     <span class="Counter-dot"></span>
                 </div>
                 <div class="Section-Content-Title">
-                    <h2 data-title="eight">Klienti jdou domů</h2>
+                    <h2 data-title="eight"><?php echo $url->getTranslate($urlLang)->Section_8_h2 ?></h2>
                 </div>
                 <div class="Section-Content-Info">
-                    <p>Hala počká než se klienti pohodlně sbalí a převlečou, po 5 minutách zhasne a za dalších 5 minut se zamkne. Záleží jen na Vašem nastavení.</p>
-                    <p>Vy se tak nemusíte o Vaší halu starat, my se postaráme za Vás.</p>
+                    <p><?php echo $url->getTranslate($urlLang)->Section_8_info_p1 ?></p>
+                    <p><?php echo $url->getTranslate($urlLang)->Section_8_info_p2 ?></p>
                 </div>
                 <div class="Section-Content-Intro">
                     <video autoplay muted playsinline loop>
@@ -246,10 +259,10 @@
         <div class="preFooterLayout">
             <div class="Container Container--small preFooterLayout-Grid">
                 <div class="preFooter-Info">
-                    <h2>V čem spočívají výhody Rezzy a ARC?</h2>
-                    <p>Rezzy je moderní rezervační systém, který funguje skvěle jak v létě, tak v zimě. S nafukovací halou, pevnou halou nebo bez haly. Pokrývá širokou škálu potřeb sportovních areálů.</p>
-                    <p>ARC je již druhá generace chytrého systému pro nafukovací haly Calypso, která umožňuje ovládat a kontrolovat Vaši nafukovací halu na dálku z pohodlí kanceláře či domova.</p>
-                    <p>To nejlepší ale přináší tyto dva systémy dohromady - kompletní automatizaci provozu Vaší haly na základě dat z rezervací. Díky tomu hala přesně ví kdy má topit, svítit a odemknout a vy se tak nemusíte o nic starat. To Vám zároveň uspoří až 30 % nákladů za energie ročně.</p>
+                    <h2><?php echo $url->getTranslate($urlLang)->Footer_header_h2 ?></h2>
+                    <p><?php echo $url->getTranslate($urlLang)->Footer_content_p1 ?></p>
+                    <p><?php echo $url->getTranslate($urlLang)->Footer_content_p2 ?></p>
+                    <p><?php echo $url->getTranslate($urlLang)->Footer_content_p3 ?></p>
                 </div>
                 <div class="preFooter-Image">
                     <img src="./images/calculator.svg" alt="">
@@ -281,7 +294,7 @@
     <footer class="Contact">
         <div class="Container Container--small">
             <div class="ContactBlock">
-                <h3>Kontakty:</h3>
+                <h3><?php echo $url->getTranslate($urlLang)->Contacts ?></h3>
                 <ul class="ContactBlock-List">
                     <li>
                         <span class="ContactBlock -name">Jakub Hůla</span>
