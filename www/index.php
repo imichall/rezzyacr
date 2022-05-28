@@ -65,9 +65,11 @@ $isPl = $urlLang === 'pl' ? true : false;
             </div>
             <div class="CardLayout-LeftBlock">
                 <div class="CardLayout-Brands">
-                    <div class="Brand-Logo">
-                        <img src="./images/Rezzy.png" alt="Rezzy" data-logo="rezzy">
-                    </div>
+                    <a href="https://rezzy.eu" target="_blank">
+                        <div class="Brand-Logo">
+                            <img src="./images/Rezzy.png" alt="Rezzy" data-logo="rezzy">
+                        </div>
+                    </a>
                     <span class="separator">+</span>
                     <div class="Brand-Logo">
                         <img src="./images/arc.svg" alt="Arc" data-logo="arc">
@@ -260,6 +262,15 @@ $isPl = $urlLang === 'pl' ? true : false;
             </div>
         </div>
 
+        <div class="CardLayout-Video">
+            <div class="Container Container--small">
+                <div class="-VideoBlock">
+                    <object data="https://www.youtube.com/embed/71NGr3UZbfc"></object>
+                    <!-- <iframe width="560" height="315" src="https://www.youtube.com/embed/71NGr3UZbfc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
+                </div>
+            </div>
+        </div>
+
         <div class="preFooterLayout">
             <div class="Container Container--small preFooterLayout-Grid">
                 <div class="preFooter-Info">
@@ -279,12 +290,16 @@ $isPl = $urlLang === 'pl' ? true : false;
         <div class="Container Container--small">
             <div class="Footer-Grid">
                 <div class="Brands">
-                    <div class="Brand-Logo">
-                        <img src="./images/Rezzy.png" alt="Rezzy" data-logo="rezzy">
-                    </div>
-                    <div class="Brand-Logo">
-                        <img src="./images/arc.svg" alt="Arc" data-logo="arc">
-                    </div>
+                    <a href="https://rezzy.eu" target="_blank">
+                        <div class="Brand-Logo">
+                            <img src="./images/Rezzy.png" alt="Rezzy" data-logo="rezzy">
+                        </div>
+                    </a>
+                    <a href="">
+                        <div class="Brand-Logo">
+                            <img src="./images/arc.svg" alt="Arc" data-logo="arc">
+                        </div>
+                    </a>
                 </div>
                 <div class="Brand-Links">
                     <a href="http://www.rezzy.eu" data-link="rezzy">www.rezzy.eu</a>

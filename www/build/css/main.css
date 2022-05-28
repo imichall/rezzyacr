@@ -346,6 +346,12 @@ a {
   border: 1px solid var(--border-gray);
   box-shadow: 0 10px 40px -15px rgba(0, 0, 0, 0.38);
   animation: cloudMove 6s ease-in-out infinite;
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+}
+.Brand-Logo:hover {
+  animation-play-state: paused;
+  box-shadow: 0 5px 10px -2px rgba(0, 0, 0, 0.48);
 }
 @media (min-width: 1024px) {
   .Brand-Logo {
@@ -399,6 +405,21 @@ span.separator {
 .CardLayout-Text .CardLayout-left p,
 .CardLayout-Text .CardLayout-right p {
   width: 100%;
+}
+
+.CardLayout-Video {
+  background-color: var(--black);
+}
+.CardLayout-Video .-VideoBlock {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 0;
+}
+.CardLayout-Video object {
+  width: 50%;
+  height: 50vh;
+  border-radius: 30px;
 }
 
 .Container {
@@ -643,6 +664,9 @@ span.separator {
     grid-template-areas: "Brands Links";
   }
 }
+.FooterLayout a:not(:last-child) {
+  margin-right: 50px;
+}
 .FooterLayout .Brands {
   grid-area: Brands;
   position: relative;
@@ -655,9 +679,6 @@ span.separator {
     justify-content: flex-start;
     transform: translateY(-60px);
   }
-}
-.FooterLayout .Brands .Brand-Logo:not(:last-child) {
-  margin-right: 50px;
 }
 .FooterLayout .Brand-Links {
   grid-area: Links;
