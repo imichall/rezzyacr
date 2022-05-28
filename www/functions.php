@@ -2,9 +2,12 @@
 
 class Translator {
 
-    function getTranslate($url) {
+    public $lang;
 
-        $json = __DIR__ . '/lang/' . $url . '.json';
+    function getTranslate($lang) {
+
+        $this->lang = $lang;
+        $json = __DIR__ . '/lang/' . $this->lang . '.json';
         $parsedJson = file_get_contents($json);
 
         if ($parsedJson === '') {
