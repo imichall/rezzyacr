@@ -10,6 +10,7 @@ Require all granted
 <IfModule mod_rewrite.c>
 	RewriteEngine On
 	# RewriteBase /
+	RewriteRule %{QUERY_STRING} ^lang=(.+)$
 
 	# use HTTPS
 	# RewriteCond %{HTTPS} !on

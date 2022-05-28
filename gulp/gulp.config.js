@@ -20,7 +20,7 @@ module.exports.project = [
             global_style: 'assets/scss/**/*.scss',
             main_style: 'assets/scss/main.scss',
             build_style: 'www/build/css',
-            app_dir: 'www/index.html',
+            app_dir: 'www/index.php',
         },
     },
 ];

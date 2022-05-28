@@ -74,6 +74,10 @@
         }
     }
 
+    a:not(:last-child) {
+        margin-right: 50px;
+    }
+
     .Brands {
         grid-area: Brands;
         position: relative;
@@ -93,10 +97,6 @@
         @include breakpoint.up(sm) {
             justify-content: flex-start;
             transform: translateY(-60px);
-        }
-
-        .Brand-Logo:not(:last-child) {
-            margin-right: 50px;
         }
     }
 

@@ -180,6 +180,13 @@
     border: 1px solid var(--border-gray);
     box-shadow: 0 10px 40px -15px rgba(0, 0, 0, 0.38);
     animation: cloudMove 6s ease-in-out infinite;
+    transition: all .2s ease-in-out;
+    cursor: pointer;
+
+    &:hover {
+        animation-play-state: paused;
+        box-shadow: 0 5px 10px -2px rgba(0, 0, 0, 0.48);
+    }
 
     @include breakpoint.up(sm) {
         width: 180px;
@@ -232,5 +239,22 @@ span.separator {
         p {
             width: 100%;
         }
+    }
+}
+
+.CardLayout-Video {
+    background-color: var(--black);
+
+    .-VideoBlock {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 40px 0
+    }
+
+    object {
+        width: 50%;
+        height: 50vh;
+        border-radius: 30px;
     }
 }
