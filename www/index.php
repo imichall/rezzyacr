@@ -262,14 +262,15 @@ $isPl = $urlLang === 'pl' ? true : false;
             </div>
         </div>
 
+        <?php if($isCz == true) {; ?>
         <div class="CardLayout-Video">
             <div class="Container Container--small">
                 <div class="-VideoBlock">
                     <object data="https://www.youtube.com/embed/71NGr3UZbfc"></object>
-                    <!-- <iframe width="560" height="315" src="https://www.youtube.com/embed/71NGr3UZbfc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
                 </div>
             </div>
         </div>
+        <?php } ?>
 
         <div class="preFooterLayout">
             <div class="Container Container--small preFooterLayout-Grid">
