@@ -25,7 +25,7 @@ $isPl = $urlLang === 'pl' ? true : false;
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="./build/css/main.css?cssbuild=1653845623865">
+    <link rel="stylesheet" href="./build/css/main.css?cssbuild=1653847714286">
     <link rel="apple-touch-icon" sizes="180x180" href="./favicon/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="./favicon/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="./favicon/favicon-16x16.png">
@@ -264,10 +264,8 @@ $isPl = $urlLang === 'pl' ? true : false;
 
         <?php if($isCz == true) {; ?>
         <div class="CardLayout-Video">
-            <div class="Container Container--small">
-                <div class="-VideoBlock">
-                    <object data="https://www.youtube.com/embed/71NGr3UZbfc"></object>
-                </div>
+            <div class="-VideoBlock">
+                <object data="https://www.youtube.com/embed/71NGr3UZbfc"></object>
             </div>
         </div>
         <?php } ?>
