@@ -103,7 +103,7 @@ window.onload = function () {
     lax.init()
 
     // Add a driver that we use to control our animations
-    lax.addDriver('scrollY', function () {
+    /* lax.addDriver('scrollY', function () {
       return window.scrollY
     })
 
@@ -115,5 +115,5 @@ window.onload = function () {
           [0, 'screenWidth/2', 'screenWidth'],
         ]
       }
-    })
+    }) */
   }

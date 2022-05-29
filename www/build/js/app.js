@@ -678,15 +678,18 @@
 	window.onload = function () {
 	  lax_min.init(); // Add a driver that we use to control our animations
 
-	  lax_min.addDriver('scrollY', function () {
-	    return window.scrollY;
-	  }); // Add animation bindings to elements
-
-	  lax_min.addElements('.Section-Content-Intro', {
+	  /* lax.addDriver('scrollY', function () {
+	    return window.scrollY
+	  })
+	   // Add animation bindings to elements
+	  lax.addElements('.Section-Content-Intro', {
 	    scrollY: {
-	      translateX: [["elInY", "elCenterY", "elOutY"], [0, 'screenWidth/2', 'screenWidth']]
+	      translateX: [
+	        ["elInY", "elCenterY", "elOutY"],
+	        [0, 'screenWidth/2', 'screenWidth'],
+	      ]
 	    }
-	  });
+	  }) */
 	};
 
 })));
