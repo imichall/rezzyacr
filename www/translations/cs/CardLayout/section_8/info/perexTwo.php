@@ -1,0 +1,1 @@
+Vy se tak nemusíte o Vaší halu starat, my se postaráme za Vás.

@@ -1,0 +1,1 @@
+Moderní rezervační systém Rezzy dokáže na základě rezervací spočítat, kdy je které hřiště obsazené. Tato data při každé změně zasílá systému ARC, který zcela automaticky řídí vytápění, osvětlení a zamykání Vaší nafukovací haly. Vy se tak nemusíte o nic starat.

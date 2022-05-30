@@ -1,0 +1,1 @@
+Rezzy navíc umožňuje nastavit interval, kdy se má topit či svítit po skončení rezervace, či zamknout halu s nastaveným zpožděním. To umožní Vašim klientům po konci své hodiny v klidu odejít.

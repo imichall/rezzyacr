@@ -1,0 +1,1 @@
+Celý proces začíná tím, že si Váš zákazník rezervuje hodinu přes moderní rezervační systém Rezzy. To může provést jak z počítače, tak přes mobilní aplikaci pro telefon nebo tablet.

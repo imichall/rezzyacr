@@ -1,0 +1,1 @@
+To nejlepší ale přináší tyto dva systémy dohromady - kompletní automatizaci provozu Vaší haly na základě dat z rezervací. Díky tomu hala přesně ví kdy má topit, svítit a odemknout a vy se tak nemusíte o nic starat. To Vám zároveň uspoří až 30 % nákladů za energie ročně.

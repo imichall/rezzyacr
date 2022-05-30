@@ -1,0 +1,1 @@
+Jakmile Rezzy zjistí, že se změnil rozvrh, spočítá aktuální obsazenost v hale, ale i na jednotlivých hřištích. Díky tomu ví, kdy se v hale bude hrát pro potřeby topení, a který kurt bude kdy obsazený kvůli svícení.

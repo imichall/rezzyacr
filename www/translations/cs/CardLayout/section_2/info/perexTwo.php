@@ -1,0 +1,1 @@
+Stejně tak můžete změnu v rozvrhu provést Vy, jakožto provozovatel sportovního areálu. Rezzy Vás nijak neomezuje, práci Vám naopak usnadňuje.

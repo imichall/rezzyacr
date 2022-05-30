@@ -1,0 +1,1 @@
+Hala se rozsvítí a odemkne

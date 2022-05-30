@@ -1,0 +1,1 @@
+Díky pokročilé umělé inteligenci řídící vytápění, včetně systému pro předzátop, se ve vaší hale topí a svítí skutečně jen tehdy, kdy je to potřeba. Díky tomu je možné dosáhnout úspory na energiích až 30 %.

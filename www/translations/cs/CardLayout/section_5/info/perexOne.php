@@ -1,0 +1,1 @@
+Ve chvíli, kdy zákazníci přicházejí, se v hale rozsvítí obsazené kurty a odemkne se zámek dveří. To je možné nastavit v začátek rezervace, 5 minut předem nebo tak, jak to vyhovuje právě Vám.

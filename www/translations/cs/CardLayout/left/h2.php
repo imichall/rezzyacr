@@ -1,1 +1,0 @@
-Začínáme <?php echo date('H:i:s') // muzes pouzivat i PHP ;) ?>

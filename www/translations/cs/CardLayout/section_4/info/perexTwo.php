@@ -1,0 +1,1 @@
+To ale není všechno, jakmile je vytápění spuštěno, vezme si slovo umělá inteligence. Ta optimalizuje režim topení tak, aby snižovala spotřebu a zvyšovala komfort v hale když se vytápí nebo již udržuje požadovanou teplotu.

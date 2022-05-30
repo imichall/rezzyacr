@@ -1,0 +1,1 @@
+Skončil ranní blok rezervací a další jsou až po obědě? Je večer a doběhla poslední hodina? Hala topení vypne jakmile rezervace skončí. Nemusíte myslet na to, abyste topení nezapomněli vypnout.
