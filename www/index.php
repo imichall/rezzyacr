@@ -83,7 +83,7 @@ $isPl = $selectedLang === 'pl' ? true : false;
                     </a>
                 </div>
                 <div class="CardLayout-Content">
-                    <h1><?php echo $t->_('CardLayout.section_1.mainHeader') ?></h1>
+                    <h1><?php echo $t->_('CardLayout.section-1.mainHeader') ?></h1>
 
                     <div class="CardLayout-Intro">
                         <video autoplay muted playsinline loop>
@@ -93,12 +93,12 @@ $isPl = $selectedLang === 'pl' ? true : false;
 
                     <div class="CardLayout-Text">
                         <div class="CardLayout-left">
-                            <h2><?php echo $t->_('CardLayout.section_1.left.title') ?></h2>
-                            <p><?php echo $t->_('CardLayout.section_1.left.perex') ?></p>
+                            <h2><?php echo $t->_('CardLayout.section-1.left.title') ?></h2>
+                            <p><?php echo $t->_('CardLayout.section-1.left.perex') ?></p>
                         </div>
                         <div class="CardLayout-right">
-                            <h2><?php echo $t->_('CardLayout.section_1.right.title') ?></h2>
-                            <p><?php echo $t->_('CardLayout.section_1.right.perex') ?></p>
+                            <h2><?php echo $t->_('CardLayout.section-1.right.title') ?></h2>
+                            <p><?php echo $t->_('CardLayout.section-1.right.perex') ?></p>
                         </div>
                     </div>
 
@@ -115,11 +115,11 @@ $isPl = $selectedLang === 'pl' ? true : false;
                     <span class="Counter-dot"></span>
                 </div>
                 <div class="Section-Content-Title">
-                    <h2 data-title="two"><?php echo $t->_('CardLayout.Section_2.title.title') ?></h2>
+                    <h2 data-title="two"><?php echo $t->_('CardLayout.Section-2.title.title') ?></h2>
                 </div>
                 <div class="Section-Content-Info">
-                    <p><?php echo $t->_('CardLayout.Section_2.info.perexOne') ?></p>
-                    <p><?php echo $t->_('CardLayout.Section_2.info.perexTwo') ?></p>
+                    <p><?php echo $t->_('CardLayout.Section-2.info.perexOne') ?></p>
+                    <p><?php echo $t->_('CardLayout.Section-2.info.perexTwo') ?></p>
                 </div>
                 <div class="Section-Content-Intro">
                     <video autoplay muted playsinline loop>
@@ -136,11 +136,11 @@ $isPl = $selectedLang === 'pl' ? true : false;
                     <span class="Counter-dot"></span>
                 </div>
                 <div class="Section-Content-Title">
-                    <h2 data-title="three"><?php echo $t->_('CardLayout.Section_3.title.title') ?></h2>
+                    <h2 data-title="three"><?php echo $t->_('CardLayout.Section-3.title.title') ?></h2>
                 </div>
                 <div class="Section-Content-Info">
-                    <p><?php echo $t->_('CardLayout.Section_3.info.perexOne') ?></p>
-                    <p><?php echo $t->_('CardLayout.Section_3.info.perexTwo') ?></p>
+                    <p><?php echo $t->_('CardLayout.Section-3.info.perexOne') ?></p>
+                    <p><?php echo $t->_('CardLayout.Section-3.info.perexTwo') ?></p>
                 </div>
                 <div class="Section-Content-Intro">
                     <video autoplay muted playsinline loop>
@@ -158,11 +158,11 @@ $isPl = $selectedLang === 'pl' ? true : false;
                     <span class="Counter-dot"></span>
                 </div>
                 <div class="Section-Content-Title">
-                    <h2 data-title="four"><?php echo $t->_('CardLayout.Section_4.title.title') ?></h2>
+                    <h2 data-title="four"><?php echo $t->_('CardLayout.Section-4.title.title') ?></h2>
                 </div>
                 <div class="Section-Content-Info">
-                    <p><?php echo $t->_('CardLayout.Section_4.info.perexOne') ?></p>
-                    <p><?php echo $t->_('CardLayout.Section_4.info.perexTwo') ?></p>
+                    <p><?php echo $t->_('CardLayout.Section-4.info.perexOne') ?></p>
+                    <p><?php echo $t->_('CardLayout.Section-4.info.perexTwo') ?></p>
                 </div>
                 <div class="Section-Content-Intro">
                     <video autoplay muted playsinline loop>
@@ -181,10 +181,10 @@ $isPl = $selectedLang === 'pl' ? true : false;
                     <span class="Counter-dot"></span>
                 </div>
                 <div class="Section-Content-Title">
-                    <h2 data-title="five"><?php echo $t->_('CardLayout.Section_5.title.title') ?></h2>
+                    <h2 data-title="five"><?php echo $t->_('CardLayout.Section-5.title.title') ?></h2>
                 </div>
                 <div class="Section-Content-Info">
-                    <p><?php echo $t->_('CardLayout.Section_5.info.perexOne') ?></p>
+                    <p><?php echo $t->_('CardLayout.Section-5.info.perexOne') ?></p>
                 </div>
                 <div class="Section-Content-Intro">
                     <video autoplay muted playsinline loop>
@@ -204,11 +204,11 @@ $isPl = $selectedLang === 'pl' ? true : false;
                     <span class="Counter-dot"></span>
                 </div>
                 <div class="Section-Content-Title">
-                    <h2 data-title="six"><?php echo $t->_('CardLayout.Section_6.title.title') ?></h2>
+                    <h2 data-title="six"><?php echo $t->_('CardLayout.Section-6.title.title') ?></h2>
                 </div>
                 <div class="Section-Content-Info">
-                    <p><?php echo $t->_('CardLayout.Section_6.info.perexOne') ?></p>
-                    <p><?php echo $t->_('CardLayout.Section_6.info.perexTwo') ?></p>
+                    <p><?php echo $t->_('CardLayout.Section-6.info.perexOne') ?></p>
+                    <p><?php echo $t->_('CardLayout.Section-6.info.perexTwo') ?></p>
                 </div>
                 <div class="Section-Content-Intro">
                     <video autoplay muted playsinline loop>
@@ -229,10 +229,10 @@ $isPl = $selectedLang === 'pl' ? true : false;
                     <span class="Counter-dot"></span>
                 </div>
                 <div class="Section-Content-Title">
-                    <h2 data-title="seven"><?php echo $t->_('CardLayout.Section_7.title.title') ?></h2>
+                    <h2 data-title="seven"><?php echo $t->_('CardLayout.Section-7.title.title') ?></h2>
                 </div>
                 <div class="Section-Content-Info">
-                    <p><?php echo $t->_('CardLayout.Section_7.info.perexOne') ?></p>
+                    <p><?php echo $t->_('CardLayout.Section-7.info.perexOne') ?></p>
                 </div>
                 <div class="Section-Content-Intro">
                     <video autoplay muted playsinline loop>
@@ -254,11 +254,11 @@ $isPl = $selectedLang === 'pl' ? true : false;
                     <span class="Counter-dot"></span>
                 </div>
                 <div class="Section-Content-Title">
-                    <h2 data-title="eight"><?php echo $t->_('CardLayout.Section_8.title.title') ?></h2>
+                    <h2 data-title="eight"><?php echo $t->_('CardLayout.Section-8.title.title') ?></h2>
                 </div>
                 <div class="Section-Content-Info">
-                    <p><?php echo $t->_('CardLayout.Section_8.info.perexOne') ?></p>
-                    <p><?php echo $t->_('CardLayout.Section_8.info.perexTwo') ?></p>
+                    <p><?php echo $t->_('CardLayout.Section-8.info.perexOne') ?></p>
+                    <p><?php echo $t->_('CardLayout.Section-8.info.perexTwo') ?></p>
                 </div>
                 <div class="Section-Content-Intro">
                     <video autoplay muted playsinline loop>
