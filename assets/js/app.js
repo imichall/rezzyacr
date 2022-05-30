@@ -1,5 +1,5 @@
 import tinyTypewriter from "tiny-typewriter";
-import lax from 'lax.js'
+import gsap from "gsap";
 
 window.addEventListener("load", videoScroll);
 window.addEventListener("scroll", videoScroll);
@@ -28,18 +28,18 @@ function videoScroll() {
 
 const typewritter = document.querySelectorAll("h2[data-title]");
 
-typewritter.forEach((el) => {
-    if (el.getAttribute(["data-title"]) == el.getAttribute(["data-title"])) {
-        let text = el.textContent;
-        tinyTypewriter(el, {
-            items: [text],
-            cursor: false,
-            typeSpeed: 100,
-            deleteSpeed: 30,
-            loop: true,
-        });
-    }
-});
+// typewritter.forEach((el) => {
+//     if (el.getAttribute(["data-title"]) == el.getAttribute(["data-title"])) {
+//         let text = el.textContent;
+//         tinyTypewriter(el, {
+//             items: [text],
+//             cursor: false,
+//             typeSpeed: 100,
+//             deleteSpeed: 30,
+//             loop: true,
+//         });
+//     }
+// });
 
 document.querySelectorAll('a[href^="#"]').forEach((trigger) => {
     trigger.onclick = function (e) {
@@ -59,26 +59,45 @@ document.querySelectorAll('a[href^="#"]').forEach((trigger) => {
 
 const sections = document.querySelectorAll("div[data-section]");
 const navLi = document.querySelectorAll(".Navigation-list.-menu li");
-const perexItems = [...document.querySelectorAll('.Section-Content-Info')];
+// const sectionTitle = [...document.querySelectorAll(".Section-Content-Title")];
+// const sectionPerex = [...document.querySelectorAll(".Section-Content-Info")];
 
-let options = {
-    rootMargin: '-10%',
-    thresHold: 0.0
-};
+// let options = {
+//     rootMargin: "-40px",
+//     thresHold: 0.75,
+// };
 
-let observer = new IntersectionObserver(showItem, options);
+// let sTitle = new IntersectionObserver(showTitle, options);
+// let sPerex = new IntersectionObserver(showPerex, options);
 
-function showItem(entries) {
-    entries.forEach(entry => {
-        if(entry.isIntersecting) {
-            entry.target.classList.add('-show');
-        }
-    })
-};
+// function showPerex(entries) {
+//     entries.forEach((entry) => {
+//         if (entry.isIntersecting) {
+//             entry.target.classList.add("-show");
+//         } else {
+//             entry.target.classList.remove("-show");
+//         }
+//     });
+// }
 
-perexItems.forEach(item => {
-    observer.observe(item);
-});
+// function showTitle(entries) {
+//     entries.forEach((entry) => {
+//         console.log(entry.boundingClientRect);
+//         if (entry.isIntersecting) {
+//             entry.target.classList.add("-show");
+//         } else {
+//             entry.target.classList.remove("-show");
+//         }
+//     });
+// }
+
+// sectionPerex.forEach((item) => {
+//     sPerex.observe(item);
+// });
+
+// sectionTitle.forEach((item) => {
+//     sTitle.observe(item);
+// });
 
 window.onscroll = () => {
     let current = "";
@@ -99,21 +118,34 @@ window.onscroll = () => {
     });
 };
 
-window.onload = function () {
-    lax.init()
+console.clear();
 
-    // Add a driver that we use to control our animations
-    /* lax.addDriver('scrollY', function () {
-      return window.scrollY
-    })
+const container = document.querySelector(".Section-Content");
+const wrappers = document.querySelectorAll(".mainSection");
+const imgs = document.querySelectorAll(".Section-Content-Title");
+const animClasses = ["fadeInLeft", "fadeInRight"];
+const observer = new IntersectionObserver(
+    (entries, observer) => {
+        entries.forEach((entry) => {
+            const currentIndex = Array.from(wrappers).indexOf(entry.target);
+            console.log(Array.from(wrappers));
+            if (entry.isIntersecting) {
+                imgs[currentIndex].classList.add(animClasses[currentIndex]);
+            } else {
+                if (entry.boundingClientRect.y > 0) {
+                    imgs[currentIndex].classList.remove(
+                        animClasses[currentIndex]
+                    );
+                }
+            }
+        });
+    },
+    {
+        root: container,
+        threshold: 0.1,
+    }
+);
 
-    // Add animation bindings to elements
-    lax.addElements('.Section-Content-Intro', {
-      scrollY: {
-        translateX: [
-          ["elInY", "elCenterY", "elOutY"],
-          [0, 'screenWidth/2', 'screenWidth'],
-        ]
-      }
-    }) */
-  }
+wrappers.forEach((wrapper) => {
+    observer.observe(wrapper);
+});

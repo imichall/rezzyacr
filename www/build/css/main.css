@@ -864,10 +864,14 @@ span.separator {
   justify-content: end;
   text-align: right;
 }
+.Section-Content .Section-Data:nth-child(even) .Section-Content-Title.fadeInLeft {
+  transform: translateZ(0) translateY(0);
+  opacity: 1;
+}
 .Section-Content .Section-Data:nth-child(even) .Section-Content-Info {
   justify-items: end;
   text-align: right;
-  opacity: 0;
+  opacity: 1;
   transform: translateZ(30px) translateY(30px);
   transition: all 0.5s ease-in-out;
 }
@@ -981,6 +985,21 @@ span.separator {
   align-items: start;
   flex: 1;
   min-height: 120px;
+  opacity: 1;
+  transform: translateZ(30px) translateY(30px);
+  transition: all 0.5s ease-in-out;
+}
+.Section-Content .Section-Content-Title.-show {
+  opacity: 1;
+  transform: translateZ(0) translateY(0);
+}
+.Section-Content .Section-Content-Title .fadeInLeft {
+  transform: translateZ(0) translateY(0);
+  opacity: 1;
+}
+.Section-Content .Section-Content-Title .fadeInRight {
+  transform: translateX(0px);
+  opacity: 1;
 }
 .Section-Content .Section-Content-Title span {
   font-size: 40px;
@@ -997,13 +1016,17 @@ span.separator {
   display: flex;
   flex-direction: column;
   flex: 2;
-  opacity: 0;
+  opacity: 1;
   transform: translateZ(30px) translateY(30px);
   transition: all 0.5s ease-in-out;
 }
 .Section-Content .Section-Content-Info.-show {
   opacity: 1;
   transform: translateZ(0) translateY(0);
+}
+.Section-Content .Section-Content-Info.fadeInLeft {
+  transform: translateZ(0) translateY(0);
+  opacity: 1;
 }
 .Section-Content .Section-Content-Info p {
   font-family: "Open Sans";
