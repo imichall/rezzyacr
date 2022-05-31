@@ -1,0 +1,1 @@
+O vše je postaráno

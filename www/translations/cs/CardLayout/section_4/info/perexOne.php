@@ -1,0 +1,1 @@
+V momentě kdy ARC obdrží data o obsazenosti aktivuje funkci předzátopu. Ta hlídá aktuální venkovní podmínky, požadovanou teplotu a aktuální vnitřní teplotu. Z těchto hodnot dokáže na základě auto adaptivní funkce spočítat optimální čas pro zapnutí vytápění v daný moment. Vy už tak nemusíte hlídat jestli je dnes venku 5 °C nebo -10 °C a podle toho pouštět topení.

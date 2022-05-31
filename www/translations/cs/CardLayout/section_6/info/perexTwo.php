@@ -1,0 +1,1 @@
+Nemáte recepci? Nevadí. Díky automatickému zámku už ani nemusíte řešit, aby správce ráno dojel odemknout a zatopit, dopoledne zamknout a topení vypnout a odpoledne vše opakoval. Díky našemu systému se Váš areál může stát bezobslužným.

@@ -1,0 +1,1 @@
+Po odehrání se topení vypne

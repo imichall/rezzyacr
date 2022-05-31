@@ -1,0 +1,21 @@
+span[contenteditable] {
+    border: 1px dotted var(--green);
+}
+
+#Toaster {
+    position: fixed;
+    display: none;
+    top: 0;
+    right: 0;
+    padding: 1.25rem;
+    background: var(--green);
+    font-family: 'Lato', sans-serif;
+    font-weight: 600;
+    color: var(--white);
+    z-index: 999;
+    box-shadow: -5px 5px 0 1px rgba(#004627, 1);
+}
+
+#Toaster.-Show {
+    display: block;
+}

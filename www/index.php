@@ -1,16 +1,37 @@
 <?php
-include('./functions.php');
-$urlLang = $_GET['lang'];
+require './libs/Translator.php';
 
-$url = new Translator();
+session_start();
 
-if (!$urlLang) {
-    $urlLang = 'cs';
+if (isset($_SESSION['admin']) && isset($_GET['logout'])) {
+    $_SESSION['admin'] = [];
+    session_regenerate_id(); // ochrana před session fixation
+
+    header('location: /', TRUE, 303);
+    exit;
 }
 
-$isCz = $urlLang === 'cs' ? true : false;
-$isEn = $urlLang === 'en' ? true : false;
-$isPl = $urlLang === 'pl' ? true : false;
+$defaultLang = 'cs';
+$langsWhiteList = ['cs', 'en', 'pl'];
+
+$selectedLang = isset($_GET['lang']) ? $_GET['lang'] : $defaultLang;
+
+if (!in_array($selectedLang, $langsWhiteList)) {
+    header('location: /');
+    exit;
+}
+
+
+$t = new \Model\Translator($selectedLang);
+if ($_SESSION['admin'] == 1) {
+    $t->setEditMode(true); // false | true
+} else {
+    $t->setEditMode(false); // false | true
+}
+
+$isCz = $selectedLang === 'cs' ? true : false;
+$isEn = $selectedLang === 'en' ? true : false;
+$isPl = $selectedLang === 'pl' ? true : false;
 
 ?>
 
@@ -25,7 +46,7 @@ $isPl = $urlLang === 'pl' ? true : false;
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="./build/css/main.css?cssbuild=1654027820387">
+    <link rel="stylesheet" href="./build/css/main.css?cssbuild=1654027925309">
     <link rel="apple-touch-icon" sizes="180x180" href="./favicon/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="./favicon/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="./favicon/favicon-16x16.png">
@@ -49,6 +70,9 @@ $isPl = $urlLang === 'pl' ? true : false;
                 <li class="six"><a href="#six">06</a></li>
                 <li class="seven"><a href="#seven">07</a></li>
                 <li class="eight"><a href="#eight">08</a></li>
+                <?php if($_SESSION['admin'] == 1) { ?>
+                    <li class="admin"><a href="?logout">LOGOUT</a></li>
+                <?php } ?>
             </ul>
             <ul class="Navigation-list -lang">
                 <li class="cs <?php if($isCz == true) echo 'active'; ?>"><a href="/">CZ</a></li>
@@ -71,12 +95,14 @@ $isPl = $urlLang === 'pl' ? true : false;
                         </div>
                     </a>
                     <span class="separator">+</span>
-                    <div class="Brand-Logo">
-                        <img src="./images/arc.svg" alt="Arc" data-logo="arc">
-                    </div>
+                    <a href="https://Arc2.calypso.eu" target="_blank">
+                        <div class="Brand-Logo">
+                            <img src="./images/arc.svg" alt="Arc" data-logo="arc">
+                        </div>
+                    </a>
                 </div>
                 <div class="CardLayout-Content">
-                    <h1><?php echo $url->getTranslate($urlLang)->CardLayout_Content ?></h1>
+                    <h1><?php echo $t->_('CardLayout.section_1.mainHeader') ?></h1>
 
                     <div class="CardLayout-Intro">
                         <video autoplay muted playsinline loop>
@@ -86,12 +112,12 @@ $isPl = $urlLang === 'pl' ? true : false;
 
                     <div class="CardLayout-Text">
                         <div class="CardLayout-left">
-                            <h2><?php echo $url->getTranslate($urlLang)->CardLayout_left_h2 ?></h2>
-                            <p><?php echo $url->getTranslate($urlLang)->CardLayout_left_p ?></p>
+                            <h2><?php echo $t->_('CardLayout.section_1.left.title') ?></h2>
+                            <p><?php echo $t->_('CardLayout.section_1.left.perex') ?></p>
                         </div>
                         <div class="CardLayout-right">
-                            <h2><?php echo $url->getTranslate($urlLang)->CardLayout_right_h2 ?></h2>
-                            <p><?php echo $url->getTranslate($urlLang)->CardLayout_right_p ?></p>
+                            <h2><?php echo $t->_('CardLayout.section_1.right.title') ?></h2>
+                            <p><?php echo $t->_('CardLayout.section_1.right.perex') ?></p>
                         </div>
                     </div>
 
@@ -108,11 +134,11 @@ $isPl = $urlLang === 'pl' ? true : false;
                     <span class="Counter-dot"></span>
                 </div>
                 <div class="Section-Content-Title">
-                    <h2 data-title="two"><?php echo $url->getTranslate($urlLang)->Section_2_h2 ?></h2>
+                    <h2 data-title="two"><?php echo $t->_('CardLayout.section_2.title.title') ?></h2>
                 </div>
                 <div class="Section-Content-Info">
-                    <p><?php echo $url->getTranslate($urlLang)->Section_2_info_p1 ?></p>
-                    <p><?php echo $url->getTranslate($urlLang)->Section_2_info_p2 ?></p>
+                    <p><?php echo $t->_('CardLayout.section_2.info.perexOne') ?></p>
+                    <p><?php echo $t->_('CardLayout.section_2.info.perexTwo') ?></p>
                 </div>
                 <div class="Section-Content-Intro">
                     <video autoplay muted playsinline loop>
@@ -129,12 +155,11 @@ $isPl = $urlLang === 'pl' ? true : false;
                     <span class="Counter-dot"></span>
                 </div>
                 <div class="Section-Content-Title">
-                    <h2 data-title="three"><?php echo $url->getTranslate($urlLang)->Section_3_h2 ?></h2>
+                    <h2 data-title="three"><?php echo $t->_('CardLayout.section_3.title.title') ?></h2>
                 </div>
                 <div class="Section-Content-Info">
-                    <p><?php echo $url->getTranslate($urlLang)->Section_3_info_p1 ?></p>
-                    <p><?php echo $url->getTranslate($urlLang)->Section_3_info_p2 ?></p>
-                    <p><?php echo $url->getTranslate($urlLang)->Section_3_info_p3 ?></p>
+                    <p><?php echo $t->_('CardLayout.section_3.info.perexOne') ?></p>
+                    <p><?php echo $t->_('CardLayout.section_3.info.perexTwo') ?></p>
                 </div>
                 <div class="Section-Content-Intro">
                     <video autoplay muted playsinline loop>
@@ -152,11 +177,11 @@ $isPl = $urlLang === 'pl' ? true : false;
                     <span class="Counter-dot"></span>
                 </div>
                 <div class="Section-Content-Title">
-                    <h2 data-title="four"><?php echo $url->getTranslate($urlLang)->Section_4_h2 ?></h2>
+                    <h2 data-title="four"><?php echo $t->_('CardLayout.section_4.title.title') ?></h2>
                 </div>
                 <div class="Section-Content-Info">
-                    <p><?php echo $url->getTranslate($urlLang)->Section_4_info_p1 ?></p>
-                    <p><?php echo $url->getTranslate($urlLang)->Section_4_info_p2 ?></p>
+                    <p><?php echo $t->_('CardLayout.section_4.info.perexOne') ?></p>
+                    <p><?php echo $t->_('CardLayout.section_4.info.perexTwo') ?></p>
                 </div>
                 <div class="Section-Content-Intro">
                     <video autoplay muted playsinline loop>
@@ -175,10 +200,10 @@ $isPl = $urlLang === 'pl' ? true : false;
                     <span class="Counter-dot"></span>
                 </div>
                 <div class="Section-Content-Title">
-                    <h2 data-title="five"><?php echo $url->getTranslate($urlLang)->Section_5_h2 ?></h2>
+                    <h2 data-title="five"><?php echo $t->_('CardLayout.section_5.title.title') ?></h2>
                 </div>
                 <div class="Section-Content-Info">
-                    <p><?php echo $url->getTranslate($urlLang)->Section_5_info_p1 ?></p>
+                    <p><?php echo $t->_('CardLayout.section_5.info.perexOne') ?></p>
                 </div>
                 <div class="Section-Content-Intro">
                     <video autoplay muted playsinline loop>
@@ -198,11 +223,11 @@ $isPl = $urlLang === 'pl' ? true : false;
                     <span class="Counter-dot"></span>
                 </div>
                 <div class="Section-Content-Title">
-                    <h2 data-title="six"><?php echo $url->getTranslate($urlLang)->Section_6_h2 ?></h2>
+                    <h2 data-title="six"><?php echo $t->_('CardLayout.section_6.title.title') ?></h2>
                 </div>
                 <div class="Section-Content-Info">
-                    <p><?php echo $url->getTranslate($urlLang)->Section_6_info_p1 ?></p>
-                    <p><?php echo $url->getTranslate($urlLang)->Section_6_info_p2 ?></p>
+                    <p><?php echo $t->_('CardLayout.section_6.info.perexOne') ?></p>
+                    <p><?php echo $t->_('CardLayout.section_6.info.perexTwo') ?></p>
                 </div>
                 <div class="Section-Content-Intro">
                     <video autoplay muted playsinline loop>
@@ -223,10 +248,10 @@ $isPl = $urlLang === 'pl' ? true : false;
                     <span class="Counter-dot"></span>
                 </div>
                 <div class="Section-Content-Title">
-                    <h2 data-title="seven"><?php echo $url->getTranslate($urlLang)->Section_7_h2 ?></h2>
+                    <h2 data-title="seven"><?php echo $t->_('CardLayout.section_7.title.title') ?></h2>
                 </div>
                 <div class="Section-Content-Info">
-                    <p><?php echo $url->getTranslate($urlLang)->Section_7_info_p1 ?></p>
+                    <p><?php echo $t->_('CardLayout.section_7.info.perexOne') ?></p>
                 </div>
                 <div class="Section-Content-Intro">
                     <video autoplay muted playsinline loop>
@@ -248,11 +273,11 @@ $isPl = $urlLang === 'pl' ? true : false;
                     <span class="Counter-dot"></span>
                 </div>
                 <div class="Section-Content-Title">
-                    <h2 data-title="eight"><?php echo $url->getTranslate($urlLang)->Section_8_h2 ?></h2>
+                    <h2 data-title="eight"><?php echo $t->_('CardLayout.section_8.title.title') ?></h2>
                 </div>
                 <div class="Section-Content-Info">
-                    <p><?php echo $url->getTranslate($urlLang)->Section_8_info_p1 ?></p>
-                    <p><?php echo $url->getTranslate($urlLang)->Section_8_info_p2 ?></p>
+                    <p><?php echo $t->_('CardLayout.section_8.info.perexOne') ?></p>
+                    <p><?php echo $t->_('CardLayout.section_8.info.perexTwo') ?></p>
                 </div>
                 <div class="Section-Content-Intro">
                     <video autoplay muted playsinline loop>
@@ -273,10 +298,10 @@ $isPl = $urlLang === 'pl' ? true : false;
         <div class="preFooterLayout">
             <div class="Container Container--small preFooterLayout-Grid">
                 <div class="preFooter-Info">
-                    <h2><?php echo $url->getTranslate($urlLang)->Footer_header_h2 ?></h2>
-                    <p><?php echo $url->getTranslate($urlLang)->Footer_content_p1 ?></p>
-                    <p><?php echo $url->getTranslate($urlLang)->Footer_content_p2 ?></p>
-                    <p><?php echo $url->getTranslate($urlLang)->Footer_content_p3 ?></p>
+                    <h2><?php echo $t->_('Footer.title.title') ?></h2>
+                    <p><?php echo $t->_('Footer.info.perexOne') ?></p>
+                    <p><?php echo $t->_('Footer.info.perexTwo') ?></p>
+                    <p><?php echo $t->_('Footer.info.perexThree') ?></p>
                 </div>
                 <div class="preFooter-Image">
                     <img src="./images/calculator.svg" alt="">
@@ -294,7 +319,7 @@ $isPl = $urlLang === 'pl' ? true : false;
                             <img src="./images/Rezzy.png" alt="Rezzy" data-logo="rezzy">
                         </div>
                     </a>
-                    <a href="">
+                    <a href="https://Arc2.calypso.eu" target="_blank">
                         <div class="Brand-Logo">
                             <img src="./images/arc.svg" alt="Arc" data-logo="arc">
                         </div>
@@ -312,7 +337,7 @@ $isPl = $urlLang === 'pl' ? true : false;
     <footer class="Contact">
         <div class="Container Container--small">
             <div class="ContactBlock">
-                <h3><?php echo $url->getTranslate($urlLang)->Contacts ?></h3>
+                <h3><?php echo $t->_('Footer.contacts.contacts') ?></h3>
                 <ul class="ContactBlock-List">
                     <li>
                         <span class="ContactBlock -name">Jakub Hůla</span>
@@ -349,7 +374,17 @@ $isPl = $urlLang === 'pl' ? true : false;
         </div>
     </footer>
 
+    <div id="Toaster"></div>
+
     <script type="module" src="build/js/app.js"></script>
+    <?php
+        if ($t->canEdit()) {
+    ?>
+    <script type="module" src="build/js/custom.js"></script>
+    <?php
+    }
+    ?>
+
 
 </body>
 

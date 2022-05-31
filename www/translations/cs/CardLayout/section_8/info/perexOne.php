@@ -1,0 +1,1 @@
+Hala počká než se klienti pohodlně sbalí a převlečou, po 5 minutách zhasne a za dalších 5 minut se zamkne. Záleží jen na Vašem nastavení.

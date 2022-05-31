@@ -1,0 +1,1 @@
+Rezzy je moderní rezervační systém, který funguje skvěle jak v létě, tak v zimě. S nafukovací halou, pevnou halou nebo bez haly. Pokrývá širokou škálu potřeb sportovních areálů.

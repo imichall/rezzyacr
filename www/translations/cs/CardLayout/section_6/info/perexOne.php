@@ -1,0 +1,1 @@
+Zatímco klient hraje, Vy se nemusíte o nic starat. Můžete pustit z hlavy sledování hodin a strachování se, abyste nezapomněli včas rozsvítit další kurt nebo vypnout topení. Můžete se v klidu věnovat obsluze dalších zákazníků.
