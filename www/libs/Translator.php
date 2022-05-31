@@ -13,6 +13,11 @@ class Translator
      */
     private $translationPath;
 
+    /**
+     * @var boolean
+     */
+    private $editMode = false;
+
     public function __construct($lang, $translationPath = './translations')
     {
         $this->lang = $lang;
@@ -25,10 +30,16 @@ class Translator
      */
     public function translate($term)
     {
+
         $content = $this->loadFile($term);
         if (!$content) {
-            return '{{ ' . $term . ' }}';
+            $content =  '{{ ' . $term . ' }}';
         }
+
+        if ($this->editMode) {
+            $content = '<span contenteditable="true" class="InlineEditation" data-file="'.$term.'" data-lang="'.$this->lang.'">' . $content . '</span>';
+        }
+
         return $content;
     }
 
@@ -53,5 +64,21 @@ class Translator
         }
 
         return null;
+    }
+
+
+    /**
+     * @param boolean $state
+     * @return void
+     */
+    public function setEditMode($state = false)
+    {
+        $this->editMode = $state;
+    }
+
+
+    public function canEdit()
+    {
+        return $this->editMode;
     }
 }

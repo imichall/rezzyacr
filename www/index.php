@@ -11,7 +11,9 @@ if (!in_array($selectedLang, $langsWhiteList)) {
     exit;
 }
 
+
 $t = new \Model\Translator($selectedLang);
+$t->setEditMode(true); // false | true
 
 $isCz = $selectedLang === 'cs' ? true : false;
 $isEn = $selectedLang === 'en' ? true : false;
@@ -39,6 +41,26 @@ $isPl = $selectedLang === 'pl' ? true : false;
     <meta name="msapplication-TileColor" content="#2d89ef">
     <meta name="theme-color" content="#ffffff">
     <title>Rezzy + Arc</title>
+    <style>
+        span[contenteditable] {
+            border: 1px dotted;
+        }
+
+        #Toaster {
+            position: fixed;
+            bottom: 0;
+            right: 0;
+            padding: 1.25rem;
+            background: limegreen;
+            color: #fff;
+            display: none;
+        }
+
+        #Toaster.-Show {
+            display: block;
+        }
+
+    </style>
 </head>
 
 <body>
@@ -355,7 +377,51 @@ $isPl = $selectedLang === 'pl' ? true : false;
         </div>
     </footer>
 
+    <div id="Toaster"></div>
+
     <script type="module" src="build/js/app.js"></script>
+    <?php
+if ($t->canEdit()) {
+?>
+    <script>
+        const inlineEditationElems = document.querySelectorAll('.InlineEditation');
+        const debug = document.getElementById('Toaster');
+
+        inlineEditationElems.forEach(elem => {
+            elem.onblur = () => {
+
+                postData('saveTranslation.php', {
+                    lang: elem.getAttribute('data-lang'),
+                    file: elem.getAttribute('data-file'),
+                    content: elem.innerHTML
+                }).then(data => {
+                    debug.classList.add('-Show');
+                    debug.innerHTML = `Stav: ${data.state} <br />
+                    Soubor:  ${data.file}`;
+
+                    setTimeout(() => {
+                        debug.classList.remove('-Show');
+                    }, 2000);
+                })
+
+            }
+        })
+
+        async function postData(url = '', data = {}) {
+            const response = await fetch(url, {
+                method: 'POST',
+                headers: {
+                'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            });
+            return response.json();
+        }
+
+    </script>
+    <?php
+        }
+    ?>
 
 </body>
 
