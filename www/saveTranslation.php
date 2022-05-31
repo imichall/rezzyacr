@@ -8,7 +8,7 @@ try {
     $file = $data->file;
     $content = $data->content;
 
-    $file = str_replace('.', '/', $file);    $fullfile = $path . $file;
+    $file = str_replace('.', '/', $file);    $fullfile = $path . $file . '.php';
     file_put_contents($fullfile, $content);
 
     $result = json_encode([

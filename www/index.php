@@ -1,6 +1,16 @@
 <?php
 require './libs/Translator.php';
 
+session_start();
+
+if (isset($_SESSION['admin']) && isset($_GET['logout'])) {
+    $_SESSION['admin'] = [];
+    session_regenerate_id(); // ochrana před session fixation
+
+    header('location: /', TRUE, 303);
+    exit;
+}
+
 $defaultLang = 'cs';
 $langsWhiteList = ['cs', 'en', 'pl'];
 
@@ -13,7 +23,11 @@ if (!in_array($selectedLang, $langsWhiteList)) {
 
 
 $t = new \Model\Translator($selectedLang);
-$t->setEditMode(true); // false | true
+if ($_SESSION['admin'] == 1) {
+    $t->setEditMode(true); // false | true
+} else {
+    $t->setEditMode(false); // false | true
+}
 
 $isCz = $selectedLang === 'cs' ? true : false;
 $isEn = $selectedLang === 'en' ? true : false;
@@ -32,7 +46,7 @@ $isPl = $selectedLang === 'pl' ? true : false;
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="./build/css/main.css?cssbuild=1653776056634">
+    <link rel="stylesheet" href="./build/css/main.css?cssbuild=1654027629592">
     <link rel="apple-touch-icon" sizes="180x180" href="./favicon/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="./favicon/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="./favicon/favicon-16x16.png">
@@ -41,26 +55,6 @@ $isPl = $selectedLang === 'pl' ? true : false;
     <meta name="msapplication-TileColor" content="#2d89ef">
     <meta name="theme-color" content="#ffffff">
     <title>Rezzy + Arc</title>
-    <style>
-        span[contenteditable] {
-            border: 1px dotted;
-        }
-
-        #Toaster {
-            position: fixed;
-            bottom: 0;
-            right: 0;
-            padding: 1.25rem;
-            background: limegreen;
-            color: #fff;
-            display: none;
-        }
-
-        #Toaster.-Show {
-            display: block;
-        }
-
-    </style>
 </head>
 
 <body>
@@ -76,6 +70,9 @@ $isPl = $selectedLang === 'pl' ? true : false;
                 <li class="six"><a href="#six">06</a></li>
                 <li class="seven"><a href="#seven">07</a></li>
                 <li class="eight"><a href="#eight">08</a></li>
+                <?php if($_SESSION['admin'] == 1) { ?>
+                    <li class="admin"><a href="?logout">LOGOUT</a></li>
+                <?php } ?>
             </ul>
             <ul class="Navigation-list -lang">
                 <li class="cs <?php if($isCz == true) echo 'active'; ?>"><a href="/">CZ</a></li>
@@ -381,47 +378,13 @@ $isPl = $selectedLang === 'pl' ? true : false;
 
     <script type="module" src="build/js/app.js"></script>
     <?php
-if ($t->canEdit()) {
-?>
-    <script>
-        const inlineEditationElems = document.querySelectorAll('.InlineEditation');
-        const debug = document.getElementById('Toaster');
-
-        inlineEditationElems.forEach(elem => {
-            elem.onblur = () => {
-
-                postData('saveTranslation.php', {
-                    lang: elem.getAttribute('data-lang'),
-                    file: elem.getAttribute('data-file'),
-                    content: elem.innerHTML
-                }).then(data => {
-                    debug.classList.add('-Show');
-                    debug.innerHTML = `Stav: ${data.state} <br />
-                    Soubor:  ${data.file}`;
-
-                    setTimeout(() => {
-                        debug.classList.remove('-Show');
-                    }, 2000);
-                })
-
-            }
-        })
-
-        async function postData(url = '', data = {}) {
-            const response = await fetch(url, {
-                method: 'POST',
-                headers: {
-                'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(data)
-            });
-            return response.json();
-        }
-
-    </script>
-    <?php
-        }
+        if ($t->canEdit()) {
     ?>
+    <script type="module" src="build/js/custom.js"></script>
+    <?php
+    }
+    ?>
+
 
 </body>
 

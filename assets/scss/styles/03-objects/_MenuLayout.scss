@@ -68,4 +68,13 @@
             color: var(--black);
         }
     }
+
+    li.admin a {
+        color: var(--magenta);
+
+        &:hover {
+            font-weight: 600;
+            color: var(--magenta);
+        }
+    }
 }

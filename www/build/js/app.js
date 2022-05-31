@@ -133,18 +133,19 @@
 	}
 
 	const typewritter = document.querySelectorAll("h2[data-title]");
-	typewritter.forEach(el => {
-	  if (el.getAttribute(["data-title"]) == el.getAttribute(["data-title"])) {
-	    let text = el.textContent;
-	    tinyTypewriter(el, {
-	      items: [text],
-	      cursor: false,
-	      typeSpeed: 100,
-	      deleteSpeed: 30,
-	      loop: true
-	    });
-	  }
-	});
+	/* typewritter.forEach((el) => {
+	    if (el.getAttribute(["data-title"]) == el.getAttribute(["data-title"])) {
+	        let text = el.textContent;
+	        tinyTypewriter(el, {
+	            items: [text],
+	            cursor: false,
+	            typeSpeed: 100,
+	            deleteSpeed: 30,
+	            loop: true,
+	        });
+	    }
+	}); */
+
 	document.querySelectorAll('a[href^="#"]').forEach(trigger => {
 	  trigger.onclick = function (e) {
 	    e.preventDefault();

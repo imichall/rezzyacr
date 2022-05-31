@@ -20,9 +20,11 @@
 @use 'styles/03-objects/FooterLayout';
 @use 'styles/03-objects/MenuLayout';
 @use 'styles/03-objects/SectionLayout';
+@use 'styles/03-objects/WavesLayout';
 
 // 4. Components
 // Reusable UI components.
+@use 'styles/04-components/flashMessage';
 @use 'styles/04-components/icon';
 @use 'styles/04-components/Card';
 @use 'styles/04-components/Logo';

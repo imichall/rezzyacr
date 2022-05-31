@@ -1,3 +1,4 @@
+@import url(//fonts.googleapis.com/css?family=Lato:300:400);
 html {
   box-sizing: border-box;
 }
@@ -778,6 +779,13 @@ span.separator {
   font-weight: 600;
   color: var(--black);
 }
+.Navigation li.admin a {
+  color: var(--magenta);
+}
+.Navigation li.admin a:hover {
+  font-weight: 600;
+  color: var(--magenta);
+}
 
 .Section-Content .Section-Data {
   position: relative;
@@ -985,7 +993,6 @@ span.separator {
 .Section-Content .Section-Content-Title span {
   font-size: 40px;
   font-weight: 700;
-  color: var(--blue);
 }
 .Section-Content .Section-Content-Title h2 {
   font-family: "Open Sans";
@@ -1024,6 +1031,179 @@ span.separator {
   width: 100%;
   border-radius: 20rem;
   box-shadow: 0 10px 25px 5px rgba(0, 0, 0, 0.04);
+}
+
+body {
+  margin: 0;
+}
+
+h1 {
+  font-family: "Lato", sans-serif;
+  font-weight: 300;
+  letter-spacing: 2px;
+  font-size: 48px;
+}
+
+p {
+  font-family: "Lato", sans-serif;
+  letter-spacing: 1px;
+  font-size: 14px;
+  color: #333333;
+}
+
+.header {
+  position: relative;
+  text-align: center;
+  background: linear-gradient(60deg, rgb(84, 58, 183) 0%, rgb(0, 172, 193) 100%);
+  color: white;
+}
+
+.logo {
+  width: 50px;
+  fill: white;
+  padding-right: 15px;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.inner-header {
+  height: 65vh;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.flex {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.LoginForm {
+  display: inline-flex;
+  margin: 50px 0;
+}
+.LoginForm input[type=password] {
+  display: flex;
+  padding: 5px 10px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50px;
+  border: 0;
+  text-align: center;
+  font-size: 18px;
+  margin-bottom: 20px;
+  outline: none;
+  box-shadow: 0 13px 14px -3px rgba(0, 0, 0, 0.4);
+}
+.LoginForm input[type=password]::placeholder {
+  color: var(--border-top);
+  font-size: 14px;
+}
+.LoginForm input[type=submit] {
+  padding: 5px 10px;
+  font-size: 18px;
+  border-radius: 50px;
+  border: 0;
+  cursor: pointer;
+}
+.LoginForm .error {
+  margin-bottom: 20px;
+  padding: 5px;
+  font-family: "Lato", sans-serif;
+  background-color: rgba(0, 0, 0, 0.3);
+  box-shadow: inset 0 4px 7px 2px rgba(0, 0, 0, 0.4);
+  color: var(--white);
+  border-radius: 50px;
+}
+
+.waves {
+  position: relative;
+  width: 100%;
+  height: 15vh;
+  margin-bottom: -7px;
+  /*Fix for safari gap*/
+  min-height: 100px;
+  max-height: 150px;
+}
+
+.content {
+  position: relative;
+  height: 20vh;
+  text-align: center;
+  background-color: white;
+}
+
+/* Animation */
+.parallax > use {
+  animation: move-forever 25s cubic-bezier(0.55, 0.5, 0.45, 0.5) infinite;
+}
+
+.parallax > use:nth-child(1) {
+  animation-delay: -2s;
+  animation-duration: 7s;
+}
+
+.parallax > use:nth-child(2) {
+  animation-delay: -3s;
+  animation-duration: 10s;
+}
+
+.parallax > use:nth-child(3) {
+  animation-delay: -4s;
+  animation-duration: 13s;
+}
+
+.parallax > use:nth-child(4) {
+  animation-delay: -5s;
+  animation-duration: 20s;
+}
+
+@keyframes move-forever {
+  0% {
+    transform: translate3d(-90px, 0, 0);
+  }
+  100% {
+    transform: translate3d(85px, 0, 0);
+  }
+}
+/*Shrinking for mobile*/
+@media (max-width: 768px) {
+  .waves {
+    height: 40px;
+    min-height: 40px;
+  }
+
+  .content {
+    height: 30vh;
+  }
+
+  h1 {
+    font-size: 24px;
+  }
+}
+span[contenteditable] {
+  border: 1px dotted var(--green);
+}
+
+#Toaster {
+  position: fixed;
+  display: none;
+  top: 0;
+  right: 0;
+  padding: 1.25rem;
+  background: var(--green);
+  font-family: "Lato", sans-serif;
+  font-weight: 600;
+  color: var(--white);
+  z-index: 999;
+  box-shadow: -5px 5px 0 1px #004627;
+}
+
+#Toaster.-Show {
+  display: block;
 }
 
 .Icon {
