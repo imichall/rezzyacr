@@ -3,6 +3,7 @@
 @use '../../tools/breakpoint';
 
 .Section-Content {
+    overflow: hidden;
 
     .Section-Data {
         position: relative;
@@ -41,7 +42,7 @@
     }
 
     .mainSection {
-        display: grid;
+        display: grid;;
         grid-template-columns: repeat(2, 1fr);
         grid-template-rows: auto auto;
         grid-template-areas:

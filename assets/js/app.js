@@ -120,32 +120,90 @@ window.onscroll = () => {
 
 console.clear();
 
-const container = document.querySelector(".Section-Content");
-const wrappers = document.querySelectorAll(".mainSection");
-const imgs = document.querySelectorAll(".Section-Content-Title");
-const animClasses = ["fadeInLeft", "fadeInRight"];
-const observer = new IntersectionObserver(
-    (entries, observer) => {
-        entries.forEach((entry) => {
-            const currentIndex = Array.from(wrappers).indexOf(entry.target);
-            console.log(Array.from(wrappers));
-            if (entry.isIntersecting) {
-                imgs[currentIndex].classList.add(animClasses[currentIndex]);
-            } else {
-                if (entry.boundingClientRect.y > 0) {
-                    imgs[currentIndex].classList.remove(
-                        animClasses[currentIndex]
-                    );
-                }
-            }
-        });
-    },
-    {
-        root: container,
-        threshold: 0.1,
-    }
-);
+const observerElements = document.querySelectorAll(".Section-Data");
+const observerElementsFooter = document.querySelectorAll(".preFooterLayout");
 
-wrappers.forEach((wrapper) => {
-    observer.observe(wrapper);
+const observerOptions = {
+    root: null,
+    rootMargin: "0px 0px",
+    threshold: 0,
+};
+
+const observerOptionsFooter = {
+    root: null,
+    rootMargin: "-100px 0px",
+    threshold: 0.5,
+};
+
+observerElements.forEach((el) => {
+    const title = el.querySelector(".Section-Content-Title");
+    const perex = el.querySelector(".Section-Content-Info");
+    const video = el.querySelector(".Section-Content-Intro video");
+
+    el.tl = gsap.timeline({ paused: true });
+
+    el.tl
+        .fromTo(video, {x: -100, scale: 1.2, ease: 'power2.inOut', duration: 10}, {x: 0, scale: 1, ease: 'power2.inOut'})
+        .fromTo(title, {y: 50, opacity: 0, ease: 'power2.inOut'}, {y: 0, opacity: 1, ease: 'back.out(1,7)'})
+        .fromTo(perex, {y: 50, opacity: 0, ease: 'power2.inOut'}, {y: 0, opacity: 1, ease: 'back.out(1,7)'})
+        .to(title, {y: 50, opacity: 0, ease: 'power2.inOut'})
+        .to(perex, {y: 50, opacity: 0, ease: 'power2.inOut'})
+
+    el.observer = new IntersectionObserver((entry) => {
+        if (entry[0].intersectionRatio > 0) {
+            gsap.ticker.add(el.progressTween);
+        } else {
+            gsap.ticker.remove(el.progressTween);
+        }
+    }, observerOptions);
+
+    el.progressTween = () => {
+        // Get scroll distance to bottom of viewport.
+        const scrollPosition = window.scrollY + window.innerHeight;
+        // Get element's position relative to bottom of viewport.
+        const elPosition = scrollPosition - el.offsetTop;
+        // Set desired duration.
+        const durationDistance = window.innerHeight + el.offsetHeight;
+        // Calculate tween progresss.
+        const currentProgress = elPosition / durationDistance;
+        // Set progress of gsap timeline.
+        el.tl.progress(currentProgress);
+    };
+
+    el.observer.observe(el);
+});
+
+observerElementsFooter.forEach((el) => {
+    const preFooter = el.querySelector(".preFooter-Info");
+    const preFooterImg = el.querySelector(".preFooter-Image");
+    el.tl = gsap.timeline({ paused: true });
+
+    el.tl
+        .from(preFooter, {x: -200, opacity: 0, ease: 'back.out(1,7)', duration: 5})
+        .to(preFooter, {x: 0, opacity: 1, ease: 'back.out(2,7)'})
+        .from(preFooterImg, {opacity: 0, ease: 'back.out(0,7)', duration: -8})
+        .to(preFooterImg, {opacity: 1, ease: 'back.out(0,7)'})
+
+    el.observer = new IntersectionObserver((entry) => {
+        if (entry[0].intersectionRatio > 0) {
+            gsap.ticker.add(el.progressTween);
+        } else {
+            gsap.ticker.remove(el.progressTween);
+        }
+    }, observerOptionsFooter);
+
+    el.progressTween = () => {
+        // Get scroll distance to bottom of viewport.
+        const scrollPosition = window.scrollY + window.innerHeight;
+        // Get element's position relative to bottom of viewport.
+        const elPosition = scrollPosition - el.offsetTop;
+        // Set desired duration.
+        const durationDistance = window.innerHeight + el.offsetHeight;
+        // Calculate tween progresss.
+        const currentProgress = elPosition / durationDistance;
+        // Set progress of gsap timeline.
+        el.tl.progress(currentProgress);
+    };
+
+    el.observer.observe(el);
 });

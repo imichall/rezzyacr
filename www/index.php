@@ -376,7 +376,7 @@ $isPl = $selectedLang === 'pl' ? true : false;
 
     <div id="Toaster"></div>
 
-    <script type="module" src="build/js/app.js"></script>
+    <script defer type="module" src="build/js/app.js"></script>
     <?php
         if ($t->canEdit()) {
     ?>
