@@ -3,8 +3,8 @@ require './libs/Translator.php';
 
 session_start();
 
-if (isset($_SESSION['admin']) && isset($_GET['logout'])) {
-    $_SESSION['admin'] = [];
+if (isset($_GET['logout'])) {
+    $_SESSION = [];
     session_regenerate_id(); // ochrana před session fixation
 
     header('location: /', TRUE, 303);
@@ -71,7 +71,7 @@ $isPl = $selectedLang === 'pl' ? true : false;
                 <li class="seven"><a href="#seven">07</a></li>
                 <li class="eight"><a href="#eight">08</a></li>
                 <?php if($_SESSION['admin'] == 1) { ?>
-                    <li class="admin"><a href="?logout">LOGOUT</a></li>
+                    <li class="admin"><a href="?logout=1">LOGOUT</a></li>
                 <?php } ?>
             </ul>
             <ul class="Navigation-list -lang">
