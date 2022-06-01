@@ -2,10 +2,10 @@
 session_start();
 
 $errorMsg = "";
-$validUser = $_SESSION["admin"] === true;
+$validUser = isset($_SESSION["admin"]) === true;
 
 if (isset($_POST["pass"])) {
-    $validUser = $_POST["pass"] == "heslokleslo";
+    $validUser = md5($_POST["pass"]) == "43e526f8cd3e37039d42400a65aaa9ec";
 
     if (!$validUser)
         $errorMsg = "Invalid password";
@@ -48,7 +48,7 @@ c-22.4,3-38.4,9.2-47.8,18.3c-11.2,10.9-13.6,26.7-16.3,45c-3.1,20.8-6.6,44.4-25.3
             <div class="LoginForm">
                 <form action="a-edit.php" method="post">
 
-                    <input type="password" name="pass" placeholder="password" value="<?= $_POST["pass"] ?>">
+                    <input type="password" name="pass" placeholder="password">
                     <?php if ($errorMsg != "") { ?>
                         <div class="error">
                             <?= $errorMsg ?>
