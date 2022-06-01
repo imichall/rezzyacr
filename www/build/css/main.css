@@ -823,6 +823,7 @@ span.separator {
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: auto auto;
   grid-template-areas: "Counter Counter " "Title Title " "Video Video" "Text Text ";
+  height: 100vh;
   column-gap: 40px;
   row-gap: 20px;
   padding-bottom: 100px;
@@ -864,7 +865,7 @@ span.separator {
   }
 }
 .Section-Content .Section-Data:nth-child(even) .Section-Content-Intro {
-  align-items: start;
+  align-items: center;
   justify-items: start;
 }
 .Section-Content .Section-Data:nth-child(even) .Section-Counter::after {
@@ -1042,7 +1043,7 @@ span.separator {
   font-family: "Open Sans";
   font-size: 1.125rem;
   font-weight: 500;
-  line-height: 1.5;
+  line-height: 2;
 }
 .Section-Content .Section-Content-Info p:not(:last-child) {
   margin-bottom: 20px;
@@ -1050,7 +1051,7 @@ span.separator {
 .Section-Content .Section-Content-Intro {
   grid-area: Video;
   display: grid;
-  align-items: start;
+  align-items: center;
   justify-items: end;
 }
 .Section-Content .Section-Content-Intro video {

@@ -50,6 +50,7 @@
             'Title Title '
             'Video Video'
             'Text Text ';
+        height: 100vh;
         column-gap: 40px;
         row-gap: 20px;
         padding-bottom: 100px;
@@ -115,7 +116,7 @@
         }
 
         .Section-Content-Intro {
-            align-items: start;
+            align-items: center;
             justify-items: start;
         }
 
@@ -333,7 +334,7 @@
             font-family: 'Open Sans';
             font-size: map-get($typography-scale, 1);
             font-weight: 500;
-            line-height: 1.5;
+            line-height: 2.0;
         }
 
         p:not(:last-child) {
@@ -344,7 +345,7 @@
     .Section-Content-Intro {
         grid-area: Video;
         display: grid;
-        align-items: start;
+        align-items: center;
         justify-items: end;
 
         video {
