@@ -46,7 +46,7 @@ $isPl = $selectedLang === 'pl' ? true : false;
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="./build/css/main.css?cssbuild=1654111771647">
+    <link rel="stylesheet" href="./build/css/main.css?cssbuild=1654800114903">
     <link rel="apple-touch-icon" sizes="180x180" href="./favicon/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="./favicon/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="./favicon/favicon-16x16.png">
@@ -133,14 +133,16 @@ $isPl = $selectedLang === 'pl' ? true : false;
                     <span class="Counter-dot"></span>
                     <span class="Counter-dot"></span>
                 </div>
-                <div class="Section-Content-Title">
-                    <h2 data-title="two"><?php echo $t->_('CardLayout.section_2.title.title') ?></h2>
+                <div class="Section-Content-Text" data-text="even">
+                    <div class="Section-Content-Title">
+                        <h2 data-title="two"><?php echo $t->_('CardLayout.section_2.title.title') ?></h2>
+                    </div>
+                    <div class="Section-Content-Info">
+                        <p><?php echo $t->_('CardLayout.section_2.info.perexOne') ?></p>
+                        <p><?php echo $t->_('CardLayout.section_2.info.perexTwo') ?></p>
+                    </div>
                 </div>
-                <div class="Section-Content-Info">
-                    <p><?php echo $t->_('CardLayout.section_2.info.perexOne') ?></p>
-                    <p><?php echo $t->_('CardLayout.section_2.info.perexTwo') ?></p>
-                </div>
-                <div class="Section-Content-Intro">
+                <div class="Section-Content-Intro" data-video="even">
                     <video autoplay muted playsinline loop>
                         <source src="./video/panel-02.mp4" type="video/mp4">
                     </video>
@@ -154,14 +156,16 @@ $isPl = $selectedLang === 'pl' ? true : false;
                     <span class="Counter-dot"></span>
                     <span class="Counter-dot"></span>
                 </div>
-                <div class="Section-Content-Title">
-                    <h2 data-title="three"><?php echo $t->_('CardLayout.section_3.title.title') ?></h2>
+                <div class="Section-Content-Text" data-text="odd">
+                    <div class="Section-Content-Title">
+                        <h2 data-title="three"><?php echo $t->_('CardLayout.section_3.title.title') ?></h2>
+                    </div>
+                    <div class="Section-Content-Info">
+                        <p><?php echo $t->_('CardLayout.section_3.info.perexOne') ?></p>
+                        <p><?php echo $t->_('CardLayout.section_3.info.perexTwo') ?></p>
+                    </div>
                 </div>
-                <div class="Section-Content-Info">
-                    <p><?php echo $t->_('CardLayout.section_3.info.perexOne') ?></p>
-                    <p><?php echo $t->_('CardLayout.section_3.info.perexTwo') ?></p>
-                </div>
-                <div class="Section-Content-Intro">
+                <div class="Section-Content-Intro" data-video="odd">
                     <video autoplay muted playsinline loop>
                         <source src="./video/panel-03.mp4" type="video/mp4">
                     </video>
@@ -176,14 +180,16 @@ $isPl = $selectedLang === 'pl' ? true : false;
                     <span class="Counter-dot"></span>
                     <span class="Counter-dot"></span>
                 </div>
-                <div class="Section-Content-Title">
-                    <h2 data-title="four"><?php echo $t->_('CardLayout.section_4.title.title') ?></h2>
+                <div class="Section-Content-Text" data-text="even">
+                    <div class="Section-Content-Title">
+                        <h2 data-title="four"><?php echo $t->_('CardLayout.section_4.title.title') ?></h2>
+                    </div>
+                    <div class="Section-Content-Info">
+                        <p><?php echo $t->_('CardLayout.section_4.info.perexOne') ?></p>
+                        <p><?php echo $t->_('CardLayout.section_4.info.perexTwo') ?></p>
+                    </div>
                 </div>
-                <div class="Section-Content-Info">
-                    <p><?php echo $t->_('CardLayout.section_4.info.perexOne') ?></p>
-                    <p><?php echo $t->_('CardLayout.section_4.info.perexTwo') ?></p>
-                </div>
-                <div class="Section-Content-Intro">
+                <div class="Section-Content-Intro" data-video="even">
                     <video autoplay muted playsinline loop>
                         <source src="./video/panel-04.mp4" type="video/mp4">
                     </video>
@@ -199,13 +205,15 @@ $isPl = $selectedLang === 'pl' ? true : false;
                     <span class="Counter-dot"></span>
                     <span class="Counter-dot"></span>
                 </div>
-                <div class="Section-Content-Title">
-                    <h2 data-title="five"><?php echo $t->_('CardLayout.section_5.title.title') ?></h2>
+                <div class="Section-Content-Text" data-text="odd">
+                    <div class="Section-Content-Title">
+                        <h2 data-title="five"><?php echo $t->_('CardLayout.section_5.title.title') ?></h2>
+                    </div>
+                    <div class="Section-Content-Info">
+                        <p><?php echo $t->_('CardLayout.section_5.info.perexOne') ?></p>
+                    </div>
                 </div>
-                <div class="Section-Content-Info">
-                    <p><?php echo $t->_('CardLayout.section_5.info.perexOne') ?></p>
-                </div>
-                <div class="Section-Content-Intro">
+                <div class="Section-Content-Intro" data-video="odd">
                     <video autoplay muted playsinline loop>
                         <source src="./video/panel-05.mp4" type="video/mp4">
                     </video>
@@ -222,14 +230,16 @@ $isPl = $selectedLang === 'pl' ? true : false;
                     <span class="Counter-dot"></span>
                     <span class="Counter-dot"></span>
                 </div>
-                <div class="Section-Content-Title">
-                    <h2 data-title="six"><?php echo $t->_('CardLayout.section_6.title.title') ?></h2>
+                <div class="Section-Content-Text" data-text="even">
+                    <div class="Section-Content-Title">
+                        <h2 data-title="six"><?php echo $t->_('CardLayout.section_6.title.title') ?></h2>
+                    </div>
+                    <div class="Section-Content-Info">
+                        <p><?php echo $t->_('CardLayout.section_6.info.perexOne') ?></p>
+                        <p><?php echo $t->_('CardLayout.section_6.info.perexTwo') ?></p>
+                    </div>
                 </div>
-                <div class="Section-Content-Info">
-                    <p><?php echo $t->_('CardLayout.section_6.info.perexOne') ?></p>
-                    <p><?php echo $t->_('CardLayout.section_6.info.perexTwo') ?></p>
-                </div>
-                <div class="Section-Content-Intro">
+                <div class="Section-Content-Intro" data-video="even">
                     <video autoplay muted playsinline loop>
                         <source src="./video/panel-06.mp4" type="video/mp4">
                     </video>
@@ -247,13 +257,15 @@ $isPl = $selectedLang === 'pl' ? true : false;
                     <span class="Counter-dot"></span>
                     <span class="Counter-dot"></span>
                 </div>
-                <div class="Section-Content-Title">
-                    <h2 data-title="seven"><?php echo $t->_('CardLayout.section_7.title.title') ?></h2>
+                <div class="Section-Content-Text" data-text="odd">
+                    <div class="Section-Content-Title">
+                        <h2 data-title="seven"><?php echo $t->_('CardLayout.section_7.title.title') ?></h2>
+                    </div>
+                    <div class="Section-Content-Info">
+                        <p><?php echo $t->_('CardLayout.section_7.info.perexOne') ?></p>
+                    </div>
                 </div>
-                <div class="Section-Content-Info">
-                    <p><?php echo $t->_('CardLayout.section_7.info.perexOne') ?></p>
-                </div>
-                <div class="Section-Content-Intro">
+                <div class="Section-Content-Intro" data-video="odd">
                     <video autoplay muted playsinline loop>
                         <source src="./video/panel-07.mp4" type="video/mp4">
                     </video>
@@ -272,14 +284,16 @@ $isPl = $selectedLang === 'pl' ? true : false;
                     <span class="Counter-dot"></span>
                     <span class="Counter-dot"></span>
                 </div>
-                <div class="Section-Content-Title">
-                    <h2 data-title="eight"><?php echo $t->_('CardLayout.section_8.title.title') ?></h2>
+                <div class="Section-Content-Text" data-text="even">
+                    <div class="Section-Content-Title">
+                        <h2 data-title="eight"><?php echo $t->_('CardLayout.section_8.title.title') ?></h2>
+                    </div>
+                    <div class="Section-Content-Info">
+                        <p><?php echo $t->_('CardLayout.section_8.info.perexOne') ?></p>
+                        <p><?php echo $t->_('CardLayout.section_8.info.perexTwo') ?></p>
+                    </div>
                 </div>
-                <div class="Section-Content-Info">
-                    <p><?php echo $t->_('CardLayout.section_8.info.perexOne') ?></p>
-                    <p><?php echo $t->_('CardLayout.section_8.info.perexTwo') ?></p>
-                </div>
-                <div class="Section-Content-Intro">
+                <div class="Section-Content-Intro" data-video="even">
                     <video autoplay muted playsinline loop>
                         <source src="./video/panel-08.mp4" type="video/mp4">
                     </video>
@@ -303,13 +317,13 @@ $isPl = $selectedLang === 'pl' ? true : false;
 
         <div class="preFooterLayout">
             <div class="Container Container--small preFooterLayout-Grid">
-                <div class="preFooter-Info">
+                <div class="preFooter-Info" data-footer="text">
                     <h2><?php echo $t->_('Footer.title.title') ?></h2>
                     <p><?php echo $t->_('Footer.info.perexOne') ?></p>
                     <p><?php echo $t->_('Footer.info.perexTwo') ?></p>
                     <p><?php echo $t->_('Footer.info.perexThree') ?></p>
                 </div>
-                <div class="preFooter-Image">
+                <div class="preFooter-Image" data-footer="image">
                     <img src="./images/calculator.svg" alt="">
                 </div>
             </div>

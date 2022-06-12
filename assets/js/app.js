@@ -1,5 +1,6 @@
 import tinyTypewriter from "tiny-typewriter";
 import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 window.addEventListener("load", videoScroll);
 window.addEventListener("scroll", videoScroll);
@@ -28,19 +29,6 @@ function videoScroll() {
 
 const typewritter = document.querySelectorAll("h2[data-title]");
 
-// typewritter.forEach((el) => {
-//     if (el.getAttribute(["data-title"]) == el.getAttribute(["data-title"])) {
-//         let text = el.textContent;
-//         tinyTypewriter(el, {
-//             items: [text],
-//             cursor: false,
-//             typeSpeed: 100,
-//             deleteSpeed: 30,
-//             loop: true,
-//         });
-//     }
-// });
-
 document.querySelectorAll('a[href^="#"]').forEach((trigger) => {
     trigger.onclick = function (e) {
         e.preventDefault();
@@ -59,52 +47,13 @@ document.querySelectorAll('a[href^="#"]').forEach((trigger) => {
 
 const sections = document.querySelectorAll("div[data-section]");
 const navLi = document.querySelectorAll(".Navigation-list.-menu li");
-// const sectionTitle = [...document.querySelectorAll(".Section-Content-Title")];
-// const sectionPerex = [...document.querySelectorAll(".Section-Content-Info")];
-
-// let options = {
-//     rootMargin: "-40px",
-//     thresHold: 0.75,
-// };
-
-// let sTitle = new IntersectionObserver(showTitle, options);
-// let sPerex = new IntersectionObserver(showPerex, options);
-
-// function showPerex(entries) {
-//     entries.forEach((entry) => {
-//         if (entry.isIntersecting) {
-//             entry.target.classList.add("-show");
-//         } else {
-//             entry.target.classList.remove("-show");
-//         }
-//     });
-// }
-
-// function showTitle(entries) {
-//     entries.forEach((entry) => {
-//         console.log(entry.boundingClientRect);
-//         if (entry.isIntersecting) {
-//             entry.target.classList.add("-show");
-//         } else {
-//             entry.target.classList.remove("-show");
-//         }
-//     });
-// }
-
-// sectionPerex.forEach((item) => {
-//     sPerex.observe(item);
-// });
-
-// sectionTitle.forEach((item) => {
-//     sTitle.observe(item);
-// });
 
 window.onscroll = () => {
     let current = "";
 
     sections.forEach((section) => {
         const sectionTop = section.offsetTop;
-        if (window.scrollY >= sectionTop - 34) {
+        if (window.scrollY >= sectionTop - 54) {
             current = section.getAttribute("id");
         }
     });
@@ -120,90 +69,120 @@ window.onscroll = () => {
 
 console.clear();
 
-const observerElements = document.querySelectorAll(".Section-Data");
-const observerElementsFooter = document.querySelectorAll(".preFooterLayout");
+gsap.registerPlugin(ScrollTrigger);
 
-const observerOptions = {
-    root: null,
-    rootMargin: "0px 0px",
-    threshold: 0,
-};
+const videoBlock = document.querySelectorAll(
+    ".Section-Content-Intro[data-video='even']"
+);
+const text = document.querySelectorAll("[data-text='even']");
 
-const observerOptionsFooter = {
-    root: null,
-    rootMargin: "-100px 0px",
-    threshold: 0.5,
-};
+const textOdd = document.querySelectorAll("[data-text='odd']");
+const videoOdd = document.querySelectorAll("[data-video='odd']");
 
-observerElements.forEach((el) => {
-    const title = el.querySelector(".Section-Content-Title");
-    const perex = el.querySelector(".Section-Content-Info");
-    const video = el.querySelector(".Section-Content-Intro video");
+ScrollTrigger.matchMedia({
+    "(min-width: 768px)": function () {
+        videoBlock.forEach((block) => {
+            const tl = gsap.timeline({
+                scrollTrigger: {
+                    trigger: block,
+                    start: "top 40%",
+                    end: "bottom 30%",
+                    scrub: 4,
+                },
+            });
 
-    el.tl = gsap.timeline({ paused: true });
+            tl.from(block, {
+                xPercent: -35,
+                yPercent: -15,
+                scale: 1.5,
+                duration: 3,
+            }).to(block, {
+                yPercent: 0,
+                xPercent: -35,
+                scale: 1.5,
+                duration: 3,
+            });
+        });
 
-    el.tl
-        .fromTo(video, {x: -100, scale: 1.2, ease: 'power2.inOut', duration: 10}, {x: 0, scale: 1, ease: 'power2.inOut'})
-        .fromTo(title, {y: 50, opacity: 0, ease: 'power2.inOut'}, {y: 0, opacity: 1, ease: 'back.out(1,7)'})
-        .fromTo(perex, {y: 50, opacity: 0, ease: 'power2.inOut'}, {y: 0, opacity: 1, ease: 'back.out(1,7)'})
-        .to(title, {y: 50, opacity: 0, ease: 'power2.inOut'})
-        .to(perex, {y: 50, opacity: 0, ease: 'power2.inOut'})
+        text.forEach((text) => {
+            const tl = gsap.timeline({
+                scrollTrigger: {
+                    trigger: text,
+                    start: "top center",
+                    end: "bottom center",
+                    scrub: 4,
+                },
+            });
 
-    el.observer = new IntersectionObserver((entry) => {
-        if (entry[0].intersectionRatio > 0) {
-            gsap.ticker.add(el.progressTween);
-        } else {
-            gsap.ticker.remove(el.progressTween);
-        }
-    }, observerOptions);
+            tl.from(text, { yPercent: 10, duration: 10, opacity: 0 }).to(text, {
+                yPercent: -10,
+                duration: 10,
+                opacity: 0,
+            });
+        });
 
-    el.progressTween = () => {
-        // Get scroll distance to bottom of viewport.
-        const scrollPosition = window.scrollY + window.innerHeight;
-        // Get element's position relative to bottom of viewport.
-        const elPosition = scrollPosition - el.offsetTop;
-        // Set desired duration.
-        const durationDistance = window.innerHeight + el.offsetHeight;
-        // Calculate tween progresss.
-        const currentProgress = elPosition / durationDistance;
-        // Set progress of gsap timeline.
-        el.tl.progress(currentProgress);
-    };
+        textOdd.forEach((text) => {
+            const tl = gsap.timeline({
+                scrollTrigger: {
+                    trigger: text,
+                    start: "top center",
+                    end: "bottom center",
+                    scrub: 5,
+                },
+            });
 
-    el.observer.observe(el);
-});
+            tl.from(text, { xPercent: 100, duration: 3, opacity: 0 }).to(text, {
+                xPercent: 100,
+                duration: 3,
+                opacity: 0,
+            });
+        });
 
-observerElementsFooter.forEach((el) => {
-    const preFooter = el.querySelector(".preFooter-Info");
-    const preFooterImg = el.querySelector(".preFooter-Image");
-    el.tl = gsap.timeline({ paused: true });
+        videoOdd.forEach((video) => {
+            const tl = gsap.timeline({
+                scrollTrigger: {
+                    trigger: video,
+                    start: "top center",
+                    end: "bottom center",
+                    scrub: 5,
+                },
+            });
 
-    el.tl
-        .from(preFooter, {x: -200, opacity: 0, ease: 'back.out(1,7)', duration: 5})
-        .to(preFooter, {x: 0, opacity: 1, ease: 'back.out(2,7)'})
-        .from(preFooterImg, {opacity: 0, ease: 'back.out(0,7)', duration: -8})
-        .to(preFooterImg, {opacity: 1, ease: 'back.out(0,7)'})
+            tl.from(video, { xPercent: -100, duration: 3, opacity: 0 }).to(
+                video,
+                { xPercent: -100, duration: 3, opacity: 0 }
+            );
+        });
 
-    el.observer = new IntersectionObserver((entry) => {
-        if (entry[0].intersectionRatio > 0) {
-            gsap.ticker.add(el.progressTween);
-        } else {
-            gsap.ticker.remove(el.progressTween);
-        }
-    }, observerOptionsFooter);
+        const footerText = gsap.timeline({
+            scrollTrigger: {
+                trigger: '[data-footer="text"]',
+                start: "top center",
+                end: "bottom center",
+                toggleActions: "restart pause reverse",
+            },
+        });
 
-    el.progressTween = () => {
-        // Get scroll distance to bottom of viewport.
-        const scrollPosition = window.scrollY + window.innerHeight;
-        // Get element's position relative to bottom of viewport.
-        const elPosition = scrollPosition - el.offsetTop;
-        // Set desired duration.
-        const durationDistance = window.innerHeight + el.offsetHeight;
-        // Calculate tween progresss.
-        const currentProgress = elPosition / durationDistance;
-        // Set progress of gsap timeline.
-        el.tl.progress(currentProgress);
-    };
+        footerText.from('[data-footer="text"]', {
+            xPercent: -100,
+            duration: 3,
+            opacity: 0,
+        });
+        // .to('[data-footer="text"]', {xPercent: -100, duration: 3, opacity: 0})
 
-    el.observer.observe(el);
+        const footerImg = gsap.timeline({
+            scrollTrigger: {
+                trigger: '[data-footer="image"]',
+                start: "top center",
+                end: "bottom center",
+                toggleActions: "restart pause reverse",
+            },
+        });
+
+        footerImg.from('[data-footer="image"]', {
+            xPercent: 100,
+            duration: 3,
+            opacity: 0,
+        });
+    },
 });
