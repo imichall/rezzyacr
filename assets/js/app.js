@@ -127,7 +127,6 @@ ScrollTrigger.matchMedia({
                     trigger: text,
                     start: "top center",
                     end: "bottom center",
-                    markers: true,
                     scrub: 4,
                 },
             });
@@ -145,7 +144,6 @@ ScrollTrigger.matchMedia({
                     trigger: video,
                     start: "top center",
                     end: "bottom center",
-                    markers: true,
                     scrub: 4,
                 },
             });

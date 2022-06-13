@@ -8723,7 +8723,6 @@
 	          trigger: text,
 	          start: "top center",
 	          end: "bottom center",
-	          markers: true,
 	          scrub: 4
 	        }
 	      });
@@ -8743,7 +8742,6 @@
 	          trigger: video,
 	          start: "top center",
 	          end: "bottom center",
-	          markers: true,
 	          scrub: 4
 	        }
 	      });
