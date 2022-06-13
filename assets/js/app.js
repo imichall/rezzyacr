@@ -101,7 +101,7 @@ ScrollTrigger.matchMedia({
                 xPercent: -35,
                 scale: 1.5,
                 duration: 3,
-            });
+            },"+=1");
         });
 
         text.forEach((text) => {
@@ -118,7 +118,7 @@ ScrollTrigger.matchMedia({
                 yPercent: -10,
                 duration: 10,
                 opacity: 0,
-            });
+            },"+=1");
         });
 
         textOdd.forEach((text) => {
@@ -127,15 +127,16 @@ ScrollTrigger.matchMedia({
                     trigger: text,
                     start: "top center",
                     end: "bottom center",
-                    scrub: 5,
+                    markers: true,
+                    scrub: 4,
                 },
             });
 
             tl.from(text, { xPercent: 100, duration: 3, opacity: 0 }).to(text, {
                 xPercent: 100,
-                duration: 3,
+                duration: 10,
                 opacity: 0,
-            });
+            },"+=4");
         });
 
         videoOdd.forEach((video) => {
@@ -144,14 +145,17 @@ ScrollTrigger.matchMedia({
                     trigger: video,
                     start: "top center",
                     end: "bottom center",
-                    scrub: 5,
+                    markers: true,
+                    scrub: 4,
                 },
             });
 
-            tl.from(video, { xPercent: -100, duration: 3, opacity: 0 }).to(
-                video,
-                { xPercent: -100, duration: 3, opacity: 0 }
-            );
+            tl.from(video, { xPercent: -50, duration: 3, opacity: 0 })
+            .to(video, {
+                xPercent: -50,
+                duration: 10,
+                opacity: 0,
+            }, "+=4");
         });
 
         const footerText = gsap.timeline({

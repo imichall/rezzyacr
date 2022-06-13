@@ -8696,7 +8696,7 @@
 	        xPercent: -35,
 	        scale: 1.5,
 	        duration: 3
-	      });
+	      }, "+=1");
 	    });
 	    text.forEach(text => {
 	      const tl = gsapWithCSS.timeline({
@@ -8715,7 +8715,7 @@
 	        yPercent: -10,
 	        duration: 10,
 	        opacity: 0
-	      });
+	      }, "+=1");
 	    });
 	    textOdd.forEach(text => {
 	      const tl = gsapWithCSS.timeline({
@@ -8723,7 +8723,8 @@
 	          trigger: text,
 	          start: "top center",
 	          end: "bottom center",
-	          scrub: 5
+	          markers: true,
+	          scrub: 4
 	        }
 	      });
 	      tl.from(text, {
@@ -8732,9 +8733,9 @@
 	        opacity: 0
 	      }).to(text, {
 	        xPercent: 100,
-	        duration: 3,
+	        duration: 10,
 	        opacity: 0
-	      });
+	      }, "+=4");
 	    });
 	    videoOdd.forEach(video => {
 	      const tl = gsapWithCSS.timeline({
@@ -8742,18 +8743,19 @@
 	          trigger: video,
 	          start: "top center",
 	          end: "bottom center",
-	          scrub: 5
+	          markers: true,
+	          scrub: 4
 	        }
 	      });
 	      tl.from(video, {
-	        xPercent: -100,
+	        xPercent: -50,
 	        duration: 3,
 	        opacity: 0
 	      }).to(video, {
-	        xPercent: -100,
-	        duration: 3,
+	        xPercent: -50,
+	        duration: 10,
 	        opacity: 0
-	      });
+	      }, "+=4");
 	    });
 	    const footerText = gsapWithCSS.timeline({
 	      scrollTrigger: {
