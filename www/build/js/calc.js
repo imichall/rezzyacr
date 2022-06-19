@@ -55,11 +55,13 @@
     const CurrentSlider = document.querySelectorAll('.SlideContent section');
     CurrentSlider.forEach((item, index) => {
       let calc = new Calc();
-      item.addEventListener('click', e => {
-        let current_tab = e.currentTarget;
-        log(current_tab);
-        calc.setFocus(current_tab);
+      const price_gas = item.querySelector('span[data-price="month"]');
+      const input_price = item.querySelector('input[name="price_gas"]');
+      input_price.addEventListener('click', e => {
+        price_gas.innerHTML = input_price.value;
       });
+      calc.getPriceGas(item);
+      calc.getPriceGas(item);
     });
 
 })));
