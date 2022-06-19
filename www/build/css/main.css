@@ -1,4 +1,5 @@
 @import url(//fonts.googleapis.com/css?family=Lato:300:400);
+@import 'https://fonts.googleapis.com/css?family=Montserrat:400,700|Raleway:300,400';
 html {
   box-sizing: border-box;
 }
@@ -166,6 +167,7 @@ a {
   --border-gray: #707070;
   --border-top: #939393;
   --bg-body: #f4f4f4;
+  --orange: #d7a850;
   --section-bg-blue: rgb(240, 244, 251);
   --section-bg-magenta: rgb(249, 242, 246);
   --section-bg-green: rgb(239, 249, 244);
@@ -1254,6 +1256,302 @@ span[contenteditable] {
   .Logo picture img {
     max-width: 400px;
   }
+}
+
+/* colors */
+/* tab setting */
+/* breakpoints */
+/* selectors relative to radio inputs */
+.tabs {
+  background: white;
+  padding: 25px;
+  margin: 40px 10px 0 10px;
+  border-top: rgba(0, 0, 0, 0.08) solid 1px;
+  box-shadow: 0 25px 40px -20px rgba(0, 0, 0, 0.2);
+  border-radius: 25px;
+  min-width: 180px;
+}
+.tabs .tabCounter {
+  display: none;
+}
+@media (min-width: 1024px) {
+  .tabs {
+    position: relative;
+    left: 50%;
+    width: 70%;
+    margin: 40px 0 0 0;
+    padding: 50px;
+    transform: translateX(-50%);
+  }
+}
+.tabs input[name=tab-control] {
+  display: none;
+}
+.tabs .SlideContent section h2,
+.tabs ul li label {
+  font-family: "Montserrat";
+  font-weight: bold;
+  font-size: 18px;
+  color: #428BFF;
+}
+.tabs ul {
+  list-style-type: none;
+  padding-left: 0;
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 10px;
+  justify-content: space-between;
+  align-items: flex-end;
+  flex-wrap: wrap;
+}
+.tabs ul li {
+  box-sizing: border-box;
+  flex: 1;
+  width: 100%/3;
+  padding: 0 10px;
+  text-align: center;
+}
+.tabs ul li label {
+  color: #929daf;
+  padding: 5px auto;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: block;
+  transition: all 0.2s ease-in-out;
+  white-space: nowrap;
+  cursor: pointer;
+  -webkit-touch-callout: none;
+}
+.tabs ul li label br {
+  display: none;
+}
+.tabs ul li label svg {
+  fill: #929daf;
+  height: 1.2em;
+  vertical-align: bottom;
+  margin-right: 0.2em;
+  transition: all 0.2s ease-in-out;
+}
+.tabs ul li label:hover, .tabs ul li label:focus, .tabs ul li label:active {
+  outline: 0;
+  color: #bec5cf;
+}
+.tabs ul li label:hover svg, .tabs ul li label:focus svg, .tabs ul li label:active svg {
+  fill: #bec5cf;
+}
+.tabs .slider {
+  position: relative;
+  width: calc(100%/3);
+  transition: all 0.33s cubic-bezier(0.38, 0.8, 0.32, 1.07);
+}
+.tabs .slider .indicator {
+  position: relative;
+  width: 50px;
+  max-width: 100%;
+  margin: 0 auto;
+  height: 4px;
+  background: #428BFF;
+  border-radius: 1px;
+}
+.tabs .SlideContent {
+  margin-top: 30px;
+  background-color: transparent;
+  font-family: "Open Sans";
+}
+.tabs .SlideContent section {
+  display: none;
+  row-gap: 40px;
+  animation-name: content;
+  animation-direction: normal;
+  animation-duration: 0.3s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: 1;
+  line-height: 1.4;
+}
+.tabs .SlideContent section h2 {
+  color: #428BFF;
+  display: none;
+}
+.tabs .SlideContent section h2::after {
+  content: "";
+  position: relative;
+  display: block;
+  width: 30px;
+  height: 3px;
+  background: #428BFF;
+  margin-top: 5px;
+  left: 1px;
+}
+.tabs .SlideContent .InputContent {
+  display: grid;
+  gap: 10px;
+}
+@media (min-width: 768px) {
+  .tabs .SlideContent .InputContent {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(100px, 1fr));
+  }
+}
+.tabs .SlideContent .InputContent label {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+@media (min-width: 1024px) {
+  .tabs .SlideContent .InputContent label {
+    gap: unset;
+  }
+}
+.tabs .SlideContent .DataContent {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+@media (min-width: 768px) {
+  .tabs .SlideContent .DataContent {
+    flex-direction: row;
+    gap: unset;
+  }
+}
+.tabs .SlideContent .DataContent p {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: "Open Sans";
+  font-size: 18px;
+  color: var(--orange);
+}
+.tabs .SlideContent .DataContent p:nth-child(n+2) {
+  color: var(--green);
+}
+.tabs .SlideContent .DataContent span {
+  display: flex;
+  flex-direction: column;
+  font-family: "Open Sans";
+  font-size: 22px;
+  font-weight: 700;
+}
+.tabs input[name=tab-control]:nth-of-type(1):checked ~ ul > li:nth-child(1) > label {
+  cursor: default;
+  color: #428BFF;
+}
+.tabs input[name=tab-control]:nth-of-type(1):checked ~ ul > li:nth-child(1) > label svg {
+  fill: #428BFF;
+}
+@media (max-width: 450px) {
+  .tabs input[name=tab-control]:nth-of-type(1):checked ~ ul > li:nth-child(1) > label {
+    background: rgba(0, 0, 0, 0.08);
+  }
+}
+.tabs input[name=tab-control]:nth-of-type(1):checked ~ .slider {
+  transform: translateX(0%);
+}
+.tabs input[name=tab-control]:nth-of-type(1):checked ~ .SlideContent > section:nth-child(1) {
+  display: grid;
+}
+.tabs input[name=tab-control]:nth-of-type(2):checked ~ ul > li:nth-child(2) > label {
+  cursor: default;
+  color: #428BFF;
+}
+.tabs input[name=tab-control]:nth-of-type(2):checked ~ ul > li:nth-child(2) > label svg {
+  fill: #428BFF;
+}
+@media (max-width: 450px) {
+  .tabs input[name=tab-control]:nth-of-type(2):checked ~ ul > li:nth-child(2) > label {
+    background: rgba(0, 0, 0, 0.08);
+  }
+}
+.tabs input[name=tab-control]:nth-of-type(2):checked ~ .slider {
+  transform: translateX(100%);
+}
+.tabs input[name=tab-control]:nth-of-type(2):checked ~ .SlideContent > section:nth-child(2) {
+  display: grid;
+}
+.tabs input[name=tab-control]:nth-of-type(3):checked ~ ul > li:nth-child(3) > label {
+  cursor: default;
+  color: #428BFF;
+}
+.tabs input[name=tab-control]:nth-of-type(3):checked ~ ul > li:nth-child(3) > label svg {
+  fill: #428BFF;
+}
+@media (max-width: 450px) {
+  .tabs input[name=tab-control]:nth-of-type(3):checked ~ ul > li:nth-child(3) > label {
+    background: rgba(0, 0, 0, 0.08);
+  }
+}
+.tabs input[name=tab-control]:nth-of-type(3):checked ~ .slider {
+  transform: translateX(200%);
+}
+.tabs input[name=tab-control]:nth-of-type(3):checked ~ .SlideContent > section:nth-child(3) {
+  display: grid;
+}
+@keyframes content {
+  from {
+    opacity: 0;
+    transform: translateY(5%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0%);
+  }
+}
+@media (max-width: 750px) {
+  .tabs ul li label {
+    white-space: initial;
+  }
+  .tabs ul li label br {
+    display: initial;
+  }
+  .tabs ul li label svg {
+    height: 1.5em;
+  }
+}
+@media (max-width: 450px) {
+  .tabs ul li label {
+    padding: 5px;
+    border-radius: 5px;
+  }
+  .tabs ul li label span {
+    display: none;
+  }
+  .tabs ul li label .tabCounter {
+    display: block;
+  }
+  .tabs .slider {
+    display: none;
+  }
+  .tabs .SlideContent {
+    margin-top: 20px;
+  }
+  .tabs .SlideContent section h2 {
+    display: block;
+  }
+}
+
+label input {
+  width: 100px;
+  padding: 5px 20px;
+  font-size: 18px;
+  border-radius: 10px;
+  border: 1px solid var(--blue);
+}
+
+label span {
+  margin-bottom: 10px;
+}
+@media (min-width: 1024px) {
+  label span {
+    margin-right: 10px;
+  }
+}
+
+.priceRow {
+  font-weight: 700;
+}
+.priceRow input[type=number] {
+  appearance: textfield;
 }
 
 .h-line-height--small {

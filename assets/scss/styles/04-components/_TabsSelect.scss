@@ -1,0 +1,347 @@
+// @import "bourbon";
+@use '../../settings/colors' as *;
+@use '../../settings/typography' as *;
+@use '../../tools/breakpoint';
+
+@import 'https://fonts.googleapis.com/css?family=Montserrat:400,700|Raleway:300,400';
+
+
+/* colors */
+$blue: #428BFF;
+$red: #FF4A53;
+$dark: #333;
+
+$accent: $blue;
+$accent-inactive: desaturate($accent, 85%);
+$secondary: $accent-inactive;
+
+
+/* tab setting */
+$tab-count: 3;
+$indicator-width: 50px;
+$indicator-height: 4px;
+
+/* breakpoints */
+$breakpoints: (
+    medium: #{$tab-count*250px},
+    small: #{$tab-count*150px}
+);
+
+
+/* selectors relative to radio inputs */
+$label-selector: "~ ul > li";
+$slider-selector: "~ .slider";
+$content-selector: "~ .SlideContent > section";
+
+@mixin tabs($label-selector: $label-selector,
+    $slider-selector: $slider-selector,
+    $content-selector: $content-selector) {
+
+    @for $i from 1 through $tab-count {
+        &:nth-of-type(#{$i}):checked {
+            #{$label-selector}:nth-child(#{$i}) {
+                @content;
+            }
+
+            #{$slider-selector} {
+                transform: translateX(#{100% * ($i - 1)});
+            }
+
+            #{$content-selector}:nth-child(#{$i}) {
+                display: grid;
+            }
+        }
+    }
+}
+
+.tabs {
+    background: white;
+    padding: 25px;
+    margin: 40px 10px 0 10px;
+    border-top:rgba(0, 0, 0, 0.08) solid 1px;
+    box-shadow: 0 25px 40px -20px rgba(0, 0, 0, 0.2);
+    border-radius: 25px;
+    min-width: #{$tab-count * 60px};
+    // background-image: linear-gradient(to right, #d4fc79, #96e6a1);
+
+    .tabCounter {
+        display: none;
+    }
+
+    @include breakpoint.up(sm) {
+        position: relative;
+        left: 50%;
+        width: 70%;
+        margin: 40px 0 0 0;
+        padding: 50px;
+        transform: translateX(-50%);
+    }
+
+    input[name="tab-control"] {
+        display: none;
+    }
+
+    .SlideContent section h2,
+    ul li label {
+        font-family: "Montserrat";
+        font-weight: bold;
+        font-size: 18px;
+        color: $accent;;
+    }
+
+    ul {
+        list-style-type: none;
+        padding-left: 0;
+        display: flex;
+        flex-direction: row;
+        margin-bottom: 10px;
+        justify-content: space-between;
+        align-items: flex-end;
+        flex-wrap: wrap;
+
+        li {
+            box-sizing: border-box;
+            flex: 1;
+            width: 100%/#{$tab-count};
+            padding: 0 10px;
+            text-align: center;
+
+            label {
+                color: $secondary;
+                padding: 5px auto;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                display: block;
+                transition: all 0.2s ease-in-out;
+                white-space: nowrap;
+                cursor: pointer;
+                -webkit-touch-callout: none;
+
+                br {
+                    display: none;
+                }
+
+                svg {
+                    fill: $secondary;
+                    height: 1.2em;
+                    vertical-align: bottom;
+                    margin-right: 0.2em;
+                    transition: all 0.2s ease-in-out;
+                }
+
+                &:hover,
+                &:focus,
+                &:active {
+                    outline: 0;
+                    color: lighten($secondary, 15%);
+
+                    svg {
+                        fill: lighten($secondary, 15%);
+                    }
+                }
+            }
+        }
+    }
+
+    .slider {
+        position: relative;
+        width: calc(100%/#{$tab-count});
+        transition: all 0.33s cubic-bezier(0.38, 0.8, 0.32, 1.07);
+
+        .indicator {
+            position: relative;
+            width: $indicator-width;
+            max-width: 100%;
+            margin: 0 auto;
+            height: $indicator-height;
+            background: $accent;
+            border-radius: 1px;
+        }
+
+    }
+
+    .SlideContent {
+        margin-top: 30px;
+        background-color: transparent;
+        font-family: 'Open Sans';
+
+        section {
+            display: none;
+            row-gap: 40px;
+            animation: {
+                name: content;
+                direction: normal;
+                duration: 0.3s;
+                timing-function: ease-in-out;
+                iteration-count: 1;
+            }
+
+            line-height: 1.4;
+
+            h2 {
+                color: $accent;
+                display: none;
+
+                &::after {
+                    content: "";
+                    position: relative;
+                    display: block;
+                    width: 30px;
+                    height: 3px;
+                    background: $accent;
+                    margin-top: 5px;
+                    left: 1px;
+                }
+            }
+        }
+
+        .InputContent {
+            display: grid;
+            gap: 10px;
+
+            @include breakpoint.up(xs) {
+                display: grid;
+                grid-template-columns: repeat(2, minmax(100px, 1fr));
+            }
+
+            label {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 10px;
+
+                @include breakpoint.up(sm) {
+                    gap: unset;
+                }
+            }
+        }
+
+        .DataContent {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+
+            @include breakpoint.up(xs) {
+                flex-direction: row;
+                gap: unset;
+            }
+
+            p {
+                flex: 1;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                font-family: 'Open Sans';
+                font-size: 18px;
+                color: var(--orange);
+
+                &:nth-child(n+2) {
+                    color: var(--green);
+                }
+            }
+
+            span {
+                display: flex;
+                flex-direction: column;
+                font-family: 'Open Sans';
+                font-size: 22px;
+                font-weight: 700;
+            }
+        }
+    }
+
+    input[name="tab-control"] {
+        @include tabs {
+            >label {
+                cursor: default;
+                color: $accent;
+
+                svg {
+                    fill: $accent;
+                }
+
+                @media (max-width: map-get($breakpoints, small)) {
+                    background: rgba(0, 0, 0, 0.08);
+                }
+            }
+        }
+    }
+
+    @keyframes content {
+        from {
+            opacity: 0;
+            transform: translateY(5%);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0%);
+        }
+    }
+
+    @media (max-width: map-get($breakpoints, medium)) {
+        ul li label {
+            white-space: initial;
+
+            br {
+                display: initial;
+            }
+
+            svg {
+                height: 1.5em;
+            }
+        }
+    }
+
+    @media (max-width: map-get($breakpoints, small)) {
+        ul li label {
+            padding: 5px;
+            border-radius: 5px;
+
+            span {
+                display: none;
+            }
+
+            .tabCounter {
+                display: block;
+            }
+        }
+
+        .slider {
+            display: none;
+        }
+
+        .SlideContent {
+            margin-top: 20px;
+
+            section h2 {
+                display: block;
+            }
+        }
+    }
+}
+
+label input {
+    width: min(100px);
+    padding: 5px 20px;
+    font-size: 18px;
+    border-radius: 10px;
+    border: 1px solid var(--blue);
+
+}
+
+label span {
+    margin-bottom: 10px;
+
+    @include breakpoint.up(sm) {
+        margin-right: 10px;
+    }
+}
+
+.priceRow {
+    font-weight: 700;
+
+    input[type="number"] {
+        appearance: textfield;
+    }
+}
