@@ -77,6 +77,10 @@ $content-selector: "~ .SlideContent > section";
         transform: translateX(-50%);
     }
 
+    @include breakpoint.up(lg) {
+        width: 40%;
+    }
+
     input[name="tab-control"] {
         display: none;
     }

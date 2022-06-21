@@ -1284,6 +1284,11 @@ span[contenteditable] {
     transform: translateX(-50%);
   }
 }
+@media (min-width: 1632px) {
+  .tabs {
+    width: 40%;
+  }
+}
 .tabs input[name=tab-control] {
   display: none;
 }
