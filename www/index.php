@@ -340,28 +340,6 @@ $isPl = $selectedLang === 'pl' ? true : false;
                 <div class="indicator"></div>
             </div>
             <div class="SlideContent">
-                <section data-section="1">
-                    <div class="InputContent">
-                        <label for="price_gas">
-                            <span>Cena plynu (m3):</span>
-                            <div class="priceRow">
-                                <input type="number" name="price_gas" value="20">
-                                <span>Kč</span>
-                            </div>
-                        </label>
-                        <label for="price_electricity">
-                            <span>Cena elektřiny (kWh):</span>
-                            <div class="priceRow">
-                                <input type="number" name="price_electricity" value="5">
-                                <span>Kč</span>
-                            </div>
-                        </label>
-                    </div>
-                    <div class="DataContent">
-                        <p>Měsíční náklady: <span data-price="month">57 200</span> Kč</p>
-                        <p>Měsíční úspora: <span data-price="save">17 160</span> Kč</p>
-                        <p>Roční úspora: <span data-price="yearSave">96 960</span> Kč</p>
-                </section>
                 <section data-section="2">
                     <div class="InputContent">
                         <label for="price_gas">
@@ -385,6 +363,28 @@ $isPl = $selectedLang === 'pl' ? true : false;
                         <p>Roční úspora: <span data-price="yearSave">96 960</span> Kč</p>
                 </section>
                 <section data-section="3">
+                    <div class="InputContent">
+                        <label for="price_gas">
+                            <span>Cena plynu (m3):</span>
+                            <div class="priceRow">
+                                <input type="number" name="price_gas" value="20">
+                                <span>Kč</span>
+                            </div>
+                        </label>
+                        <label for="price_electricity">
+                            <span>Cena elektřiny (kWh):</span>
+                            <div class="priceRow">
+                                <input type="number" name="price_electricity" value="5">
+                                <span>Kč</span>
+                            </div>
+                        </label>
+                    </div>
+                    <div class="DataContent">
+                        <p>Měsíční náklady: <span data-price="month">57 200</span> Kč</p>
+                        <p>Měsíční úspora: <span data-price="save">17 160</span> Kč</p>
+                        <p>Roční úspora: <span data-price="yearSave">96 960</span> Kč</p>
+                </section>
+                <section data-section="4">
                     <div class="InputContent">
                         <label for="price_gas">
                             <span>Cena plynu (m3):</span>
@@ -492,7 +492,6 @@ $isPl = $selectedLang === 'pl' ? true : false;
     <div id="Toaster"></div>
 
     <script defer type="module" src="build/js/app.js"></script>
-    <script defer type="module" src="build/js/calc.js"></script>
     <?php
         if ($t->canEdit()) {
     ?>
@@ -500,7 +499,6 @@ $isPl = $selectedLang === 'pl' ? true : false;
     <?php
     }
     ?>
-
 
 </body>
 

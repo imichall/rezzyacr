@@ -38,19 +38,20 @@ function watcher() {
 	const projectType = project.find((obj) => obj.name === args.template);
 
 	const scriptsObj = js.find((obj) => {
-		projectJs = obj.project_js;
+		watch_all_scripts = obj.watch_all_scripts;
+		console.log(watch_all_scripts);
 	});
 
 	watch([projectType.paths.global_style], series(compile, cacheCss, browsersyncReload));
 	watch(projectType.paths.app_dir, series(browsersyncReload));
-	watch(projectJs, series(scripts, cacheJs, browsersyncReload));
+	watch(watch_all_scripts, series(scripts, cacheJs, browsersyncReload));
 }
 
 function watchJS() {
 	const scriptsObj = js.find((obj) => {
-		projectJs = obj.project_js;
+		watch_all_scripts = obj.watch_all_scripts;
 	});
-	watch(projectJs, series(scripts, cacheJs));
+	watch(watch_all_scripts, series(scripts, cacheJs));
 }
 
 browsersyncServe.displayName = "Server";

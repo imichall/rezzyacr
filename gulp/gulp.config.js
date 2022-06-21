@@ -28,6 +28,7 @@ module.exports.project = [
 module.exports.js_files = [
     {
         js_prod_path: "www/build/js",
-        project_js: 'assets/js/**/*.js',
+        watch_all_scripts: "assets/js/**/*.js",
+        project_js: 'assets/js/app.js',
     }
 ];

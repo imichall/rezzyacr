@@ -1,82 +1,87 @@
-const log = (arg) => console.log(arg);
+import { config_data } from "../../www/CalcData/calc_config";
 
 class Calc {
-
     constructor() {
-        this.curt_kw = 4;
-        this.curt_lux = 6;
-        this.curt_month = 6;
-        this.curt_save_perc = 30;
-
         this.priceGas = document.querySelectorAll('input[name="price_gas"]');
-        this.priceKw = document.querySelectorAll('input[name="price_electricity"]');
+        this.priceKw = document.querySelectorAll(
+            'input[name="price_electricity"]'
+        );
     }
 
     setFocus(currentSlide) {
+        const price_gas = currentSlide.querySelector(
+            'span[data-price="month"]'
+        );
+        const input_price = currentSlide.querySelector(
+            'input[name="price_gas"]'
+        );
+        const input_kw = currentSlide.querySelector(
+            'input[name="price_electricity"]'
+        );
 
-        const price_gas = currentSlide.querySelector('span[data-price="month"]');
-        const input_price = currentSlide.querySelector('input[name="price_gas"]');
+        return this.getResults(currentSlide, input_price.value, input_kw.value);
+        // input_price.addEventListener("click", (e) => {
+        // });
 
-        input_price.addEventListener('click', (e) => {
-            price_gas.innerHTML = input_price.value;
-        })
-
-        this.getPriceGas(currentSlide);
+        // this.getPriceGas(currentSlide);
     }
 
     getPriceGas(currentSlide) {
+        const price_gas = currentSlide.querySelector(
+            'span[data-price="month"]'
+        );
+        const input_price = currentSlide.querySelector(
+            'input[name="price_gas"]'
+        );
+        const input_kw = currentSlide.querySelector(
+            'input[name="price_electricity"]'
+        );
 
-        const price_gas = currentSlide.querySelector('span[data-price="month"]');
-        const input_price = currentSlide.querySelector('input[name="price_gas"]');
-
-        input_price.addEventListener('keyup', (e) => {
-            log(e.currentTarget)
+        input_price.addEventListener("keyup", (e) => {
             if (input_price.value > 0) {
-
-                price_gas.innerHTML = input_price.value;
-                // this.getCountedPrice(item.value, currentSlide);
+                return this.getResults(currentSlide, input_price.value, input_kw.value);
             }
-        })
+        });
+
+        input_kw.addEventListener("keyup", (e) => {
+            if (input_kw.value > 0) {
+                return this.getResults(currentSlide, input_price.value, input_kw.value);
+            }
+        });
+
+
     }
 
-    getPriceWatt(currentSlide) {
+    getResults(currentSlide, inputPrice, inputKw) {
+        let type = currentSlide.getAttribute("data-section");
 
-        this.priceKw.forEach((item) => {
+        const month_costs = currentSlide.querySelector(
+            'span[data-price="month"]'
+        );
+        const month_save = currentSlide.querySelector(
+            'span[data-price="save"]'
+        );
+        const year_save = currentSlide.querySelector(
+            'span[data-price="yearSave"]'
+        );
 
-            item.addEventListener('keyup', () => {
-                if (item.value > 0) {
+        let consum_gas_month = config_data.calc_curt[type]['gas_season'] / config_data.input_price['usage_month_run'];
 
-                    currentSlide.querySelector('span[data-price="month"]').innerHTML = item.value;
-                    // this.getCountedPrice(item.value, currentSlide);
-                }
-            })
-        })
+        let consum_ele_month = type * config_data.input_price['usage_kw'] * config_data.input_price['usage_light_hour'] * config_data.input_price['days'];
+
+        // Main input form customer - START
+        let gas_costs = inputPrice * consum_gas_month;
+        let el_costs = inputKw * consum_ele_month;
+        // // Main input form customer - END
+
+        let costs_sum = gas_costs + el_costs;
+        let savings_costs = costs_sum * (config_data.input_price['savings_perc'] / 100);
+        let saving_year = (savings_costs - config_data.calc_curt[type]['savings']) * config_data.input_price['usage_month_run'];
+
+        month_costs.innerHTML = parseFloat(costs_sum.toFixed(0)).toLocaleString('cs-CZ');
+        month_save.innerHTML = parseFloat(savings_costs.toFixed(0)).toLocaleString('cs-CZ');
+        year_save.innerHTML = parseFloat(saving_year.toFixed(0)).toLocaleString('cs-CZ');
     }
-
-    getCountedPrice(inputPrice, slide) {
-
-        if (slide == 1) {
-            // log(inputPrice + '' + 'getCounterPrice');
-            // log(slide);
-        }
-    }
-
 }
 
-const cacl_radio = document.querySelectorAll('input[name="tab-control"]');
-const CurrentSlider = document.querySelectorAll('.SlideContent section');
-
-CurrentSlider.forEach((item, index) => {
-
-    let calc = new Calc()
-
-    const price_gas = item.querySelector('span[data-price="month"]');
-    const input_price = item.querySelector('input[name="price_gas"]');
-
-    input_price.addEventListener('click', (e) => {
-        price_gas.innerHTML = input_price.value;
-    })
-
-    calc.getPriceGas(item);
-    calc.getPriceGas(item);
-});
+export { Calc };
