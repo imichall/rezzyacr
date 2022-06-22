@@ -37,19 +37,17 @@ class Calc {
             'input[name="price_electricity"]'
         );
 
-        input_price.addEventListener("keyup", (e) => {
+        input_price.oninput = (e) => {
             if (input_price.value > 0) {
                 return this.getResults(currentSlide, input_price.value, input_kw.value);
             }
-        });
+        };
 
-        input_kw.addEventListener("keyup", (e) => {
+        input_kw.oninput = (e) => {
             if (input_kw.value > 0) {
                 return this.getResults(currentSlide, input_price.value, input_kw.value);
             }
-        });
-
-
+        };
     }
 
     getResults(currentSlide, inputPrice, inputKw) {
