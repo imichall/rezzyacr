@@ -46,7 +46,7 @@ $isPl = $selectedLang === 'pl' ? true : false;
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="./build/css/main.css?cssbuild=1655848802044">
+    <link rel="stylesheet" href="./build/css/main.css?cssbuild=1655655255450">
     <link rel="apple-touch-icon" sizes="180x180" href="./favicon/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="./favicon/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="./favicon/favicon-16x16.png">
@@ -380,9 +380,9 @@ $isPl = $selectedLang === 'pl' ? true : false;
                         </label>
                     </div>
                     <div class="DataContent">
-                        <p>Měsíční náklady: <span data-price="month">57 200</span> Kč</p>
-                        <p>Měsíční úspora: <span data-price="save">17 160</span> Kč</p>
-                        <p>Roční úspora: <span data-price="yearSave">96 960</span> Kč</p>
+                        <p>Měsíční náklady: <span data-price="month">77 467</span> Kč</p>
+                        <p>Měsíční úspora: <span data-price="save">23 240</span> Kč</p>
+                        <p>Roční úspora: <span data-price="yearSave">133 440</span> Kč</p>
                 </section>
                 <section data-section="4">
                     <div class="InputContent">
@@ -402,9 +402,9 @@ $isPl = $selectedLang === 'pl' ? true : false;
                         </label>
                     </div>
                     <div class="DataContent">
-                        <p>Měsíční náklady: <span data-price="month">57 200</span> Kč</p>
-                        <p>Měsíční úspora: <span data-price="save">17 160</span> Kč</p>
-                        <p>Roční úspora: <span data-price="yearSave">96 960</span> Kč</p>
+                        <p>Měsíční náklady: <span data-price="month">97 733</span> Kč</p>
+                        <p>Měsíční úspora: <span data-price="save">29 320</span> Kč</p>
+                        <p>Roční úspora: <span data-price="yearSave">168 120</span> Kč</p>
                     </div>
                 </section>
             </div>
