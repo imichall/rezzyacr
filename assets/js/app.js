@@ -70,17 +70,10 @@ const CurrentSlider = document.querySelectorAll('.SlideContent section');
 CurrentSlider.forEach((item, index) => {
     let calc = new Calc()
 
-    const price_gas = item.querySelector('span[data-price="month"]');
     const input_price = item.querySelector('input[name="price_gas"]');
-    const input_elec = item.querySelector('input[name="price_electricity"]');
 
     input_price.addEventListener('click', (e) => {
         calc.setFocus(item);
-
-    })
-
-    input_elec.addEventListener('click', () => {
-        // price_gas.innerHTML = calc.getResults(item, input_price.value, input_elec.value);
     })
 
     calc.getPriceGas(item);

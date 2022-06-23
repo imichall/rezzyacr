@@ -1,0 +1,1 @@
+But that's not all, once the heating is on, the AI takes over. It optimises the heating mode to reduce consumption and increase comfort in the hall when it is heating or already maintaining the desired temperature.

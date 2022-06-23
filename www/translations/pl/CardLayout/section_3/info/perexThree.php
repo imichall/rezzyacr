@@ -1,0 +1,1 @@
+Tato data poté zcela automaticky zašle do systému ARC.

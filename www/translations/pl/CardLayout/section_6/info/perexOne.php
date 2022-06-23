@@ -1,0 +1,1 @@
+Kiedy klienci grają, nie musisz się o nic martwić. Możesz odpuścić sobie obserwowanie zegara i martwienie się o to, aby na czas włączyć następny kort lub wyłączyć ogrzewanie. Możesz spokojnie zająć się obsługą innych klientów.

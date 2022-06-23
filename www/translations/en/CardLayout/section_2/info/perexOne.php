@@ -1,0 +1,1 @@
+The whole process starts with your customer booking a lesson through the state-of-the-art booking system Rezzy. This can be done either from a computer or via a mobile app for a phone or tablet.

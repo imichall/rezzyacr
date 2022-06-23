@@ -1,0 +1,1 @@
+Gdy Rezzy wykryje, że harmonogram się zmienił, obliczy aktualne obłożenie w kopule, a także na poszczególnych polach. Dzięki temu wie, kiedy ogrzać halę na mecz i który kort oświetlić, gdy jest zajęty.

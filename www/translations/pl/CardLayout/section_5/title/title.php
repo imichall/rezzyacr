@@ -1,0 +1,1 @@
+Zapala się i odblokuje

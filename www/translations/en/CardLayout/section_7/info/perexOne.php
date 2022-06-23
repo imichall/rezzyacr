@@ -1,0 +1,1 @@
+Is the morning block of bookings over and the next one isn't until after lunch? It's evening and the last hour is up? The airdome will turn off the heat as soon as the bookings are over. You don't have to worry about remembering to turn the heating off.

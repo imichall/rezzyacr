@@ -1,0 +1,1 @@
+ARC to druga generacja inteligentnego systemu nadmuchiwanych hal Calypso, który umożliwia zdalne sterowanie i monitorowanie nadmuchiwanej hali z zacisza własnego biura lub domu.

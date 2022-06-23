@@ -1,0 +1,1 @@
+Modern booking system Rezzy can calculate when a playing field is occupied based on reservations. It sends this data to the ARC system whenever there is a change, which automatically controls the heating, lighting and locking of your airdome. So you don't have to worry about a thing.<br>

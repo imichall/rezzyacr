@@ -1,0 +1,1 @@
+Cały proces zaczyna się od zarezerwowania przez klienta zajęć za pośrednictwem najnowocześniejszego systemu rezerwacji Rezzy. Można to zrobić z komputera lub aplikacji mobilnej na telefon lub tablet.

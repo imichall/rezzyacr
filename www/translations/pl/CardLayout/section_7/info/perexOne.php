@@ -1,0 +1,1 @@
+Czy poranny blok rezerwacji się skończył, a następny jest dopiero po obiedzie? Jest wieczór i ostatnia godzina minęła? Hala wyłączy ogrzewanie, gdy tylko skończą się rezerwacje. Nie musisz się martwić, że pamiętasz o wyłączeniu ogrzewania.

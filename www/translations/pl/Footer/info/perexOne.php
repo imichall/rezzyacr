@@ -1,0 +1,1 @@
+Rezzy to nowoczesny system rezerwacji, który doskonale sprawdza się zarówno latem, jak i zimą. Z nadmuchiwaną halą, stałą halą lub bez hali. Obejmuje on szeroki zakres potrzeb związanych z obiektami sportowymi.

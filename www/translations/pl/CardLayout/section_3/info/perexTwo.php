@@ -1,0 +1,1 @@
+Dodatkowo Rezzy umożliwia ustawienie interwału, w którym należy ogrzać lub oświetlić po zakończeniu rezerwacji lub zablokować halę z ustawionym opóźnieniem. Dzięki temu Twoi klienci odejdą bez stresu po zakończeniu zajęć.

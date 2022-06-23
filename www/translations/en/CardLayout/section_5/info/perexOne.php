@@ -1,0 +1,1 @@
+The moment customers arrive, the occupied courts in the airdome light up and the doors unlock. This can be set at the start of the booking, 5 minutes beforehand or as it suits you.<br><br>

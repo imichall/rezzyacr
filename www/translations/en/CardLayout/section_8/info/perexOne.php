@@ -1,0 +1,1 @@
+The airdome waits until the clients are comfortably packed and changed, after 5 minutes it turns off the lights and after another 5 minutes it is locked. It's up to your settings.

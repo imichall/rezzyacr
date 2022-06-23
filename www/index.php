@@ -11,10 +11,28 @@ if (isset($_GET['logout'])) {
     exit;
 }
 
-$defaultLang = 'cs';
+$defaultLang = 'en';
 $langsWhiteList = ['cs', 'en', 'pl'];
 
-$selectedLang = isset($_GET['lang']) ? $_GET['lang'] : $defaultLang;
+function getLangDetectionByBrowser($checklanguages, $defaultLang)
+{
+    if (isset($_SERVER['HTTP_ACCEPT_LANGUAGE'])) {
+        $langsWhiteList = explode(',', $_SERVER['HTTP_ACCEPT_LANGUAGE']);
+        foreach ($langsWhiteList as $value) {
+            $getlang = substr($value, 0, 2);
+            if (in_array($getlang, $checklanguages)) {
+                return $getlang;
+            }
+        }
+    }
+
+    return $defaultLang;
+}
+
+getLangDetectionByBrowser($langsWhiteList, $defaultLang);
+
+// $selectedLang = isset($_GET['lang']) ? $_GET['lang'] : $defaultLang;
+$selectedLang = isset($_GET['lang']) ? $_GET['lang'] : getLangDetectionByBrowser($langsWhiteList, $defaultLang);
 
 if (!in_array($selectedLang, $langsWhiteList)) {
     header('location: /');
@@ -46,7 +64,7 @@ $isPl = $selectedLang === 'pl' ? true : false;
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="./build/css/main.css?cssbuild=1655655255450">
+    <link rel="stylesheet" href="./build/css/main.css?cssbuild=1655988001236">
     <link rel="apple-touch-icon" sizes="180x180" href="./favicon/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="./favicon/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="./favicon/favicon-16x16.png">
@@ -294,43 +312,53 @@ $isPl = $selectedLang === 'pl' ? true : false;
             </div>
         </div>
         <?php } else if ($isEn == true) {;?>
-            <div class="CardLayout-Video">
+        <div class="CardLayout-Video">
             <div class="-VideoBlock">
                 <object data="https://www.youtube.com/embed/ZO9ulii1aXw"></object>
+            </div>
+        </div>
+        <?php } else {;?>
+        <div class="CardLayout-Video">
+            <div class="-VideoBlock">
+                <object data="https://www.youtube.com/embed/pQJ-0W1mIzY"></object>
             </div>
         </div>
         <?php } ?>
 
         <div class="tabs">
 
+            <div class="tabsTitle">
+                <h2><?php echo $t->_('Calc.Title') ?></h2>
+            </div>
+
             <input type="radio" id="tab1" name="tab-control" checked>
             <input type="radio" id="tab2" name="tab-control">
             <input type="radio" id="tab3" name="tab-control">
             <ul>
-                <li title="Two Curts">
+                <li title="Two Courts">
                     <label for="tab1" role="button">
                         <svg viewBox="0 0 24 24">
                             <path d="M14,2A8,8 0 0,0 6,10A8,8 0 0,0 14,18A8,8 0 0,0 22,10H20C20,13.32 17.32,16 14,16A6,6 0 0,1 8,10A6,6 0 0,1 14,4C14.43,4 14.86,4.05 15.27,4.14L16.88,2.54C15.96,2.18 15,2 14,2M20.59,3.58L14,10.17L11.62,7.79L10.21,9.21L14,13L22,5M4.93,5.82C3.08,7.34 2,9.61 2,12A8,8 0 0,0 10,20C10.64,20 11.27,19.92 11.88,19.77C10.12,19.38 8.5,18.5 7.17,17.29C5.22,16.25 4,14.21 4,12C4,11.7 4.03,11.41 4.07,11.11C4.03,10.74 4,10.37 4,10C4,8.56 4.32,7.13 4.93,5.82Z" />
                         </svg><br>
-                        <span>Dva kurty</span>
+                        <span><?php echo $t->_('Tabs.twoCourts') ?></span>
                         <span class="tabCounter">2</span>
                     </label>
                 </li>
-                <li title="Three Curts">
+                <li title="Three Courts">
                     <label for="tab2" role="button">
                         <svg viewBox="0 0 24 24">
                             <path d="M14,2A8,8 0 0,0 6,10A8,8 0 0,0 14,18A8,8 0 0,0 22,10H20C20,13.32 17.32,16 14,16A6,6 0 0,1 8,10A6,6 0 0,1 14,4C14.43,4 14.86,4.05 15.27,4.14L16.88,2.54C15.96,2.18 15,2 14,2M20.59,3.58L14,10.17L11.62,7.79L10.21,9.21L14,13L22,5M4.93,5.82C3.08,7.34 2,9.61 2,12A8,8 0 0,0 10,20C10.64,20 11.27,19.92 11.88,19.77C10.12,19.38 8.5,18.5 7.17,17.29C5.22,16.25 4,14.21 4,12C4,11.7 4.03,11.41 4.07,11.11C4.03,10.74 4,10.37 4,10C4,8.56 4.32,7.13 4.93,5.82Z" />
                         </svg><br>
-                        <span>Tři kurty</span>
+                        <span><?php echo $t->_('Tabs.threeCourts') ?></span>
                         <span class="tabCounter">3</span>
                     </label>
                 </li>
-                <li title="Four Curts">
+                <li title="Four Courts">
                     <label for="tab3" role="button">
                         <svg viewBox="0 0 24 24">
                             <path d="M14,2A8,8 0 0,0 6,10A8,8 0 0,0 14,18A8,8 0 0,0 22,10H20C20,13.32 17.32,16 14,16A6,6 0 0,1 8,10A6,6 0 0,1 14,4C14.43,4 14.86,4.05 15.27,4.14L16.88,2.54C15.96,2.18 15,2 14,2M20.59,3.58L14,10.17L11.62,7.79L10.21,9.21L14,13L22,5M4.93,5.82C3.08,7.34 2,9.61 2,12A8,8 0 0,0 10,20C10.64,20 11.27,19.92 11.88,19.77C10.12,19.38 8.5,18.5 7.17,17.29C5.22,16.25 4,14.21 4,12C4,11.7 4.03,11.41 4.07,11.11C4.03,10.74 4,10.37 4,10C4,8.56 4.32,7.13 4.93,5.82Z" />
                         </svg><br>
-                        <span>Čtyři kurty</span>
+                        <span><?php echo $t->_('Tabs.fourCourts') ?></span>
                         <span class="tabCounter">4</span>
                     </label>
                 </li>
@@ -343,14 +371,18 @@ $isPl = $selectedLang === 'pl' ? true : false;
                 <section data-section="2">
                     <div class="InputContent">
                         <label for="price_gas">
-                            <span>Cena plynu (m3):</span>
+                            <span>
+                                <?php echo $t->_('Tabs.priceGas') ?> (m<sup>3</sup>):
+                            </span>
                             <div class="priceRow">
                                 <input type="number" name="price_gas" value="20">
                                 <span>Kč</span>
                             </div>
                         </label>
                         <label for="price_electricity">
-                            <span>Cena elektřiny (kWh):</span>
+                            <span>
+                                <?php echo $t->_('Tabs.priceElectricity') ?> (kWh):
+                            </span>
                             <div class="priceRow">
                                 <input type="number" name="price_electricity" value="5">
                                 <span>Kč</span>
@@ -358,21 +390,31 @@ $isPl = $selectedLang === 'pl' ? true : false;
                         </label>
                     </div>
                     <div class="DataContent">
-                        <p>Měsíční náklady: <span data-price="month">57 200</span> Kč</p>
-                        <p>Měsíční úspora: <span data-price="save">17 160</span> Kč</p>
-                        <p>Roční úspora: <span data-price="yearSave">96 960</span> Kč</p>
+                        <p>
+                            <?php echo $t->_('Tabs.dataPriceCosts') ?>
+                            <span data-price="month">57 200</span> Kč</p>
+                        <p>
+                            <?php echo $t->_('Tabs.dataPriceSavings') ?>
+                            <span data-price="save">17 160</span> Kč</p>
+                        <p>
+                            <?php echo $t->_('Tabs.dataPriceSavingsYear') ?>
+                            <span data-price="yearSave">96 960</span> Kč</p>
                 </section>
                 <section data-section="3">
                     <div class="InputContent">
                         <label for="price_gas">
-                            <span>Cena plynu (m3):</span>
+                            <span>
+                                <?php echo $t->_('Tabs.priceGas') ?> (m<sup>3</sup>):
+                            </span>
                             <div class="priceRow">
                                 <input type="number" name="price_gas" value="20">
                                 <span>Kč</span>
                             </div>
                         </label>
                         <label for="price_electricity">
-                            <span>Cena elektřiny (kWh):</span>
+                            <span>
+                                <?php echo $t->_('Tabs.priceElectricity') ?> (kWh):
+                            </span>
                             <div class="priceRow">
                                 <input type="number" name="price_electricity" value="5">
                                 <span>Kč</span>
@@ -380,21 +422,34 @@ $isPl = $selectedLang === 'pl' ? true : false;
                         </label>
                     </div>
                     <div class="DataContent">
-                        <p>Měsíční náklady: <span data-price="month">77 467</span> Kč</p>
-                        <p>Měsíční úspora: <span data-price="save">23 240</span> Kč</p>
-                        <p>Roční úspora: <span data-price="yearSave">133 440</span> Kč</p>
+                        <p>
+                            <?php echo $t->_('Tabs.dataPriceCosts') ?>
+                            <span data-price="month">77 467</span> Kč
+                        </p>
+                        <p>
+                            <?php echo $t->_('Tabs.dataPriceSavings') ?>
+                            <span data-price="save">23 240</span> Kč
+                        </p>
+                        <p>
+                            <?php echo $t->_('Tabs.dataPriceSavingsYear') ?>
+                            <span data-price="yearSave">133 440</span> Kč
+                        </p>
                 </section>
                 <section data-section="4">
                     <div class="InputContent">
                         <label for="price_gas">
-                            <span>Cena plynu (m3):</span>
+                            <span>
+                                <?php echo $t->_('Tabs.priceGas') ?> (m<sup>3</sup>):
+                            </span>
                             <div class="priceRow">
                                 <input type="number" name="price_gas" value="20">
                                 <span>Kč</span>
                             </div>
                         </label>
                         <label for="price_electricity">
-                            <span>Cena elektřiny (kWh):</span>
+                            <span>
+                                <?php echo $t->_('Tabs.priceElectricity') ?> (kWh):
+                            </span>
                             <div class="priceRow">
                                 <input type="number" name="price_electricity" value="5">
                                 <span>Kč</span>
@@ -402,11 +457,23 @@ $isPl = $selectedLang === 'pl' ? true : false;
                         </label>
                     </div>
                     <div class="DataContent">
-                        <p>Měsíční náklady: <span data-price="month">97 733</span> Kč</p>
-                        <p>Měsíční úspora: <span data-price="save">29 320</span> Kč</p>
-                        <p>Roční úspora: <span data-price="yearSave">168 120</span> Kč</p>
+                        <p>
+                            <?php echo $t->_('Tabs.dataPriceCosts') ?>
+                            <span data-price="month">97 733</span> Kč</p>
+                        <p>
+                            <?php echo $t->_('Tabs.dataPriceSavings') ?>
+                            <span data-price="save">29 320</span> Kč</p>
+                        <p>
+                            <?php echo $t->_('Tabs.dataPriceSavingsYear') ?>
+                            <span data-price="yearSave">168 120</span> Kč</p>
                     </div>
                 </section>
+            </div>
+        </div>
+
+        <div class="Container Container--small">
+            <div class="CalcLayout">
+                <p><?php echo $t->_('Calc.disclaimer') ?></p>
             </div>
         </div>
 

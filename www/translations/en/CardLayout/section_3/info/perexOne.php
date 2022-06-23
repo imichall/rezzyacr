@@ -1,0 +1,1 @@
+Once Rezzy detects the schedule has changed, it will calculate the current occupancy in the airdome, as well as on the individual fields. That way it knows when to heat the hall for a game, and which court to light up when occupied.

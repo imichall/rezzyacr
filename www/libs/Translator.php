@@ -56,11 +56,16 @@ class Translator
     private function loadFile($term)
     {
         $term = str_replace('.', '/', $term);
+
         if (is_file($file = $this->translationPath . $term . '.php')) {
             ob_start();
             include $file;
             $buffer = ob_get_clean();
             return $buffer;
+        }
+
+        if (!is_dir($term)) {
+            mkdir($this->translationPath . $term, 0777, true);
         }
 
         return null;

@@ -1,0 +1,1 @@
+In addition, Rezzy allows you to set the interval when to heat or light after the reservation is over, or lock the hall with a set delay. This will allow your clients to leave stress-free when their lesson is over.

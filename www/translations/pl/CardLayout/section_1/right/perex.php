@@ -1,0 +1,1 @@
+Dzięki zaawansowanej sztucznej inteligencji sterującej ogrzewaniem, w tym systemowi podgrzewania, Twoja nadmuchiwana hala jest tak naprawdę ogrzewana i oświetlona tylko wtedy, gdy jest to potrzebne. Może to skutkować oszczędnością energii nawet do 30%.

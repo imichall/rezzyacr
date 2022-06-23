@@ -173,6 +173,18 @@ a {
   --section-bg-green: rgb(239, 249, 244);
 }
 
+.CalcLayout {
+  display: flex;
+  margin: 30px;
+  justify-content: center;
+  align-items: center;
+}
+.CalcLayout p {
+  font-family: "Open Sans", sans-serif;
+  font-size: 14px;
+  font-weight: 300;
+}
+
 @keyframes cloudMove {
   0% {
     transform: translate(-10px, -10px);
@@ -1270,6 +1282,16 @@ span[contenteditable] {
   box-shadow: 0 25px 40px -20px rgba(0, 0, 0, 0.2);
   border-radius: 25px;
   min-width: 180px;
+}
+.tabs .tabsTitle {
+  display: flex;
+  width: 100%;
+  margin-bottom: 40px;
+  padding-bottom: 10px;
+  justify-content: center;
+  font-family: "Open Sans";
+  text-align: center;
+  border-bottom: 1px solid var(--gray-dark);
 }
 .tabs .tabCounter {
   display: none;

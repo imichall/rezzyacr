@@ -1,0 +1,1 @@
+While the clients play, you don't have to worry about a thing. You can let go of watching the clock and worrying about remembering to turn on the next court or turn off the heat in time. You can get on with serving other customers in peace.

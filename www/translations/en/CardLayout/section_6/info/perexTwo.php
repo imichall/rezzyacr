@@ -1,0 +1,1 @@
+No reception? No problem! Thanks to the automatic lock, you don't even have to worry about having a administrator come to unlock and heat in the morning, lock up and turn off the heat in the morning, and repeat the process in the afternoon. Thanks to our system, your premises can become unattended.

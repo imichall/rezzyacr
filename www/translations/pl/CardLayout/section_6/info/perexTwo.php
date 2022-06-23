@@ -1,0 +1,1 @@
+Brak recepcji? Nie ma problemu! Dzięki automatycznej blokadzie nie musisz się nawet martwić o to, że administrator przyjdzie rano, aby odblokować i ogrzać, zablokować i wyłączyć ogrzewanie rano, a po południu powtórzyć ten proces. Dzięki naszemu systemowi Twój lokal może stać się bez opieki.

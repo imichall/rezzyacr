@@ -1,0 +1,1 @@
+Z chwilą przybycia klientów zajęte korty w kopule rozświetlają się, a drzwi otwierają się. Można to ustawić na początku rezerwacji, 5 minut wcześniej lub według własnego uznania.

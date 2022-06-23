@@ -1,0 +1,1 @@
+Ale to nie wszystko, po włączeniu ogrzewania sztuczna inteligencja przejmuje kontrolę. Optymalizuje tryb ogrzewania, aby zmniejszyć zużycie i zwiększyć komfort w hali, gdy jest nagrzewany lub już utrzymuje żądaną temperaturę.

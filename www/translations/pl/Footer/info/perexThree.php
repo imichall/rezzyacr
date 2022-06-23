@@ -1,0 +1,1 @@
+Najlepsze jest jednak to, że te dwa systemy łączą się ze sobą - pełna automatyzacja pracy hali na podstawie danych o rezerwacjach. W ten sposób hala dokładnie wie, kiedy ma się ogrzać, zapalić i odblokować, dzięki czemu użytkownik nie musi się o nic martwić. Pozwala to również zaoszczędzić do 30% kosztów energii w skali roku.<br>

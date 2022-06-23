@@ -1,0 +1,1 @@
+Airdome lights up and unlocks

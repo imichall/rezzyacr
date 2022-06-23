@@ -1,0 +1,1 @@
+*The above calculation is indicative. Actual savings depend on individual usage.

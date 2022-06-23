@@ -1,0 +1,1 @@
+*Powyższe obliczenia mają charakter orientacyjny. Rzeczywiste oszczędności zależą od indywidualnego wykorzystania.

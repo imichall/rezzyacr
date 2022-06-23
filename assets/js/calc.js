@@ -20,10 +20,6 @@ class Calc {
         );
 
         return this.getResults(currentSlide, input_price.value, input_kw.value);
-        // input_price.addEventListener("click", (e) => {
-        // });
-
-        // this.getPriceGas(currentSlide);
     }
 
     getPriceGas(currentSlide) {

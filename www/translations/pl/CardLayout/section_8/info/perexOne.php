@@ -1,0 +1,1 @@
+Hala będzie czekać, aż klienci spakują się i przebiorą wygodnie, wyjdzie po 5 minutach i zostanie zamknięta za kolejne 5 minut. To tylko zależy od twoich ustawień.

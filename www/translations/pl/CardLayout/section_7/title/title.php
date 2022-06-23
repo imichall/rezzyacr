@@ -1,0 +1,1 @@
+Koniec gry, ogrzewanie wyłączone<br>

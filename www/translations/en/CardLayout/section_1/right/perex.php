@@ -1,0 +1,1 @@
+Thanks to advanced artificial intelligence controlling the heating, including a preheating system, your inflatable hall is really only heated and lit when it's needed. This can result in energy savings of up to 30%.

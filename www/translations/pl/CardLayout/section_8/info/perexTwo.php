@@ -1,0 +1,1 @@
+Nie musisz dbać o swoją halę, my zrobimy to za&nbsp; Ciebie.

@@ -1,0 +1,1 @@
+Podobnie Ty, jako operator obiektu sportowego, możesz wprowadzać zmiany w harmonogramie. Rezzy w żaden sposób Cię nie ogranicza, wręcz przeciwnie, sprawia, że Twoja praca jest jeszcze prostsza.

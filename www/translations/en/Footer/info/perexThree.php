@@ -1,0 +1,1 @@
+But the best part is when these two systems come together - complete automation of your hall operation based on booking data. This way your airdome knows exactly when to heat, light and unlock so you don't have to worry about a thing. This also saves you up to 30% of your energy costs per year.

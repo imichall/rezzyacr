@@ -1,0 +1,1 @@
+Likewise, you, as the operator of the sports venue, can make changes to the schedule. Rezzy does not limit you in any way, on the contrary, it makes your work even simpler.

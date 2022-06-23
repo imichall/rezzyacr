@@ -1,0 +1,1 @@
+Nowoczesny system rezerwacji Rezzy potrafi obliczyć, kiedy pole gry jest zajęte na podstawie rezerwacji. Wysyła te dane do systemu ARC za każdym razem, gdy nastąpi zmiana, który automatycznie steruje ogrzewaniem, oświetleniem i blokowaniem kopuły. Więc nie musisz się o nic martwić.

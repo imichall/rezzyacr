@@ -1,0 +1,1 @@
+*Uvedená kalkulace je orientační. Skutečná úspora závisí na individuálním využití.

@@ -1,0 +1,1 @@
+Rezzy i ARC zmienią Twoją halę sportową w inteligentny obiekt
